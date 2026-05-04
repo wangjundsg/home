@@ -1,31 +1,39 @@
-const CACHE_NAME = 'qinggan-v2';
+const CACHE_NAME = 'qinggan-v3';
 const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/css/reset.css',
-  '/css/variables.css',
-  '/css/base.css',
-  '/css/components.css',
-  '/css/screens.css',
-  '/js/app.js',
-  '/js/storage.js',
-  '/js/router.js',
-  '/js/ui.js',
-  '/js/screens/home.js',
-  '/js/screens/daily.js',
-  '/js/screens/commitments.js',
-  '/js/screens/compensation.js',
-  '/js/screens/interact.js',
-  '/js/screens/meeting.js',
-  '/js/screens/growth.js',
-  '/js/screens/phrases.js',
-  '/js/screens/settings.js'
+  './',
+  './index.html',
+  './manifest.json',
+  './css/reset.css',
+  './css/variables.css',
+  './css/base.css',
+  './css/components.css',
+  './css/screens.css',
+  './js/app.js',
+  './js/storage.js',
+  './js/router.js',
+  './js/ui.js',
+  './js/screens/home.js',
+  './js/screens/daily.js',
+  './js/screens/commitments.js',
+  './js/screens/compensation.js',
+  './js/screens/interact.js',
+  './js/screens/meeting.js',
+  './js/screens/growth.js',
+  './js/screens/phrases.js',
+  './js/screens/settings.js'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then((cache) => {
+      return Promise.allSettled(
+        ASSETS.map((url) =>
+          cache.add(url).catch((err) => {
+            console.warn('SW: failed to cache', url, err.message);
+          })
+        )
+      );
+    })
   );
   self.skipWaiting();
 });
@@ -42,16 +50,28 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
-      const fetchPromise = fetch(event.request).then((response) => {
-        if (response && response.status === 200) {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-        }
-        return response;
-      });
-      return cached || fetchPromise;
+      if (cached) return cached;
+
+      return fetch(event.request)
+        .then((response) => {
+          if (response && response.status === 200 && response.type === 'basic') {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, clone).catch(() => {});
+            });
+          }
+          return response;
+        })
+        .catch(() => {
+          if (event.request.mode === 'navigate') {
+            return caches.match('./index.html');
+          }
+          return new Response('Offline', { status: 503 });
+        });
     })
   );
 });
