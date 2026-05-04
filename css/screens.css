@@ -1,0 +1,422 @@
+/* ==========================================
+   Emergency Screen (Home)
+   ========================================== */
+.emergency-page {
+  padding: var(--space-sm) 0;
+}
+
+.emergency-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.emergency-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.emergency-card-header:active {
+  background: var(--color-bg);
+}
+
+.emergency-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.emergency-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.emergency-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-soft);
+  margin-top: 2px;
+}
+
+.emergency-arrow {
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+  transition: transform var(--transition-normal);
+}
+
+.emergency-card.expanded .emergency-arrow {
+  transform: rotate(90deg);
+}
+
+.emergency-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.emergency-card.expanded .emergency-card-body {
+  max-height: 800px;
+  padding: 0 var(--space-lg) var(--space-lg);
+}
+
+.emergency-reminder {
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.emergency-section {
+  margin-bottom: var(--space-md);
+}
+
+.emergency-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-success);
+  margin-bottom: var(--space-sm);
+}
+
+.emergency-label.dont-label {
+  color: var(--color-danger);
+}
+
+.emergency-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-sm);
+  text-align: left;
+  line-height: 1.5;
+  transition: background var(--transition-fast);
+  min-height: 44px;
+}
+
+.emergency-item:active {
+  background: var(--color-border);
+}
+
+.copy-btn {
+  cursor: pointer;
+}
+
+.copy-icon {
+  opacity: 0.5;
+  flex-shrink: 0;
+  margin-left: var(--space-sm);
+}
+
+.dont-item {
+  color: var(--color-text-soft);
+  cursor: default;
+}
+
+.good-item {
+  color: var(--color-text);
+}
+
+/* ==========================================
+   Daily Check-in Screen
+   ========================================== */
+.points-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.points-card {
+  flex: 1;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+}
+
+.points-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-soft);
+  margin-bottom: var(--space-xs);
+}
+
+.points-value {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.points-divider {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.meeting-countdown-card {
+  text-align: center;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, var(--color-primary-soft), var(--color-accent-soft));
+  border: none;
+}
+
+.countdown-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-soft);
+}
+
+.countdown-days {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.countdown-hype {
+  font-size: var(--font-size-lg);
+  margin-top: var(--space-sm);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Check-in cards */
+.check-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) !important;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.check-card:active {
+  background: var(--color-bg);
+}
+
+.check-card.done {
+  opacity: 0.6;
+}
+
+.check-card-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex: 1;
+}
+
+.check-emoji {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.check-title {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.check-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-soft);
+  margin-top: 2px;
+}
+
+.check-note {
+  font-size: var(--font-size-xs);
+  color: var(--color-primary);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.check-status {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.check-status.checked {
+  background: var(--color-success);
+  color: #fff;
+}
+
+/* Reward cards */
+.reward-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.reward-card {
+  padding: var(--space-md) !important;
+  text-align: center;
+  cursor: default;
+}
+
+.reward-tier {
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.reward-cost {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.reward-examples {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-soft);
+  line-height: 1.5;
+  min-height: 2.5em;
+}
+
+/* ==========================================
+   Commitments Screen
+   ========================================== */
+.commit-card {
+  transition: all var(--transition-fast);
+}
+
+/* ==========================================
+   Compensation Screen
+   ========================================== */
+.compensation-page .resolved {
+  transition: all var(--transition-normal);
+}
+
+.comp-check {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================================
+   Interact Screen
+   ========================================== */
+.interact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.interact-card {
+  padding: var(--space-lg) var(--space-md) !important;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.interact-card:active {
+  transform: scale(0.95);
+  background: var(--color-bg);
+}
+
+.interact-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.interact-card-title {
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.interact-card-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-soft);
+  line-height: 1.4;
+}
+
+/* Color picker */
+.color-btn {
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.color-btn:active {
+  transform: scale(1.2);
+}
+
+/* Canvas */
+#doodleCanvas {
+  touch-action: none;
+}
+
+/* ==========================================
+   Growth Screen
+   ========================================== */
+.flex-1 {
+  flex: 1;
+}
+
+.growth-tab {
+  transition: all var(--transition-fast);
+}
+
+/* ==========================================
+   Phrases Screen
+   ========================================== */
+.phrase-card {
+  border-left: 3px solid var(--color-primary);
+}
+
+.phrase-text {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+/* ==========================================
+   Settings Screen
+   ========================================== */
+.settings-page {
+  padding-bottom: var(--space-2xl);
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+@media (min-width: 400px) {
+  .reward-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .interact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Onboarding */
+#onboarding h1 {
+  line-height: 1.4;
+}
