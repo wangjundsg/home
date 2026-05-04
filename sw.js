@@ -1,4 +1,4 @@
-const CACHE_NAME = 'qinggan-v1';
+const CACHE_NAME = 'qinggan-v2';
 const ASSETS = [
   '/',
   '/index.html',
