@@ -1,13 +1,9 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 
 export function useNotifications() {
-  const [permission, setPermission] = useState<NotificationPermission>('default')
-
-  useEffect(() => {
-    if ('Notification' in window) {
-      setPermission(Notification.permission)
-    }
-  }, [])
+  const [permission, setPermission] = useState<NotificationPermission>(() => {
+    return 'Notification' in window ? Notification.permission : 'default'
+  })
 
   const requestPermission = useCallback(async () => {
     if (!('Notification' in window)) return false

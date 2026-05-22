@@ -3,6 +3,7 @@ import type { Identity } from '../../hooks/useIdentity'
 import { useRealtime } from '../../hooks/useRealtime'
 import { supabase } from '../../supabase'
 import { notifyPartnerActivity } from '../../utils/pushEvents'
+import { hasCache, readCache, subscribeCache, writeCache } from '../../utils/localCache'
 
 interface SharedDiaryProps {
   identity: Identity
@@ -19,30 +20,38 @@ interface DiaryEntry {
 }
 
 const MOODS = ['😊', '🥰', '😢', '😡', '😴', '😤', '🎉', '😰', '🤗', '💕']
+const DIARY_CACHE_KEY = 'qinggan_cache_shared_diaries'
 
 export function SharedDiary({ identity, partnerName }: SharedDiaryProps) {
-  const [entries, setEntries] = useState<DiaryEntry[]>([])
+  const [entries, setEntries] = useState<DiaryEntry[]>(() => readCache(DIARY_CACHE_KEY, [] as DiaryEntry[]))
+  const [loadingEntries, setLoadingEntries] = useState(() => !hasCache(DIARY_CACHE_KEY))
   const [content, setContent] = useState('')
   const [mood, setMood] = useState('😊')
   const [saving, setSaving] = useState(false)
-  const [loading, setLoading] = useState(true)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editContent, setEditContent] = useState('')
   const [editMood, setEditMood] = useState('😊')
   const { onChange } = useRealtime<Record<string, unknown>>('shared_diaries', { event: 'INSERT' })
 
   const loadEntries = useCallback(async () => {
-    setLoading(true)
     const { data } = await supabase
       .from('shared_diaries')
       .select('*')
       .order('created_at', { ascending: false })
       .limit(30)
-    if (data) setEntries(data as DiaryEntry[])
-    setLoading(false)
+    if (data) {
+      const next = data as DiaryEntry[]
+      setEntries(next)
+      writeCache(DIARY_CACHE_KEY, next)
+    }
+    setLoadingEntries(false)
   }, [])
 
   useEffect(() => { void Promise.resolve().then(loadEntries) }, [loadEntries])
+  useEffect(() => subscribeCache<DiaryEntry[]>(DIARY_CACHE_KEY, data => {
+    setEntries(data)
+    setLoadingEntries(false)
+  }), [])
 
   useEffect(() => {
     const unsub = onChange((payload) => {
@@ -146,12 +155,10 @@ export function SharedDiary({ identity, partnerName }: SharedDiaryProps) {
 
       {/* Entries list */}
       <div className="min-h-0 flex-1 overflow-hidden">
-        {loading ? (
-          <div className="pixel-card flex h-full items-center justify-center p-4 text-center text-sm text-text-muted">加载中...</div>
-        ) : entries.length === 0 ? (
+        {entries.length === 0 ? (
           <div className="pixel-card flex h-full flex-col items-center justify-center py-8 text-center">
             <p className="mb-2 text-4xl">📔</p>
-            <p className="text-sm text-text-muted">还没有日记，写下你们的第一篇吧</p>
+            <p className="text-sm text-text-muted">{loadingEntries ? '正在同步日记...' : '还没有日记，写下你们的第一篇吧'}</p>
           </div>
         ) : (
           <div className="h-full space-y-2 overflow-y-auto pr-1">

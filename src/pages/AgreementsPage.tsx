@@ -2,12 +2,15 @@ import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '../supabase'
 import type { Identity } from '../hooks/useIdentity'
 import { useRealtime } from '../hooks/useRealtime'
+import { hasCache, readCache, subscribeCache, writeCache } from '../utils/localCache'
 
 interface Commitment { id: string; author: string; text: string; level: string }
 interface Compensation { id: string; author: string; date: string; violator: string; violation: string; level: string; compensation: string; compensation_done: boolean; acknowledged: boolean }
 
 interface AgreementsPageProps { identity: Identity; navigate: (route: string) => void }
 type TabType = 'commitments' | 'compensations'
+const COMMITMENTS_CACHE_KEY = 'qinggan_cache_commitments'
+const COMPENSATIONS_CACHE_KEY = 'qinggan_cache_compensations'
 
 export function AgreementsPage({ identity }: AgreementsPageProps) {
   const [tab, setTab] = useState<TabType>('commitments')
@@ -43,16 +46,26 @@ export function AgreementsPage({ identity }: AgreementsPageProps) {
 }
 
 function CommitmentsTab({ identity }: { identity: Identity }) {
-  const [commitments, setCommitments] = useState<Commitment[]>([])
+  const [commitments, setCommitments] = useState<Commitment[]>(() => readCache(COMMITMENTS_CACHE_KEY, [] as Commitment[]))
+  const [loadingCommitments, setLoadingCommitments] = useState(() => !hasCache(COMMITMENTS_CACHE_KEY))
   const [newText, setNewText] = useState('')
   const { onChange } = useRealtime<Record<string, unknown>>('commitments', { event: '*' })
 
   const loadCommitments = useCallback(async () => {
     const { data } = await supabase.from('commitments').select('*').order('created_at', { ascending: true })
-    if (data) setCommitments(data as Commitment[])
+    if (data) {
+      const next = data as Commitment[]
+      setCommitments(next)
+      writeCache(COMMITMENTS_CACHE_KEY, next)
+    }
+    setLoadingCommitments(false)
   }, [])
 
   useEffect(() => { return onChange(() => loadCommitments()) }, [onChange, loadCommitments])
+  useEffect(() => subscribeCache<Commitment[]>(COMMITMENTS_CACHE_KEY, data => {
+    setCommitments(data)
+    setLoadingCommitments(false)
+  }), [])
   useEffect(() => { void Promise.resolve().then(loadCommitments) }, [loadCommitments])
 
   const addCommitment = async () => {
@@ -73,7 +86,7 @@ function CommitmentsTab({ identity }: { identity: Identity }) {
       <div className="pixel-card p-4">
         <h3 className="mb-3 font-black text-text-primary">我们的承诺木牌</h3>
         {commitments.length === 0 ? (
-          <p className="rounded-2xl bg-warm-50/70 py-8 text-center text-sm text-text-muted">还没有写下承诺</p>
+          <p className="rounded-2xl bg-warm-50/70 py-8 text-center text-sm text-text-muted">{loadingCommitments ? '正在同步承诺...' : '还没有写下承诺'}</p>
         ) : (
           <div className="space-y-2">
             {commitments.map(c => (
@@ -104,7 +117,8 @@ function CommitmentsTab({ identity }: { identity: Identity }) {
 }
 
 function CompensationsTab({ identity }: { identity: Identity }) {
-  const [records, setRecords] = useState<Compensation[]>([])
+  const [records, setRecords] = useState<Compensation[]>(() => readCache(COMPENSATIONS_CACHE_KEY, [] as Compensation[]))
+  const [loadingRecords, setLoadingRecords] = useState(() => !hasCache(COMPENSATIONS_CACHE_KEY))
   const [showForm, setShowForm] = useState(false)
   const [violator, setViolator] = useState('')
   const [violation, setViolation] = useState('')
@@ -114,10 +128,19 @@ function CompensationsTab({ identity }: { identity: Identity }) {
 
   const loadRecords = useCallback(async () => {
     const { data } = await supabase.from('compensations').select('*').order('created_at', { ascending: false })
-    if (data) setRecords(data as Compensation[])
+    if (data) {
+      const next = data as Compensation[]
+      setRecords(next)
+      writeCache(COMPENSATIONS_CACHE_KEY, next)
+    }
+    setLoadingRecords(false)
   }, [])
 
   useEffect(() => { return onChange(() => loadRecords()) }, [onChange, loadRecords])
+  useEffect(() => subscribeCache<Compensation[]>(COMPENSATIONS_CACHE_KEY, data => {
+    setRecords(data)
+    setLoadingRecords(false)
+  }), [])
   useEffect(() => { void Promise.resolve().then(loadRecords) }, [loadRecords])
 
   const addRecord = async () => {
@@ -151,7 +174,7 @@ function CompensationsTab({ identity }: { identity: Identity }) {
       {records.length === 0 ? (
         <div className="pixel-card py-8 text-center">
           <p className="mb-2 text-4xl">🏪</p>
-          <p className="text-sm text-text-muted">还没有补偿记录</p>
+          <p className="text-sm text-text-muted">{loadingRecords ? '正在同步补偿记录...' : '还没有补偿记录'}</p>
         </div>
       ) : (
         records.map(r => (

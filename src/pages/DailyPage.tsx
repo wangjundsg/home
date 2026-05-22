@@ -5,6 +5,7 @@ import { checkinPool, type CheckinItem } from '../data/checkin-items'
 import { useRealtime } from '../hooks/useRealtime'
 import { Toast, ConfirmDialog } from '../components/ui'
 import { notifyPartnerActivity } from '../utils/pushEvents'
+import { readCache, subscribeCache, writeCache } from '../utils/localCache'
 
 interface DailyPageProps {
   identity: Identity
@@ -17,6 +18,9 @@ const MAX_REFRESH = 3
 const DISPLAY_ITEMS = 6
 const WEEKLY_REDLINE_SCORE = 5
 const MONTHLY_REDLINE_SCORE = 10
+const DAILY_CACHE_KEY = 'qinggan_cache_daily_state'
+const SCORE_TOTAL_CACHE_KEY = 'qinggan_cache_score_total'
+const REDEMPTIONS_CACHE_KEY = 'qinggan_cache_reward_redemptions'
 
 const getToday = () => new Date().toISOString().split('T')[0]
 const getWeekStart = () => {
@@ -29,37 +33,62 @@ const getMonthStart = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`
 }
 
+interface CachedDailyState {
+  date: string
+  completed: string[]
+  partnerCompleted: string[]
+  todayCheckinCount: number
+  partnerScore: number
+  weeklyRedline: boolean
+  monthlyRedline: boolean
+}
+
+const getCachedDailyState = () => readCache<CachedDailyState>(DAILY_CACHE_KEY, {
+  date: getToday(),
+  completed: [],
+  partnerCompleted: [],
+  todayCheckinCount: 0,
+  partnerScore: 0,
+  weeklyRedline: false,
+  monthlyRedline: false,
+})
+
+const buildDisplayItems = (completed: Set<string>) => {
+  const available = checkinPool.filter(c => !completed.has(c.id))
+  const shuffled = [...available].sort(() => Math.random() - 0.5).slice(0, DISPLAY_ITEMS)
+  if (shuffled.length < DISPLAY_ITEMS) {
+    const remaining = DISPLAY_ITEMS - shuffled.length
+    const alreadyDone = checkinPool
+      .filter(c => completed.has(c.id))
+      .sort(() => Math.random() - 0.5)
+      .slice(0, remaining)
+    shuffled.push(...alreadyDone)
+  }
+  return shuffled
+}
+
 export function DailyPage({ identity, partnerName, navigate }: DailyPageProps) {
-  const [displayItems, setDisplayItems] = useState<CheckinItem[]>([])
-  const [completedToday, setCompletedToday] = useState<Set<string>>(new Set())
-  const [todayCheckinCount, setTodayCheckinCount] = useState(0)
-  const [cumulativeScore, setCumulativeScore] = useState(0)
-  const [partnerScore, setPartnerScore] = useState(0)
-  const [weeklyRedline, setWeeklyRedline] = useState(false)
-  const [monthlyRedline, setMonthlyRedline] = useState(false)
+  const cachedDaily = getCachedDailyState()
+  const useTodayCache = cachedDaily.date === getToday()
+  const initialCompleted = new Set(useTodayCache ? cachedDaily.completed : [])
+  const [displayItems, setDisplayItems] = useState<CheckinItem[]>(() => buildDisplayItems(initialCompleted))
+  const [completedToday, setCompletedToday] = useState<Set<string>>(() => initialCompleted)
+  const [todayCheckinCount, setTodayCheckinCount] = useState(useTodayCache ? cachedDaily.todayCheckinCount : 0)
+  const [cumulativeScore, setCumulativeScore] = useState(() => readCache(SCORE_TOTAL_CACHE_KEY, 0))
+  const [partnerScore, setPartnerScore] = useState(useTodayCache ? cachedDaily.partnerScore : 0)
+  const [weeklyRedline, setWeeklyRedline] = useState(useTodayCache ? cachedDaily.weeklyRedline : false)
+  const [monthlyRedline, setMonthlyRedline] = useState(useTodayCache ? cachedDaily.monthlyRedline : false)
   const [refreshCount, setRefreshCount] = useState(0)
-  const [loading, setLoading] = useState(true)
   const [toast, setToast] = useState('')
   const [showConfirm, setShowConfirm] = useState<CheckinItem | null>(null)
   const [showWeeklyConfirm, setShowWeeklyConfirm] = useState(false)
   const [showMonthlyConfirm, setShowMonthlyConfirm] = useState(false)
   const [showRedeem, setShowRedeem] = useState<{ tier: string; level: string; name: string; cost: number; desc: string } | null>(null)
-  const [redemptionHistory, setRedemptionHistory] = useState<Record<string, unknown>[]>([])
-  const [partnerCompleted, setPartnerCompleted] = useState<Set<string>>(new Set())
+  const [redemptionHistory, setRedemptionHistory] = useState<Record<string, unknown>[]>(() => readCache(REDEMPTIONS_CACHE_KEY, [] as Record<string, unknown>[]))
+  const [partnerCompleted, setPartnerCompleted] = useState<Set<string>>(() => new Set(useTodayCache ? cachedDaily.partnerCompleted : []))
 
   const shuffleDisplay = useCallback(() => {
-    const completed = completedToday
-    const available = checkinPool.filter(c => !completed.has(c.id))
-    const shuffled = [...available].sort(() => Math.random() - 0.5).slice(0, DISPLAY_ITEMS)
-    if (shuffled.length < DISPLAY_ITEMS) {
-      const remaining = DISPLAY_ITEMS - shuffled.length
-      const alreadyDone = checkinPool
-        .filter(c => completed.has(c.id))
-        .sort(() => Math.random() - 0.5)
-        .slice(0, remaining)
-      shuffled.push(...alreadyDone)
-    }
-    setDisplayItems(shuffled)
+    setDisplayItems(buildDisplayItems(completedToday))
   }, [completedToday])
 
   // Realtime subscription
@@ -78,10 +107,17 @@ export function DailyPage({ identity, partnerName, navigate }: DailyPageProps) {
   }, [onChange, identity])
 
   const loadAll = useCallback(async () => {
-    setLoading(true)
     const today = getToday()
     const weekStart = getWeekStart()
     const monthStart = getMonthStart()
+    const cached = getCachedDailyState()
+    const cachedIsToday = cached.date === today
+    let nextCompleted = cachedIsToday ? cached.completed : []
+    let nextPartnerCompleted = cachedIsToday ? cached.partnerCompleted : []
+    let nextTodayCheckinCount = cachedIsToday ? cached.todayCheckinCount : 0
+    let nextPartnerScore = cachedIsToday ? cached.partnerScore : 0
+    let nextWeeklyRedline = cachedIsToday ? cached.weeklyRedline : false
+    let nextMonthlyRedline = cachedIsToday ? cached.monthlyRedline : false
 
     const [checkinRes, scoreRes, partnerScoreRes, wrRes, mrRes, redeemRes] = await Promise.allSettled([
       supabase.from('checkins').select('*').eq('date', today),
@@ -99,11 +135,15 @@ export function DailyPage({ identity, partnerName, navigate }: DailyPageProps) {
       const theirs = data.find(d => d.author !== identity)
       if (mine) {
         const items = (mine.items as string[]) || []
+        nextCompleted = items
+        nextTodayCheckinCount = Math.min(items.length, MAX_CHECKINS_PER_DAY)
         setCompletedToday(new Set(items))
-        setTodayCheckinCount(Math.min(items.length, MAX_CHECKINS_PER_DAY))
+        setDisplayItems(buildDisplayItems(new Set(items)))
+        setTodayCheckinCount(nextTodayCheckinCount)
       }
       if (theirs) {
-        setPartnerCompleted(new Set((theirs.items as string[]) || []))
+        nextPartnerCompleted = (theirs.items as string[]) || []
+        setPartnerCompleted(new Set(nextPartnerCompleted))
       }
     }
 
@@ -111,42 +151,53 @@ export function DailyPage({ identity, partnerName, navigate }: DailyPageProps) {
     if (scoreRes.status === 'fulfilled' && scoreRes.value.data) {
       const total = (scoreRes.value.data as { amount: number }[]).reduce((sum, r) => sum + r.amount, 0)
       setCumulativeScore(total)
+      writeCache(SCORE_TOTAL_CACHE_KEY, total)
     }
 
     // Partner score
     if (partnerScoreRes.status === 'fulfilled' && partnerScoreRes.value.data) {
       const total = (partnerScoreRes.value.data as { amount: number }[]).reduce((sum, r) => sum + r.amount, 0)
+      nextPartnerScore = total
       setPartnerScore(total)
     }
 
     // Weekly redline
     if (wrRes.status === 'fulfilled' && wrRes.value.data) {
-      setWeeklyRedline((wrRes.value.data as Record<string, boolean>).cleared || false)
+      nextWeeklyRedline = (wrRes.value.data as Record<string, boolean>).cleared || false
+      setWeeklyRedline(nextWeeklyRedline)
     }
 
     // Monthly redline
     if (mrRes.status === 'fulfilled' && mrRes.value.data) {
-      setMonthlyRedline((mrRes.value.data as Record<string, boolean>).cleared || false)
+      nextMonthlyRedline = (mrRes.value.data as Record<string, boolean>).cleared || false
+      setMonthlyRedline(nextMonthlyRedline)
     }
 
     // Redemption history
     if (redeemRes.status === 'fulfilled' && redeemRes.value.data) {
-      setRedemptionHistory(redeemRes.value.data as Record<string, unknown>[])
+      const next = redeemRes.value.data as Record<string, unknown>[]
+      setRedemptionHistory(next)
+      writeCache(REDEMPTIONS_CACHE_KEY, next)
     }
 
     // Initialize display items
     const rc = localStorage.getItem(`qinggan_refresh_${today}`)
     if (rc) setRefreshCount(parseInt(rc))
 
-    setLoading(false)
+    writeCache(DAILY_CACHE_KEY, {
+      date: today,
+      completed: nextCompleted,
+      partnerCompleted: nextPartnerCompleted,
+      todayCheckinCount: nextTodayCheckinCount,
+      partnerScore: nextPartnerScore,
+      weeklyRedline: nextWeeklyRedline,
+      monthlyRedline: nextMonthlyRedline,
+    })
   }, [identity])
 
   useEffect(() => { void Promise.resolve().then(loadAll) }, [loadAll])
-
-  // Shuffle after completedToday is loaded
-  useEffect(() => {
-    if (!loading) void Promise.resolve().then(shuffleDisplay)
-  }, [loading, shuffleDisplay])
+  useEffect(() => subscribeCache<number>(SCORE_TOTAL_CACHE_KEY, setCumulativeScore), [])
+  useEffect(() => subscribeCache<Record<string, unknown>[]>(REDEMPTIONS_CACHE_KEY, setRedemptionHistory), [])
 
   const refresh = () => {
     if (refreshCount >= MAX_REFRESH) {
@@ -271,10 +322,6 @@ export function DailyPage({ identity, partnerName, navigate }: DailyPageProps) {
     setShowRedeem(null)
     setToast(`已兑换 ${name}！告诉TA吧~`)
     loadRedemptionHistory()
-  }
-
-  if (loading) {
-    return <div className="pixel-page flex h-full items-center justify-center p-8 text-center text-text-muted animate-pulse">加载中...</div>
   }
 
   return (

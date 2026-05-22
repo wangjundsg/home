@@ -3,6 +3,7 @@ import { supabase } from '../supabase'
 import type { Identity } from '../hooks/useIdentity'
 import { useRealtime } from '../hooks/useRealtime'
 import { Toast } from '../components/ui'
+import { hasCache, readCache, subscribeCache, writeCache } from '../utils/localCache'
 
 interface ConflictReview {
   id: string
@@ -15,9 +16,11 @@ interface ConflictReview {
 }
 
 interface GrowthPageProps { identity: Identity; partnerName: string; navigate: (route: string) => void }
+const REVIEWS_CACHE_KEY = 'qinggan_cache_conflict_reviews'
 
 export function GrowthPage({ identity, partnerName }: GrowthPageProps) {
-  const [reviews, setReviews] = useState<ConflictReview[]>([])
+  const [reviews, setReviews] = useState<ConflictReview[]>(() => readCache(REVIEWS_CACHE_KEY, [] as ConflictReview[]))
+  const [loadingReviews, setLoadingReviews] = useState(() => !hasCache(REVIEWS_CACHE_KEY))
   const [recordDate, setRecordDate] = useState(new Date().toISOString().split('T')[0])
   const [trigger, setTrigger] = useState('')
   const [need, setNeed] = useState('')
@@ -29,10 +32,19 @@ export function GrowthPage({ identity, partnerName }: GrowthPageProps) {
 
   const loadReviews = useCallback(async () => {
     const { data } = await supabase.from('conflict_reviews').select('*').order('record_date', { ascending: false })
-    if (data) setReviews(data as ConflictReview[])
+    if (data) {
+      const next = data as ConflictReview[]
+      setReviews(next)
+      writeCache(REVIEWS_CACHE_KEY, next)
+    }
+    setLoadingReviews(false)
   }, [])
 
   useEffect(() => { return onChange(() => loadReviews()) }, [onChange, loadReviews])
+  useEffect(() => subscribeCache<ConflictReview[]>(REVIEWS_CACHE_KEY, data => {
+    setReviews(data)
+    setLoadingReviews(false)
+  }), [])
   useEffect(() => { void Promise.resolve().then(loadReviews) }, [loadReviews])
 
   const saveReview = async () => {
@@ -133,8 +145,8 @@ export function GrowthPage({ identity, partnerName }: GrowthPageProps) {
       {reviews.length === 0 ? (
         <div className="pixel-card py-8 text-center">
           <p className="mb-2 text-4xl">🌱</p>
-          <p className="text-sm text-text-muted">还没有矛盾复盘记录</p>
-          <p className="mt-1 text-xs text-text-muted">每次矛盾都是了解彼此的机会</p>
+          <p className="text-sm text-text-muted">{loadingReviews ? '正在同步复盘记录...' : '还没有矛盾复盘记录'}</p>
+          <p className="mt-1 text-xs text-text-muted">{loadingReviews ? '马上就好' : '每次矛盾都是了解彼此的机会'}</p>
         </div>
       ) : (
         <div className="space-y-3">

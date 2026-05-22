@@ -6,6 +6,7 @@ import { Toast } from '../components/ui'
 import { EmotionCharacterCard } from '../components/emotion/EmotionCharacterCard'
 import { useCoupleEmotionState } from '../hooks/useCoupleEmotionState'
 import { EMOTION_CATEGORIES } from '../data/emotion-character-states'
+import { readCache, writeCache } from '../utils/localCache'
 
 interface HomePageProps {
   identity: Identity
@@ -29,6 +30,46 @@ interface Anniversary {
 
 const RELATIONSHIP_START_DATE = '2024-05-20'
 const HOME_EMOTION_BUBBLE_KEY = 'qinggan_home_emotion_bubble'
+
+function getStoredMeeting() {
+  const stored = localStorage.getItem('qinggan_meeting_date')
+  if (!stored) return { meetingDate: null, daysUntil: null }
+
+  return {
+    meetingDate: stored,
+    daysUntil: daysUntilDate(stored),
+  }
+}
+
+function getCachedPeriodPhase() {
+  return getPhaseInfo(readCache<PeriodRecord[]>('qinggan_cache_period', []))
+}
+
+function getCachedUpcomingAnniversary() {
+  const data = readCache<Anniversary[]>('qinggan_cache_anni', [])
+  if (data.length === 0) return null
+
+  let closest: { name: string; days: number } | null = null
+  for (const a of data) {
+    const d = daysUntilNext(a.date)
+    if (!closest || d < closest.days) closest = { name: a.name, days: d }
+  }
+  return closest
+}
+
+function getStoredEmotionBubble() {
+  const raw = localStorage.getItem(HOME_EMOTION_BUBBLE_KEY)
+  if (!raw) return ''
+
+  localStorage.removeItem(HOME_EMOTION_BUBBLE_KEY)
+
+  try {
+    const parsed = JSON.parse(raw) as { text?: string; ts?: number }
+    return parsed.text && parsed.ts && Date.now() - parsed.ts < 15000 ? parsed.text : ''
+  } catch {
+    return ''
+  }
+}
 
 function daysSince(dateStr: string) {
   const [year, month, day] = dateStr.split('-').map(Number)
@@ -77,15 +118,11 @@ function daysUntilNext(dateStr: string) {
 export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProps) {
   const [toast, setToast] = useState('')
   const [toastType, setToastType] = useState<'success' | 'error'>('success')
-  const [meetingDate, setMeetingDate] = useState<string | null>(null)
-  const [daysUntil, setDaysUntil] = useState<number | null>(null)
-  const [emotionBubble, setEmotionBubble] = useState('')
-
-  const [periodPhase, setPeriodPhase] = useState<{ emoji: string; phase: string; color: string }>({ emoji: '📅', phase: '加载中...', color: 'text-text-muted' })
-
-  const [upcomingAnniversary, setUpcomingAnniversary] = useState<{ name: string; days: number } | null>(null)
-
-  const [loading, setLoading] = useState(true)
+  const [meetingDate, setMeetingDate] = useState<string | null>(() => getStoredMeeting().meetingDate)
+  const [daysUntil, setDaysUntil] = useState<number | null>(() => getStoredMeeting().daysUntil)
+  const [emotionBubble, setEmotionBubble] = useState(getStoredEmotionBubble)
+  const [periodPhase, setPeriodPhase] = useState<{ emoji: string; phase: string; color: string }>(getCachedPeriodPhase)
+  const [upcomingAnniversary, setUpcomingAnniversary] = useState<{ name: string; days: number } | null>(getCachedUpcomingAnniversary)
 
   const {
     currentState: emotionState,
@@ -95,30 +132,6 @@ export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProp
   } = useCoupleEmotionState(identity)
 
   const loadAll = useCallback(async () => {
-    setLoading(true)
-
-    const cachedPeriod = localStorage.getItem('qinggan_cache_period')
-    if (cachedPeriod) {
-      try {
-        const { data, ts } = JSON.parse(cachedPeriod)
-        if (Date.now() - ts < 300000) setPeriodPhase(getPhaseInfo(data as PeriodRecord[]))
-      } catch { /* stale cache */ }
-    }
-    const cachedAnni = localStorage.getItem('qinggan_cache_anni')
-    if (cachedAnni) {
-      try {
-        const { data, ts } = JSON.parse(cachedAnni)
-        if (Date.now() - ts < 300000 && data.length > 0) {
-          let closest: { name: string; days: number } | null = null
-          for (const a of data as Anniversary[]) {
-            const d = daysUntilNext(a.date)
-            if (!closest || d < closest.days) closest = { name: a.name, days: d }
-          }
-          setUpcomingAnniversary(closest)
-        }
-      } catch { /* stale cache */ }
-    }
-
     const [meetingRes, periodRes, anniRes] = await Promise.allSettled([
       supabase.from('meeting_schedule').select('next_date').order('created_at', { ascending: false }).limit(1),
       supabase.from('period_logs').select('*').order('start_date', { ascending: false }).limit(5),
@@ -141,12 +154,12 @@ export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProp
     if (periodRes.status === 'fulfilled' && periodRes.value.data) {
       const data = periodRes.value.data as PeriodRecord[]
       setPeriodPhase(getPhaseInfo(data))
-      localStorage.setItem('qinggan_cache_period', JSON.stringify({ data, ts: Date.now() }))
+      writeCache('qinggan_cache_period', data)
     }
 
     if (anniRes.status === 'fulfilled' && anniRes.value.data && anniRes.value.data.length > 0) {
       const data = anniRes.value.data as Anniversary[]
-      localStorage.setItem('qinggan_cache_anni', JSON.stringify({ data, ts: Date.now() }))
+      writeCache('qinggan_cache_anni', data)
       let closest: { name: string; days: number } | null = null
       for (const a of data) {
         const d = daysUntilNext(a.date)
@@ -154,8 +167,6 @@ export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProp
       }
       setUpcomingAnniversary(closest)
     }
-
-    setLoading(false)
   }, [])
 
   useEffect(() => { void Promise.resolve().then(loadAll) }, [loadAll])
@@ -182,35 +193,12 @@ export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProp
   }, [clearEmotionError, emotionError])
 
   useEffect(() => {
-    const raw = localStorage.getItem(HOME_EMOTION_BUBBLE_KEY)
-    if (!raw) return
-    try {
-      const parsed = JSON.parse(raw) as { text?: string; ts?: number }
-      if (parsed.text && parsed.ts && Date.now() - parsed.ts < 15000) {
-        setEmotionBubble(parsed.text)
-      }
-    } catch {
-    } finally {
-      localStorage.removeItem(HOME_EMOTION_BUBBLE_KEY)
-    }
-  }, [])
-
-  useEffect(() => {
     if (!emotionBubble) return
     const timeoutId = window.setTimeout(() => {
       setEmotionBubble('')
     }, 2200)
     return () => window.clearTimeout(timeoutId)
   }, [emotionBubble])
-
-  if (loading) {
-    return <div className="h-full w-full max-w-full overflow-hidden flex items-center justify-center bg-warm-50">
-      <div className="text-center">
-        <div className="w-12 h-12 rounded-full border-4 border-warm-200 border-t-warm-500 animate-spin mx-auto mb-3" />
-        <p className="text-text-muted animate-pulse text-sm">加载中...</p>
-      </div>
-    </div>
-  }
 
   return (
     <div className="home-stitch-page relative h-full w-full max-w-full overflow-hidden">

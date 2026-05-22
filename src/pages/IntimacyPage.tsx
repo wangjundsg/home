@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../supabase'
 import type { Identity } from '../hooks/useIdentity'
+import { hasCache, readCache, subscribeCache, writeCache } from '../utils/localCache'
 
 interface IntimacyRecord {
   id: string
@@ -12,9 +13,11 @@ interface IntimacyRecord {
 }
 
 interface IntimacyPageProps { identity: Identity; navigate: (route: string) => void }
+const INTIMACY_CACHE_KEY = 'qinggan_cache_intimacy_logs'
 
 export function IntimacyPage({ identity }: IntimacyPageProps) {
-  const [records, setRecords] = useState<IntimacyRecord[]>([])
+  const [records, setRecords] = useState<IntimacyRecord[]>(() => readCache(INTIMACY_CACHE_KEY, [] as IntimacyRecord[]))
+  const [loadingRecords, setLoadingRecords] = useState(() => !hasCache(INTIMACY_CACHE_KEY))
   const [date, setDate] = useState(new Date().toISOString().split('T')[0])
   const [rating, setRating] = useState(3)
   const [note, setNote] = useState('')
@@ -24,9 +27,18 @@ export function IntimacyPage({ identity }: IntimacyPageProps) {
 
   const loadRecords = useCallback(async () => {
     const { data } = await supabase.from('intimacy_logs').select('*').order('date', { ascending: false })
-    if (data) setRecords(data as IntimacyRecord[])
+    if (data) {
+      const next = data as IntimacyRecord[]
+      setRecords(next)
+      writeCache(INTIMACY_CACHE_KEY, next)
+    }
+    setLoadingRecords(false)
   }, [])
 
+  useEffect(() => subscribeCache<IntimacyRecord[]>(INTIMACY_CACHE_KEY, data => {
+    setRecords(data)
+    setLoadingRecords(false)
+  }), [])
   useEffect(() => { void Promise.resolve().then(loadRecords) }, [loadRecords])
 
   const saveRecord = async () => {
@@ -75,7 +87,7 @@ export function IntimacyPage({ identity }: IntimacyPageProps) {
       <div className="bg-white rounded-2xl shadow-sm p-4">
         <h3 className="font-semibold text-text-primary mb-3">💕 记录列表</h3>
         {records.length === 0 ? (
-          <p className="text-sm text-text-muted text-center py-6">还没有记录</p>
+          <p className="text-sm text-text-muted text-center py-6">{loadingRecords ? '正在同步记录...' : '还没有记录'}</p>
         ) : (
           <div className="space-y-2">
             {records.slice(0, 20).map(r => (

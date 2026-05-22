@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '../supabase'
 import type { Identity } from '../hooks/useIdentity'
+import { hasCache, readCache, subscribeCache, writeCache } from '../utils/localCache'
 
 interface ScoreLogEntry {
   id: string
@@ -13,30 +14,49 @@ interface ScoreLogEntry {
 }
 
 interface PointsLogPageProps { identity: Identity; navigate: (route: string) => void }
+const SCORE_LOGS_CACHE_KEY = 'qinggan_cache_score_logs'
+const SCORE_TOTAL_CACHE_KEY = 'qinggan_cache_score_total'
 
 export function PointsLogPage({ identity }: PointsLogPageProps) {
-  const [logs, setLogs] = useState<ScoreLogEntry[]>([])
+  const [logs, setLogs] = useState<ScoreLogEntry[]>(() => readCache(SCORE_LOGS_CACHE_KEY, [] as ScoreLogEntry[]))
+  const [loadingLogs, setLoadingLogs] = useState(() => !hasCache(SCORE_LOGS_CACHE_KEY))
   const [filter, setFilter] = useState<'all' | 'mine'>('all')
-  const [cumulativeScore, setCumulativeScore] = useState(0)
+  const [cumulativeScore, setCumulativeScore] = useState(() => readCache(SCORE_TOTAL_CACHE_KEY, 0))
 
-  useEffect(() => {
-    loadLogs()
-    loadCumulativeScore()
-  }, [])
-
-  const loadLogs = async () => {
+  const loadLogs = useCallback(async () => {
     const query = supabase.from('score_logs').select('*').order('created_at', { ascending: false }).limit(100)
     const { data } = await query
-    if (data) setLogs(data as ScoreLogEntry[])
-  }
+    if (data) {
+      const next = data as ScoreLogEntry[]
+      setLogs(next)
+      writeCache(SCORE_LOGS_CACHE_KEY, next)
+    }
+    setLoadingLogs(false)
+  }, [])
 
-  const loadCumulativeScore = async () => {
+  const loadCumulativeScore = useCallback(async () => {
     const { data } = await supabase.from('score_logs').select('amount').eq('author', identity)
     if (data) {
       const total = (data as { amount: number }[]).reduce((sum, r) => sum + r.amount, 0)
       setCumulativeScore(total)
+      writeCache(SCORE_TOTAL_CACHE_KEY, total)
     }
-  }
+  }, [identity])
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      void loadLogs()
+      void loadCumulativeScore()
+    }, 0)
+    return () => window.clearTimeout(timeoutId)
+  }, [loadCumulativeScore, loadLogs])
+
+  useEffect(() => subscribeCache<ScoreLogEntry[]>(SCORE_LOGS_CACHE_KEY, data => {
+    setLogs(data)
+    setLoadingLogs(false)
+  }), [])
+
+  useEffect(() => subscribeCache<number>(SCORE_TOTAL_CACHE_KEY, setCumulativeScore), [])
 
   const filteredLogs = filter === 'mine' ? logs.filter(l => l.author === identity) : logs
 
@@ -68,8 +88,8 @@ export function PointsLogPage({ identity }: PointsLogPageProps) {
       {filteredLogs.length === 0 ? (
         <div className="bg-white rounded-2xl shadow-sm p-8 text-center">
           <p className="text-4xl mb-3">📊</p>
-          <p className="text-text-muted text-sm">还没有积分记录</p>
-          <p className="text-text-muted text-xs mt-1">完成打卡来获得第一笔积分吧</p>
+          <p className="text-text-muted text-sm">{loadingLogs ? '正在同步积分记录...' : '还没有积分记录'}</p>
+          <p className="text-text-muted text-xs mt-1">{loadingLogs ? '马上就好' : '完成打卡来获得第一笔积分吧'}</p>
         </div>
       ) : (
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden">

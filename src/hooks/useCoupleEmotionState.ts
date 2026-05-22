@@ -2,6 +2,7 @@ import { useCallback, useEffect, useId, useMemo, useState } from 'react'
 import { supabase } from '../supabase'
 import type { Identity } from './useIdentity'
 import { DEFAULT_EMOTION_STATE_ID, getEmotionStateById } from '../data/emotion-character-states'
+import { readCache, writeCache } from '../utils/localCache'
 
 type RealtimeEvent = 'INSERT' | 'UPDATE' | 'DELETE' | '*'
 
@@ -22,11 +23,13 @@ interface CoupleEmotionStateRecord {
 
 const SHARED_EMOTION_ROW_ID = 'shared'
 const FAILURE_MESSAGE = '这次没有同步成功，稍后再试一次。'
+const EMOTION_STATE_CACHE_KEY = 'qinggan_cache_couple_emotion_state'
 
 export function useCoupleEmotionState(identity: Identity) {
-  const [currentStateId, setCurrentStateId] = useState(DEFAULT_EMOTION_STATE_ID)
-  const [updatedBy, setUpdatedBy] = useState('')
-  const [updatedAt, setUpdatedAt] = useState('')
+  const cachedState = readCache<CoupleEmotionStateRecord | null>(EMOTION_STATE_CACHE_KEY, null)
+  const [currentStateId, setCurrentStateId] = useState(() => getEmotionStateById(cachedState?.state_id ?? DEFAULT_EMOTION_STATE_ID).id)
+  const [updatedBy, setUpdatedBy] = useState(() => cachedState?.updated_by ?? '')
+  const [updatedAt, setUpdatedAt] = useState(() => cachedState?.updated_at ?? '')
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
@@ -44,6 +47,7 @@ export function useCoupleEmotionState(identity: Identity) {
     setCurrentStateId(nextState.id)
     setUpdatedBy(record.updated_by || '')
     setUpdatedAt(record.updated_at || '')
+    writeCache(EMOTION_STATE_CACHE_KEY, record)
   }, [])
 
   const load = useCallback(async () => {

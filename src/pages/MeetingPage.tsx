@@ -2,12 +2,14 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { supabase } from '../supabase'
 import type { Identity } from '../hooks/useIdentity'
 import { useRealtime } from '../hooks/useRealtime'
+import { hasCache, readCache, subscribeCache, writeCache } from '../utils/localCache'
 
 interface Wish { id: string; author: string; text: string; fulfilled: boolean; fulfilled_at?: string | null }
 
 interface MeetingPageProps { identity: Identity; navigate: (route: string) => void }
 
 const WISH_COMPLETED_TIMES_KEY = 'qinggan_wish_completed_times'
+const WISHES_CACHE_KEY = 'qinggan_cache_wishes'
 
 const loadWishCompletedTimes = () => {
   try {
@@ -36,7 +38,8 @@ const parseLocalDate = (date: string) => {
 export function MeetingPage({ identity }: MeetingPageProps) {
   const [nextDate, setNextDate] = useState('')
   const [daysUntil, setDaysUntil] = useState<number | null>(null)
-  const [wishlist, setWishlist] = useState<Wish[]>([])
+  const [wishlist, setWishlist] = useState<Wish[]>(() => readCache(WISHES_CACHE_KEY, [] as Wish[]))
+  const [loadingWishes, setLoadingWishes] = useState(() => !hasCache(WISHES_CACHE_KEY))
   const [wishCompletedTimes, setWishCompletedTimes] = useState<Record<string, string>>(loadWishCompletedTimes)
   const [newWish, setNewWish] = useState('')
   const [showWishInput, setShowWishInput] = useState(false)
@@ -60,7 +63,12 @@ export function MeetingPage({ identity }: MeetingPageProps) {
 
   const loadWishes = useCallback(async () => {
     const { data } = await supabase.from('wishes').select('*').order('created_at', { ascending: true })
-    if (data) setWishlist(data as Wish[])
+    if (data) {
+      const wishes = data as Wish[]
+      setWishlist(wishes)
+      writeCache(WISHES_CACHE_KEY, wishes)
+    }
+    setLoadingWishes(false)
   }, [])
 
   const loadDate = useCallback(async () => {
@@ -83,6 +91,10 @@ export function MeetingPage({ identity }: MeetingPageProps) {
   useEffect(() => {
     return onChange(() => loadWishes())
   }, [onChange, loadWishes])
+  useEffect(() => subscribeCache<Wish[]>(WISHES_CACHE_KEY, data => {
+    setWishlist(data)
+    setLoadingWishes(false)
+  }), [])
 
   useEffect(() => {
     void Promise.resolve().then(async () => {
@@ -258,7 +270,7 @@ export function MeetingPage({ identity }: MeetingPageProps) {
               </div>
             )
           })}
-          {wishlist.length === 0 && <p className="text-sm text-text-muted text-center py-4">还没有心愿，添加一个吧</p>}
+          {wishlist.length === 0 && <p className="text-sm text-text-muted text-center py-4">{loadingWishes ? '正在同步心愿...' : '还没有心愿，添加一个吧'}</p>}
         </div>
       </div>
     </div>

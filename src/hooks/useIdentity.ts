@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 
 const IDENTITY_KEY = 'qinggan_identity'
 const PARTNER_KEY = 'qinggan_partner_name'
@@ -6,17 +6,9 @@ const PARTNER_KEY = 'qinggan_partner_name'
 export type Identity = string | null
 
 export function useIdentity() {
-  const [identity, setIdentityState] = useState<string | null>(null)
-  const [partnerName, setPartnerNameState] = useState<string>('')
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    const stored = localStorage.getItem(IDENTITY_KEY)
-    const storedPartner = localStorage.getItem(PARTNER_KEY)
-    if (stored) setIdentityState(stored)
-    if (storedPartner) setPartnerNameState(storedPartner)
-    setReady(true)
-  }, [])
+  const [identity, setIdentityState] = useState<string | null>(() => localStorage.getItem(IDENTITY_KEY))
+  const [partnerName, setPartnerNameState] = useState<string>(() => localStorage.getItem(PARTNER_KEY) || '')
+  const ready = true
 
   const setIdentity = useCallback((who: string) => {
     localStorage.setItem(IDENTITY_KEY, who)

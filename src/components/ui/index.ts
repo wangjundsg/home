@@ -91,15 +91,15 @@ export function ConfirmDialog({ title, message, onConfirm, onCancel }: {
 }
 
 export function Particles({ emoji = '💕' }: { emoji?: string }) {
-  const [items, setItems] = useState<{ id: number; x: number; delay: number }[]>([])
-
-  useEffect(() => {
-    const newItems = Array.from({ length: 8 }, (_, i) => ({
+  const [items, setItems] = useState<{ id: number; x: number; delay: number }[]>(() => {
+    return Array.from({ length: 8 }, (_, i) => ({
       id: Date.now() + i,
       x: Math.random() * 100,
       delay: Math.random() * 0.3
     }))
-    setItems(newItems)
+  })
+
+  useEffect(() => {
     const timer = setTimeout(() => setItems([]), 2000)
     return () => clearTimeout(timer)
   }, [])

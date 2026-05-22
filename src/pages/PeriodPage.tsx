@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { supabase } from '../supabase'
 import type { Identity } from '../hooks/useIdentity'
+import { hasCache, readCache, subscribeCache, writeCache } from '../utils/localCache'
 
 interface PeriodRecord {
   id: string
@@ -10,6 +11,7 @@ interface PeriodRecord {
 }
 
 interface PeriodPageProps { identity: Identity; navigate: (route: string) => void }
+const PERIOD_CACHE_KEY = 'qinggan_cache_period'
 
 // Phase calculation
 function getPhase(records: PeriodRecord[]): { phase: string; emoji: string; color: string; tip: string } {
@@ -37,7 +39,8 @@ function getPhase(records: PeriodRecord[]): { phase: string; emoji: string; colo
 }
 
 export function PeriodPage({ identity }: PeriodPageProps) {
-  const [records, setRecords] = useState<PeriodRecord[]>([])
+  const [records, setRecords] = useState<PeriodRecord[]>(() => readCache(PERIOD_CACHE_KEY, [] as PeriodRecord[]))
+  const [loadingRecords, setLoadingRecords] = useState(() => !hasCache(PERIOD_CACHE_KEY))
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
   const [showForm, setShowForm] = useState(false)
@@ -45,9 +48,18 @@ export function PeriodPage({ identity }: PeriodPageProps) {
 
   const loadRecords = useCallback(async () => {
     const { data } = await supabase.from('period_logs').select('*').order('start_date', { ascending: false })
-    if (data) setRecords(data as PeriodRecord[])
+    if (data) {
+      const next = data as PeriodRecord[]
+      setRecords(next)
+      writeCache(PERIOD_CACHE_KEY, next)
+    }
+    setLoadingRecords(false)
   }, [])
 
+  useEffect(() => subscribeCache<PeriodRecord[]>(PERIOD_CACHE_KEY, data => {
+    setRecords(data)
+    setLoadingRecords(false)
+  }), [])
   useEffect(() => { void Promise.resolve().then(loadRecords) }, [loadRecords])
 
   const saveRecord = async () => {
@@ -95,7 +107,7 @@ export function PeriodPage({ identity }: PeriodPageProps) {
       <div className="bg-white rounded-2xl shadow-sm p-4">
         <h3 className="font-semibold text-text-primary mb-3">📅 历史记录</h3>
         {records.length === 0 ? (
-          <p className="text-sm text-text-muted text-center py-4">还没有记录</p>
+          <p className="text-sm text-text-muted text-center py-4">{loadingRecords ? '正在同步记录...' : '还没有记录'}</p>
         ) : (
           <div className="space-y-2">
             {records.slice(0, 10).map(r => (

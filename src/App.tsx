@@ -3,6 +3,7 @@ import { CheckCircle, FileText, CalendarHeart, Sprout, MessageSquare, Cake, BarC
 import { useIdentity } from './hooks/useIdentity'
 import { useMigration } from './hooks/useMigration'
 import { useWarmReminders } from './hooks/useWarmReminders'
+import { useDataWarmup } from './hooks/useDataWarmup'
 import { Header } from './components/ui/Header'
 import { BottomNav } from './components/ui/BottomNav'
 import { OnboardingPage } from './pages/OnboardingPage'
@@ -82,6 +83,7 @@ export default function App() {
   const { identity, partnerName, setIdentity, setPartnerName, ready } = useIdentity()
   const { hasV1Data, migrating, migrated, migratedCount, migrate, skip } = useMigration(identity)
   const { reminder: warmReminder } = useWarmReminders(identity, partnerName)
+  useDataWarmup(identity)
   const [screen, setScreen] = useState('/')
   const [screenHistory, setScreenHistory] = useState<string[]>([])
   const [showMenu, setShowMenu] = useState(false)

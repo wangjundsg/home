@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Cake, Plus, Trash2 } from 'lucide-react'
 import { supabase } from '../supabase'
 import type { Identity } from '../hooks/useIdentity'
+import { hasCache, readCache, subscribeCache, writeCache } from '../utils/localCache'
 
 interface AnniversaryRecord {
   id: string
@@ -13,9 +14,11 @@ interface AnniversaryRecord {
 }
 
 interface AnniversaryPageProps { identity: Identity; navigate: (route: string) => void }
+const ANNIVERSARIES_CACHE_KEY = 'qinggan_cache_anni'
 
 export function AnniversaryPage({ identity }: AnniversaryPageProps) {
-  const [anniversaries, setAnniversaries] = useState<AnniversaryRecord[]>([])
+  const [anniversaries, setAnniversaries] = useState<AnniversaryRecord[]>(() => readCache(ANNIVERSARIES_CACHE_KEY, [] as AnniversaryRecord[]))
+  const [loadingAnniversaries, setLoadingAnniversaries] = useState(() => !hasCache(ANNIVERSARIES_CACHE_KEY))
   const [showForm, setShowForm] = useState(false)
   const [name, setName] = useState('')
   const [date, setDate] = useState('')
@@ -24,9 +27,18 @@ export function AnniversaryPage({ identity }: AnniversaryPageProps) {
 
   const loadAnniversaries = useCallback(async () => {
     const { data } = await supabase.from('anniversaries').select('*').order('date', { ascending: true })
-    if (data) setAnniversaries(data as AnniversaryRecord[])
+    if (data) {
+      const next = data as AnniversaryRecord[]
+      setAnniversaries(next)
+      writeCache(ANNIVERSARIES_CACHE_KEY, next)
+    }
+    setLoadingAnniversaries(false)
   }, [])
 
+  useEffect(() => subscribeCache<AnniversaryRecord[]>(ANNIVERSARIES_CACHE_KEY, data => {
+    setAnniversaries(data)
+    setLoadingAnniversaries(false)
+  }), [])
   useEffect(() => { void Promise.resolve().then(loadAnniversaries) }, [loadAnniversaries])
 
   const addAnniversary = async () => {
@@ -62,8 +74,8 @@ export function AnniversaryPage({ identity }: AnniversaryPageProps) {
           <div className="w-16 h-16 rounded-2xl bg-pink-50 flex items-center justify-center mx-auto mb-4">
             <Cake size={28} className="text-pink-500" />
           </div>
-          <p className="text-text-muted text-sm">还没有纪念日</p>
-          <p className="text-text-muted text-xs mt-1">记录你们的重要日子吧</p>
+          <p className="text-text-muted text-sm">{loadingAnniversaries ? '正在同步纪念日...' : '还没有纪念日'}</p>
+          <p className="text-text-muted text-xs mt-1">{loadingAnniversaries ? '马上就好' : '记录你们的重要日子吧'}</p>
         </div>
       ) : (
         <div className="space-y-2">

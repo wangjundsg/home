@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import type { Identity } from '../../hooks/useIdentity'
 import { taskQuestions } from '../../data/questions-task'
 import { supabase } from '../../supabase'
@@ -26,9 +26,7 @@ export function TaskBox({ identity, partnerName }: TaskBoxProps) {
   const [completed, setCompleted] = useState(false)
   const [history, setHistory] = useState<HistoryItem[]>([])
 
-  useEffect(() => { loadHistory() }, [])
-
-  const loadHistory = async () => {
+  const loadHistory = useCallback(async () => {
     const { data } = await supabase
       .from('interaction_history')
       .select('*')
@@ -36,7 +34,12 @@ export function TaskBox({ identity, partnerName }: TaskBoxProps) {
       .order('created_at', { ascending: false })
       .limit(20)
     if (data) setHistory(data as HistoryItem[])
-  }
+  }, [])
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => void loadHistory(), 0)
+    return () => window.clearTimeout(timeoutId)
+  }, [loadHistory])
 
   const drawTask = () => {
     const t = taskQuestions[Math.floor(Math.random() * taskQuestions.length)]
@@ -51,7 +54,7 @@ export function TaskBox({ identity, partnerName }: TaskBoxProps) {
       author: identity, date: new Date().toISOString().split('T')[0],
       type: 'task', question: task, answer: '已完成', rating: taskRating,
     })
-    loadHistory()
+    void loadHistory()
   }
 
   return (

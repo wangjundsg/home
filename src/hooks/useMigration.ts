@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import type { Identity } from './useIdentity'
 import { supabase } from '../supabase'
 
@@ -17,23 +17,10 @@ interface V1Data {
 }
 
 export function useMigration(identity: Identity) {
-  const [hasV1Data, setHasV1Data] = useState(false)
+  const [hasV1Data, setHasV1Data] = useState(() => Boolean(identity && detectV1Data()))
   const [migrating, setMigrating] = useState(false)
   const [migrated, setMigrated] = useState(false)
   const [migratedCount, setMigratedCount] = useState(0)
-
-  useEffect(() => {
-    if (!identity) return
-    const stored = localStorage.getItem(V1_KEY)
-    if (stored) {
-      try {
-        const data = JSON.parse(stored) as V1Data
-        if (data.onboardingComplete || data.checkins?.length || data.compensations?.length) {
-          setHasV1Data(true)
-        }
-      } catch { /* ignore */ }
-    }
-  }, [identity])
 
   const migrate = async () => {
     if (!identity) return
@@ -110,4 +97,16 @@ export function useMigration(identity: Identity) {
   }
 
   return { hasV1Data, migrating, migrated, migratedCount, migrate, skip }
+}
+
+function detectV1Data() {
+  const stored = localStorage.getItem(V1_KEY)
+  if (!stored) return false
+
+  try {
+    const data = JSON.parse(stored) as V1Data
+    return Boolean(data.onboardingComplete || data.checkins?.length || data.compensations?.length)
+  } catch {
+    return false
+  }
 }
