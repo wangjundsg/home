@@ -1,0 +1,53 @@
+<h2>情绪像素小人 V1：交互设计确认稿</h2>
+<p class="subtitle">目标：让首页三类情绪标签和一个共享情侣小人联动，表达“我们当前的关系气氛”。</p>
+
+<div class="mockup">
+  <div class="mockup-header">首页情绪修理站内的交互闭环</div>
+  <div class="mockup-body">
+    <div style="display:grid;grid-template-columns:1fr;gap:14px;font-family:system-ui;">
+      <div style="border-radius:22px;background:#fff8f3;border:2px solid #ffd9c7;padding:14px;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div style="min-height:44px;border-radius:999px;background:#fff;border:1px solid #ffd9c7;display:flex;align-items:center;justify-content:center;font-weight:900;color:#55433d;">我们都好</div>
+          <div style="min-height:44px;border-radius:999px;background:#ff9a7a;display:flex;align-items:center;justify-content:center;font-weight:900;color:#773018;">我们的小确幸</div>
+          <div style="min-height:44px;border-radius:999px;background:#fff;border:1px solid #ffd9c7;display:flex;align-items:center;justify-content:center;font-weight:900;color:#55433d;">心里有个小乌云</div>
+        </div>
+        <div style="min-height:138px;border-radius:22px;background:linear-gradient(180deg,#fff,#fff1ed);border:2px dashed #ffb59e;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#3d2c2e;font-weight:900;">
+          <div style="font-size:50px;line-height:1;">▣♡▣</div>
+          <div>当前状态：拥抱</div>
+          <div style="font-size:13px;color:#8d7a7d;">点击小人，选择更准确的状态</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;">
+        <div style="min-height:70px;border-radius:18px;background:#fff;border:1px solid #ffd9c7;padding:12px;text-align:center;font-weight:800;color:#55433d;">点击“小确幸”<br/><span style="font-size:12px;color:#8d7a7d;">先切到幸福类</span></div>
+        <div style="font-weight:900;color:#f06f55;">→</div>
+        <div style="min-height:70px;border-radius:18px;background:#fff;border:1px solid #ffd9c7;padding:12px;text-align:center;font-weight:800;color:#55433d;">点击小人<br/><span style="font-size:12px;color:#8d7a7d;">底部面板选 24 状态</span></div>
+      </div>
+
+      <div style="border-radius:24px 24px 0 0;background:#fff;border:2px solid #ffd9c7;padding:14px;display:grid;gap:10px;">
+        <div style="font-weight:900;color:#96472d;">底部选择面板</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+          <div style="min-height:44px;border-radius:14px;background:#fff8f3;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;">牵手</div>
+          <div style="min-height:44px;border-radius:14px;background:#ffe1dc;border:2px solid #ff9a7a;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#773018;">拥抱</div>
+          <div style="min-height:44px;border-radius:14px;background:#fff8f3;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;">亲亲</div>
+          <div style="min-height:44px;border-radius:14px;background:#fff8f3;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;">想你中</div>
+          <div style="min-height:44px;border-radius:14px;background:#fff8f3;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;">开心跳跃</div>
+          <div style="min-height:44px;border-radius:14px;background:#fff8f3;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;">害羞脸红</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>已确认规则</h3>
+  <ul>
+    <li>小人代表共同情侣状态，不拆成“我”和“TA”的两个状态。</li>
+    <li>状态双方同步，共享同一个当前关系气氛。</li>
+    <li>第一版完整覆盖 24 个状态，但先用占位小人，后续替换真实素材。</li>
+    <li>只保存当前状态，不做历史记录。</li>
+    <li>交互采用首页小人卡 + 底部选择面板。</li>
+  </ul>
+</div>
+
+<p class="subtitle">如果这个交互闭环没问题，我们下一步在终端确认技术设计：数据怎么存、组件怎么拆、异常时怎么回退。</p>

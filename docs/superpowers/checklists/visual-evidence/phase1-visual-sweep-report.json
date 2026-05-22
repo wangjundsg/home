@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-05-09T08:20:09.879Z",
+  "baseUrl": "http://127.0.0.1:4173",
+  "viewport": "375x812",
+  "pages": {
+    "home": {
+      "screenshot": "C:/Users/weirenminfuwu/Desktop/小程序/qinggan-weihu-v2/docs/superpowers/checklists/visual-evidence/home-375x812.png",
+      "metrics": {
+        "hasHorizontalOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "interactiveCount": 11,
+        "smallTargets": [],
+        "clippedTexts": [
+          {
+            "tag": "div",
+            "text": "设置见面日记录你们的见面计划"
+          }
+        ]
+      }
+    },
+    "coupleSpace": {
+      "screenshot": "C:/Users/weirenminfuwu/Desktop/小程序/qinggan-weihu-v2/docs/superpowers/checklists/visual-evidence/couple-space-375x812.png",
+      "metrics": {
+        "hasHorizontalOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "interactiveCount": 13,
+        "smallTargets": [],
+        "clippedTexts": [
+          {
+            "tag": "section",
+            "text": "属于你们两个人的私密花园小花园房间地图每个小房间都藏着你和T"
+          }
+        ]
+      }
+    },
+    "interact": {
+      "screenshot": "C:/Users/weirenminfuwu/Desktop/小程序/qinggan-weihu-v2/docs/superpowers/checklists/visual-evidence/interact-375x812.png",
+      "metrics": {
+        "hasHorizontalOverflow": false,
+        "scrollWidth": 375,
+        "clientWidth": 375,
+        "interactiveCount": 13,
+        "smallTargets": [],
+        "clippedTexts": [
+          {
+            "tag": "section",
+            "text": "无论异地还是见面双人像素小游戏厅给你和TA准备一点会发光的小"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<h2>情绪像素小人：第一步先定“状态是谁的状态”</h2>
+<p class="subtitle">这是后面数据结构、首页入口、弹窗选择方式的核心决定。可以先看三种模型，点击你更接近的想法。</p>
+
+<div class="cards">
+  <div class="card" data-choice="shared-couple" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="height:220px;border-radius:22px;background:linear-gradient(180deg,#fff8f3,#fff1ed);border:2px solid #ffd9c7;padding:18px;display:flex;flex-direction:column;gap:14px;justify-content:center;">
+        <div style="text-align:center;font-weight:900;color:#96472d;">一对小人 = 我们当前的关系气氛</div>
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;">
+          <div style="height:58px;border-radius:16px;background:#fff;border:1px solid #ffd9c7;display:flex;align-items:center;justify-content:center;font-weight:800;color:#55433d;">首页标签<br/>心里有个小乌云</div>
+          <div style="font-weight:900;color:#f06f55;">→</div>
+          <div style="height:58px;border-radius:16px;background:#ffe1dc;border:1px solid #ff9a7a;display:flex;align-items:center;justify-content:center;font-weight:800;color:#773018;">小人进入<br/>矛盾集合状态</div>
+        </div>
+        <div style="height:72px;border-radius:18px;background:#fff;border:2px dashed #ffb59e;display:flex;align-items:center;justify-content:center;font-weight:900;color:#3d2c2e;">点击小人 → 选择：生气 / 委屈 / 吵架 / 想被哄</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. 共同情侣状态</h3>
+      <p>最适合第一版：简单、温柔、首页表达清楚。小人表示“我们现在的气氛”。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="separate-person" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="height:220px;border-radius:22px;background:linear-gradient(180deg,#fff8f3,#f7f3ff);border:2px solid #e8dff5;padding:18px;display:flex;flex-direction:column;gap:14px;justify-content:center;">
+        <div style="text-align:center;font-weight:900;color:#4b3c73;">两个人分别记录自己的真实情绪</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="height:86px;border-radius:18px;background:#fff;border:1px solid #ffd9c7;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;color:#3d2c2e;">我<br/><span style="font-size:13px;color:#8d7a7d;">生气 / 委屈 / 想静静</span></div>
+          <div style="height:86px;border-radius:18px;background:#fff;border:1px solid #ffd9c7;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;color:#3d2c2e;">TA<br/><span style="font-size:13px;color:#8d7a7d;">难过 / 想被哄 / 没事</span></div>
+        </div>
+        <div style="height:48px;border-radius:16px;background:#fff;border:1px dashed #cbbdf0;display:flex;align-items:center;justify-content:center;font-weight:800;color:#55433d;">组合成一个双人小人画面</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. 双人独立状态</h3>
+      <p>更真实，但第一版会复杂：需要区分谁在设置、谁能看到、状态组合怎么显示。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="hybrid" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="height:220px;border-radius:22px;background:linear-gradient(180deg,#fff8f3,#f2fff7);border:2px solid #aee6c8;padding:18px;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+        <div style="text-align:center;font-weight:900;color:#295a45;">外层是关系状态，内层可细分到个人</div>
+        <div style="height:58px;border-radius:16px;background:#ffe1dc;border:1px solid #ff9a7a;display:flex;align-items:center;justify-content:center;font-weight:900;color:#773018;">首页：我们进入“有小乌云”</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="height:62px;border-radius:16px;background:#fff;border:1px solid #ffd9c7;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;color:#55433d;">我此刻<br/>委屈</div>
+          <div style="height:62px;border-radius:16px;background:#fff;border:1px solid #ffd9c7;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;color:#55433d;">TA此刻<br/>生气</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. 混合状态模型</h3>
+      <p>最完整，但更适合第二阶段；第一版容易把交互做重。</p>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle">我的初步倾向：第一版先做 A，共同情侣状态；后续如果你们需要“我和TA分别是什么心情”，再升级到 C。</p>
