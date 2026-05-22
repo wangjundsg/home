@@ -1,4 +1,4 @@
-const CACHE_NAME = 'qinggan-v3';
+const CACHE_NAME = 'qinggan-v4';
 const ASSETS = [
   './',
   './index.html',
@@ -12,6 +12,8 @@ const ASSETS = [
   './js/storage.js',
   './js/router.js',
   './js/ui.js',
+  './js/heartbeat-content.js',
+  './js/heartbeat-game.js',
   './js/screens/home.js',
   './js/screens/daily.js',
   './js/screens/commitments.js',

@@ -90,7 +90,9 @@ window.R.getDefaultData = function() {
       共同Diary: [],
       songs: [],
       diceHistory: [],
-      storyChain: []
+      storyChain: [],
+      heartbeatGame: null,
+      heartbeatHistory: []
     },
     growthRecords: [],
     phrases: [
@@ -196,6 +198,13 @@ window.R.mergeData = function(existing, imported) {
     if (imported.interactData.共同Diary) {
       const existingDiaryIds = new Set((merged.interactData.共同Diary || []).map(d => d.id));
       merged.interactData.共同Diary = [...(merged.interactData.共同Diary || []), ...imported.interactData.共同Diary.filter(d => !existingDiaryIds.has(d.id))];
+    }
+    if (imported.interactData.heartbeatHistory) {
+      const existingHeartbeatIds = new Set((merged.interactData.heartbeatHistory || []).map(h => h.id));
+      merged.interactData.heartbeatHistory = [
+        ...(merged.interactData.heartbeatHistory || []),
+        ...imported.interactData.heartbeatHistory.filter(h => !existingHeartbeatIds.has(h.id))
+      ];
     }
   }
 

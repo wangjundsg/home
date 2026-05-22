@@ -1,4 +1,137 @@
 // Interaction Module Screen
+function heartbeatGetSession(data) {
+  data.interactData = data.interactData || {};
+  if (!data.interactData.heartbeatGame) {
+    data.interactData.heartbeatGame = window.R.HeartbeatGame.createSession();
+  }
+  return data.interactData.heartbeatGame;
+}
+
+function heartbeatSaveSession(session) {
+  var d = window.getData();
+  d.interactData = d.interactData || {};
+  d.interactData.heartbeatGame = session;
+  window.updateData(d);
+}
+
+function heartbeatRenderBoard(session) {
+  var minPosition = Math.min(session.players.A.position, session.players.B.position);
+  var start = Math.max(0, minPosition - 3);
+  var cells = session.board.slice(start, start + 14);
+  return cells.map(function(cell) {
+    var type = window.R.HeartbeatContent.cellTypes[cell.type];
+    var hasA = session.players.A.position === cell.index;
+    var hasB = session.players.B.position === cell.index;
+    return '<div class="heartbeat-cell heartbeat-cell-' + cell.type + '">' +
+      '<div class="heartbeat-cell-index">' + (cell.index + 1) + '</div>' +
+      '<div class="heartbeat-cell-icon">' + type.icon + '</div>' +
+      '<div class="heartbeat-pieces">' +
+        (hasA ? '<span class="heartbeat-piece heartbeat-piece-a">A</span>' : '') +
+        (hasB ? '<span class="heartbeat-piece heartbeat-piece-b">B</span>' : '') +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function heartbeatRenderResult(result) {
+  if (!result) {
+    return '<div class="heartbeat-card-empty">掷骰后，这里会派发本回合任务卡。</div>';
+  }
+  var cellInfo = window.R.HeartbeatContent.cellTypes[result.cell.type];
+  var levelInfo = window.R.HeartbeatContent.levels[result.level];
+  var html = '<div class="heartbeat-result-meta">' +
+    '<span>' + cellInfo.label + '</span>' +
+    '<span>' + levelInfo.label + '</span>' +
+    '<span>玩家 ' + result.player + ' / 伴侣 ' + result.partner + '</span>' +
+  '</div>';
+  if (result.effect) {
+    html += '<div class="heartbeat-effect">' + result.effect + '</div>';
+  }
+  if (result.card) {
+    html += '<div class="heartbeat-task-card">' +
+      '<div class="heartbeat-task-title">' + result.card.title + '</div>' +
+      '<div class="heartbeat-task-text">' + result.card.text + '</div>' +
+    '</div>';
+  }
+  if (result.alternateCard) {
+    html += '<div class="heartbeat-task-card heartbeat-task-card-alt">' +
+      '<div class="heartbeat-task-title">备选：' + result.alternateCard.title + '</div>' +
+      '<div class="heartbeat-task-text">' + result.alternateCard.text + '</div>' +
+    '</div>';
+  }
+  if (result.addOn) {
+    html += '<div class="heartbeat-addon">加码：' + result.addOn + '</div>';
+  }
+  return html;
+}
+
+function heartbeatRenderRoom(container, data) {
+  var session = heartbeatGetSession(data);
+  var currentLevel = window.R.HeartbeatContent.levels[session.currentLevel];
+  container.innerHTML = '<div class="heartbeat-room">' +
+    '<div class="heartbeat-topbar">' +
+      '<button class="btn btn-outline btn-sm" id="heartbeatBack">返回互动</button>' +
+      '<button class="btn btn-soft btn-sm" id="heartbeatLevel">' + currentLevel.label + '</button>' +
+      '<button class="btn btn-outline btn-sm" id="heartbeatEnd">结束本局</button>' +
+    '</div>' +
+    '<div class="heartbeat-status card">' +
+      '<div><div class="text-sm text-soft">当前回合</div><strong>玩家 ' + session.currentPlayer + '</strong></div>' +
+      '<div><div class="text-sm text-soft">A 位置</div><strong>' + (session.players.A.position + 1) + '</strong></div>' +
+      '<div><div class="text-sm text-soft">B 位置</div><strong>' + (session.players.B.position + 1) + '</strong></div>' +
+    '</div>' +
+    '<div class="heartbeat-board">' + heartbeatRenderBoard(session) + '</div>' +
+    '<div class="heartbeat-current-card card">' + heartbeatRenderResult(session.currentResult) + '</div>' +
+    '<button class="btn btn-primary btn-lg btn-block" id="heartbeatRoll">掷骰 / 再掷一次</button>' +
+  '</div>';
+
+  container.querySelector('#heartbeatBack').addEventListener('click', function() {
+    window.renderInteract(container, window.getData());
+  });
+
+  container.querySelector('#heartbeatRoll').addEventListener('click', function() {
+    var d = window.getData();
+    var current = heartbeatGetSession(d);
+    var rollResult = window.R.HeartbeatGame.roll(current);
+    heartbeatSaveSession(rollResult.session);
+    heartbeatRenderRoom(container, window.getData());
+  });
+
+  container.querySelector('#heartbeatLevel').addEventListener('click', function() {
+    var buttons = window.R.HeartbeatContent.levelOrder.map(function(level) {
+      var info = window.R.HeartbeatContent.levels[level];
+      return '<button class="btn btn-outline btn-block heartbeat-level-option" data-level="' + level + '" style="margin-bottom:var(--space-sm);justify-content:flex-start">' + info.label + ' · ' + info.desc + '</button>';
+    }).join('');
+    var modal = window.R.showModal({ title: '切换层级', content: buttons });
+    modal.sheet.querySelectorAll('.heartbeat-level-option').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var d = window.getData();
+        var changed = window.R.HeartbeatGame.setLevel(heartbeatGetSession(d), btn.dataset.level);
+        heartbeatSaveSession(changed);
+        modal.close();
+        heartbeatRenderRoom(container, window.getData());
+      });
+    });
+  });
+
+  container.querySelector('#heartbeatEnd').addEventListener('click', function() {
+    var d = window.getData();
+    d.interactData = d.interactData || {};
+    d.interactData.heartbeatHistory = d.interactData.heartbeatHistory || [];
+    var oldSession = heartbeatGetSession(d);
+    d.interactData.heartbeatHistory.push({
+      id: window.R.generateId(),
+      date: new Date().toISOString().split('T')[0],
+      startedAt: oldSession.startedAt,
+      endedAt: new Date().toISOString(),
+      rolls: oldSession.rollHistory.length,
+      cards: oldSession.cardHistory.length
+    });
+    d.interactData.heartbeatGame = window.R.HeartbeatGame.createSession();
+    window.updateData(d);
+    heartbeatRenderRoom(container, window.getData());
+  });
+}
+
 window.renderInteract = function(container, data) {
   const selfName = data.partners.personA.name;
   const partnerName = data.partners.personB.name;
@@ -11,6 +144,12 @@ window.renderInteract = function(container, data) {
 
       <!-- Mode cards -->
       <div class="interact-grid">
+        <div class="card interact-card interact-card-featured" id="interactHeartbeat">
+          <div class="interact-icon">🎲</div>
+          <div class="interact-card-title">双人心跳棋</div>
+          <div class="interact-card-desc">掷骰走格，随机派发四层互动任务</div>
+        </div>
+
         <!-- Truth or Dare Blind Box -->
         <div class="card interact-card" id="interactTruth">
           <div class="interact-icon">💬</div>
@@ -72,6 +211,13 @@ window.renderInteract = function(container, data) {
       </div>
     </div>
   `;
+
+  const heartbeatCard = container.querySelector('#interactHeartbeat');
+  if (heartbeatCard) {
+    heartbeatCard.addEventListener('click', () => {
+      heartbeatRenderRoom(container, data);
+    });
+  }
 
   // Truth or Dare
   const truthCard = container.querySelector('#interactTruth');

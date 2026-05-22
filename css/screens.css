@@ -356,6 +356,179 @@
   line-height: 1.4;
 }
 
+.interact-card-featured {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--color-primary-soft), var(--color-accent-soft));
+  border-color: rgba(232, 115, 74, 0.24);
+}
+
+.heartbeat-room {
+  padding-bottom: var(--space-lg);
+}
+
+.heartbeat-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-sm);
+  align-items: center;
+  padding: var(--space-sm) 0 var(--space-md);
+  background: var(--color-bg);
+}
+
+.heartbeat-status {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-sm);
+  text-align: center;
+  padding: var(--space-md) !important;
+}
+
+.heartbeat-board {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  padding: var(--space-sm) 0 var(--space-md);
+  margin-bottom: var(--space-md);
+  scroll-snap-type: x proximity;
+}
+
+.heartbeat-cell {
+  position: relative;
+  flex: 0 0 68px;
+  min-height: 82px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+}
+
+.heartbeat-cell-normal { background: #fff; }
+.heartbeat-cell-double { background: var(--color-primary-soft); }
+.heartbeat-cell-boost { background: var(--color-warning-soft); }
+.heartbeat-cell-reverse { background: #F2ECFF; }
+.heartbeat-cell-choice { background: var(--color-accent-soft); }
+.heartbeat-cell-rest { background: var(--color-success-soft); }
+.heartbeat-cell-reward { background: #FFF7D8; border-color: rgba(240, 192, 64, 0.55); }
+.heartbeat-cell-penalty { background: var(--color-danger-soft); }
+.heartbeat-cell-reroll { background: #EAF3FF; }
+
+.heartbeat-cell-index {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  font-weight: 700;
+}
+
+.heartbeat-cell-icon {
+  font-size: var(--font-size-2xl);
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.heartbeat-pieces {
+  position: absolute;
+  bottom: 6px;
+  display: flex;
+  gap: 2px;
+}
+
+.heartbeat-piece {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  box-shadow: var(--shadow-button);
+}
+
+.heartbeat-piece-a {
+  background: var(--color-primary);
+}
+
+.heartbeat-piece-b {
+  background: var(--color-accent);
+}
+
+.heartbeat-current-card {
+  min-height: 180px;
+}
+
+.heartbeat-card-empty {
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}
+
+.heartbeat-result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.heartbeat-result-meta span,
+.heartbeat-effect,
+.heartbeat-addon {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-pill);
+  padding: 4px var(--space-sm);
+  background: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+}
+
+.heartbeat-effect,
+.heartbeat-addon {
+  display: flex;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  line-height: 1.5;
+}
+
+.heartbeat-task-card {
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  margin-top: var(--space-sm);
+}
+
+.heartbeat-task-card-alt {
+  background: var(--color-accent-soft);
+}
+
+.heartbeat-task-title {
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.heartbeat-task-text {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
 /* Color picker */
 .color-btn {
   cursor: pointer;
