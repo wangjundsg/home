@@ -27,6 +27,7 @@ import { PrivateOfflineGamesPage } from './pages/PrivateOfflineGamesPage'
 import { OfflineGamesPage } from './pages/OfflineGamesPage'
 import { PrivateFlyingChessPage } from './pages/PrivateFlyingChessPage'
 import { TwoPlayerChallengePage } from './pages/TwoPlayerChallengePage'
+import { FoodDecisionPage } from './pages/FoodDecisionPage'
 import { TruthBox } from './components/interact/TruthBox'
 import { MatchBox } from './components/interact/MatchBox'
 import { DoodleCanvas } from './components/interact/DoodleCanvas'
@@ -64,6 +65,7 @@ const SUB_SCREENS: Record<string, string> = {
   '/interact/private': '线上游戏',
   '/interact/online-games': '线上游戏',
   '/interact/offline-games': '线下游戏',
+  '/interact/food': '今天吃什么',
   '/interact/private/games': '线上游戏',
   '/interact/private/flying-chess': '双人心跳棋',
   '/interact/private/two-player-challenge': '双人默契闯关',
@@ -206,7 +208,8 @@ export default function App() {
       case '/interact/materials/private': return <InteractionMaterialsPage navigate={navigate} />
       case '/interact/private': return <PrivateOfflineGamesPage navigate={navigate} />
       case '/interact/online-games': return <PrivateOfflineGamesPage navigate={navigate} />
-      case '/interact/offline-games': return <OfflineGamesPage navigate={navigate} />
+      case '/interact/offline-games': return <OfflineGamesPage />
+      case '/interact/food': return <FoodDecisionPage partnerName={partnerName} />
       case '/interact/private/games': return <PrivateOfflineGamesPage navigate={navigate} />
       case '/interact/private/flying-chess': return <PrivateFlyingChessPage identity={identity} partnerName={partnerName} navigate={navigate} />
       case '/interact/private/two-player-challenge': return <TwoPlayerChallengePage identity={identity} partnerName={partnerName} navigate={navigate} />

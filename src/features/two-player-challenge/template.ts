@@ -1,4 +1,5 @@
 import type { ChallengeMaterial, IdentityAssignment, TaskMode, TemplateRenderResult } from './types'
+import type { ChallengeTaskKind } from './types'
 
 const allowedPlaceholders = new Set(['actor', 'target', 'both'])
 
@@ -9,7 +10,7 @@ const requiredPlaceholdersByMode: Record<TaskMode, string[]> = {
   scene: ['both'],
 }
 
-export function renderChallengeTemplate(material: ChallengeMaterial, identity: IdentityAssignment): TemplateRenderResult {
+export function renderChallengeTemplate(material: ChallengeMaterial, identity: IdentityAssignment, kind: ChallengeTaskKind = 'result-task'): TemplateRenderResult {
   const placeholders = extractPlaceholders(material.template)
   const unknownPlaceholders = placeholders.filter(placeholder => !allowedPlaceholders.has(placeholder))
   const requiredPlaceholders = requiredPlaceholdersByMode[material.taskMode]
@@ -49,6 +50,7 @@ export function renderChallengeTemplate(material: ChallengeMaterial, identity: I
       text,
       triggerLabel: identity.triggerLabel,
       triggerReason: identity.triggerReason,
+      kind,
       warnings,
     },
     errors: [],

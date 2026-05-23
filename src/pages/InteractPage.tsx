@@ -1,4 +1,4 @@
-import { Archive, BookOpen, Box, Disc3, Flame, Gamepad2, Library, Palette, ScrollText, ShieldCheck, Users, Wifi, Map } from 'lucide-react'
+import { Archive, BookOpen, Box, Disc3, Flame, Gamepad2, Library, Palette, ScrollText, ShieldCheck, Users, Wifi, Spade, Utensils } from 'lucide-react'
 import type { Identity } from '../hooks/useIdentity'
 
 interface InteractPageProps {
@@ -52,12 +52,26 @@ export function InteractPage({ navigate, partnerName }: InteractPageProps) {
           className="pixel-card card-pressable ui-touch-target min-h-[112px] p-3 text-left"
         >
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-warm-100 text-warm-600">
-            <Map size={19} />
+            <Spade size={19} />
           </span>
-          <span className="mt-2 block text-sm font-black text-text-primary">线下游戏</span>
-          <span className="mt-1 block text-xs leading-relaxed text-text-muted">规则和玩法后续重新规划。</span>
+          <span className="mt-2 block text-sm font-black text-text-primary">实体线下游戏</span>
+          <span className="mt-1 block text-xs leading-relaxed text-text-muted">扑克牌、骰子和道具直接开玩。</span>
         </button>
       </section>
+
+      <button
+        type="button"
+        onClick={() => navigate('/interact/food')}
+        className="pixel-card card-pressable ui-touch-target flex shrink-0 items-center gap-3 p-3 text-left"
+      >
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-orange-50 text-orange-500">
+          <Utensils size={18} />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="block text-sm font-black text-text-primary">今天吃什么</span>
+          <span className="mt-0.5 block text-xs leading-relaxed text-text-muted">先给正餐答案，满意后再配甜品或喝的。</span>
+        </span>
+      </button>
 
       <button
         type="button"
