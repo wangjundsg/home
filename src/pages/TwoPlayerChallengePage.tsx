@@ -75,7 +75,9 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
   const activeTargetZone = activeTarget?.key === roundResetKey ? activeTarget.zone : null
   const isBlocked = blockedState.key === roundResetKey ? blockedState.blocked : false
   const activePlayer = turnState.key === roundResetKey ? turnState.activePlayer : 'A'
-  const handoffVisible = turnState.key === roundResetKey ? turnState.handoffVisible : false
+  const handoffVisible = state.screenState === 'challenge-paused'
+    ? true
+    : turnState.key === roundResetKey ? turnState.handoffVisible : false
 
   useEffect(() => {
     if (state.screenState !== 'challenge-running' || !state.gateProfile || !state.targetZone) {
@@ -106,7 +108,7 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
 
   return (
     <div className="pixel-page flex min-h-full flex-col gap-3 px-4 pt-3 pb-8">
-      {state.screenState !== 'ending' ? (
+      {state.screenState !== 'ending' && state.screenState !== 'session-ended' ? (
         <>
           <ChallengeProgressHeader
             stageState={state.stageState}
@@ -237,6 +239,20 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
           <p className="text-4xl">♥</p>
           <h2 className="mt-3 text-xl font-black text-text-primary">四个阶段都闯完了</h2>
           <p className="mt-2 text-sm leading-relaxed text-text-muted">调情、前戏、深入和做爱都走完了。现在把手机放下，继续留在彼此身边。</p>
+          <button
+            type="button"
+            onClick={() => dispatch({ type: 'restart', playerLabels })}
+            className="mt-5 min-h-[48px] w-full rounded-2xl bg-warm-500 px-4 py-3 text-sm font-black text-white active:scale-[0.99]"
+          >
+            重新开始一局
+          </button>
+        </section>
+      ) : null}
+
+      {state.screenState === 'session-ended' ? (
+        <section className="pixel-card p-6 text-center">
+          <p className="text-4xl">♥</p>
+          <h2 className="mt-3 text-xl font-black text-text-primary">本局已结束</h2>
           <button
             type="button"
             onClick={() => dispatch({ type: 'restart', playerLabels })}

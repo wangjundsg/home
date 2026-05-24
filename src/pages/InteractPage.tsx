@@ -1,4 +1,4 @@
-import { Archive, BookOpen, Box, Disc3, Flame, Gamepad2, Library, Palette, ScrollText, ShieldCheck, Users, Wifi, Spade, Utensils } from 'lucide-react'
+import { BookOpen, Dice5, Gamepad2, Library, Route, ScrollText, Spade, Utensils } from 'lucide-react'
 import type { Identity } from '../hooks/useIdentity'
 
 interface InteractPageProps {
@@ -7,21 +7,6 @@ interface InteractPageProps {
   navigate: (route: string) => void
 }
 
-interface OldEntry {
-  key: string
-  title: string
-  Icon: typeof Box
-}
-
-const oldEntries: OldEntry[] = [
-  { key: 'truth', title: '真心话盲盒', Icon: Box },
-  { key: 'match', title: '默契大考验', Icon: Users },
-  { key: 'doodle', title: '心情大涂鸦', Icon: Palette },
-  { key: 'dice', title: '掷骰子比大小', Icon: Gamepad2 },
-  { key: 'truthdare', title: '真心话大冒险', Icon: Flame },
-  { key: 'wheel', title: '奖惩转盘', Icon: Disc3 },
-]
-
 export function InteractPage({ navigate, partnerName }: InteractPageProps) {
   return (
     <div className="pixel-page main-grid-page flex h-full min-h-0 flex-col gap-2 overflow-hidden px-3 pt-3 pb-2">
@@ -29,33 +14,59 @@ export function InteractPage({ navigate, partnerName }: InteractPageProps) {
         <div className="relative z-10">
           <p className="text-xs font-semibold leading-[1.45] text-white/75">给你和{partnerName || 'TA'}的互动入口</p>
           <h2 className="mt-1 text-xl font-black leading-tight tracking-tight">互动中心</h2>
-          <p className="mt-2 text-sm leading-relaxed text-white/80">线上游戏和线下游戏分开进入，日常记录留在下面慢慢写。</p>
+          <p className="mt-2 text-sm leading-relaxed text-white/80">线上和线下游戏都直接开。</p>
         </div>
       </section>
 
       <section className="grid shrink-0 grid-cols-2 gap-2">
         <button
           type="button"
-          onClick={() => navigate('/interact/online-games')}
+          onClick={() => navigate('/interact/private/two-player-challenge')}
           className="pixel-card card-pressable ui-touch-target min-h-[112px] p-3 text-left"
         >
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-pink-50 text-pink-500">
-            <Wifi size={19} />
+            <Route size={19} />
           </span>
-          <span className="mt-2 block text-sm font-black text-text-primary">线上游戏</span>
-          <span className="mt-1 block text-xs leading-relaxed text-text-muted">双人默契闯关和心跳棋。</span>
+          <span className="mt-2 block text-sm font-black text-text-primary">双人默契闯关</span>
+          <span className="mt-1 block text-xs leading-relaxed text-text-muted">四阶段机关挑战。</span>
         </button>
 
         <button
           type="button"
-          onClick={() => navigate('/interact/offline-games')}
+          onClick={() => navigate('/interact/private/flying-chess')}
+          className="pixel-card card-pressable ui-touch-target min-h-[112px] p-3 text-left"
+        >
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-violet-50 text-violet-500">
+            <Gamepad2 size={19} />
+          </span>
+          <span className="mt-2 block text-sm font-black text-text-primary">双人心跳棋</span>
+          <span className="mt-1 block text-xs leading-relaxed text-text-muted">掷骰走格抽任务。</span>
+        </button>
+      </section>
+
+      <section className="grid shrink-0 grid-cols-2 gap-2">
+        <button
+          type="button"
+          onClick={() => navigate('/interact/offline-games/heart-cards')}
           className="pixel-card card-pressable ui-touch-target min-h-[112px] p-3 text-left"
         >
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-warm-100 text-warm-600">
             <Spade size={19} />
           </span>
-          <span className="mt-2 block text-sm font-black text-text-primary">实体线下游戏</span>
-          <span className="mt-1 block text-xs leading-relaxed text-text-muted">扑克牌、骰子和道具直接开玩。</span>
+          <span className="mt-2 block text-sm font-black text-text-primary">心动花色牌</span>
+          <span className="mt-1 block text-xs leading-relaxed text-text-muted">扑克牌四阶段玩法。</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => navigate('/interact/offline-games/prop-banquet')}
+          className="pixel-card card-pressable ui-touch-target min-h-[112px] p-3 text-left"
+        >
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-amber-50 text-amber-500">
+            <Dice5 size={19} />
+          </span>
+          <span className="mt-2 block text-sm font-black text-text-primary">秘密道具宴</span>
+          <span className="mt-1 block text-xs leading-relaxed text-text-muted">骰子和道具推进。</span>
         </button>
       </section>
 
@@ -120,32 +131,6 @@ export function InteractPage({ navigate, partnerName }: InteractPageProps) {
           </button>
         </div>
       </section>
-
-      <details className="pixel-card overflow-hidden p-0">
-        <summary className="flex min-h-[44px] cursor-pointer list-none items-center gap-3 px-4 py-3 text-sm font-black text-text-secondary">
-          <Archive size={17} className="text-text-muted" />
-          旧版小游戏入口
-          <span className="ml-auto text-[10px] font-black text-text-muted">低优先级</span>
-        </summary>
-        <div className="grid max-h-[92px] grid-cols-2 gap-2 overflow-y-auto border-t border-warm-100 p-2">
-          {oldEntries.map(({ key, title, Icon }) => (
-            <button
-              key={key}
-              type="button"
-              onClick={() => navigate(`/interact/${key}`)}
-              className="flex min-h-[44px] items-center gap-2 rounded-2xl bg-warm-50 px-3 py-2 text-left text-xs font-black text-text-secondary active:scale-[0.99]"
-            >
-              <Icon size={15} className="shrink-0 text-warm-500" />
-              <span className="min-w-0 flex-1 truncate">{title}</span>
-            </button>
-          ))}
-        </div>
-      </details>
-
-      <p className="flex shrink-0 items-start gap-2 px-1 text-[11px] font-semibold leading-relaxed text-text-muted">
-        <ShieldCheck size={15} className="mt-0.5 shrink-0 text-green-600" />
-        两个人都可以随时暂停、跳过或结束，按当下舒服的节奏来。
-      </p>
     </div>
   )
 }

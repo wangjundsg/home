@@ -53,7 +53,6 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
   const [phase, setPhase] = useState<TurnPhase>('idle')
   const [dicePreview, setDicePreview] = useState(1)
   const [result, setResult] = useState<HeartbeatResult | null>(null)
-  const [ended, setEnded] = useState(false)
   const [animationWindowStart, setAnimationWindowStart] = useState<number | null>(null)
   const timersRef = useRef<number[]>([])
   const runIdRef = useRef(0)
@@ -88,7 +87,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
   })
 
   const rollDice = async () => {
-    if (ended || phase !== 'idle') return
+    if (phase !== 'idle') return
 
     clearTimers()
     const runId = runIdRef.current + 1
@@ -106,7 +105,6 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
 
     setBoard(nextBoard)
     setResult(null)
-    setEnded(false)
     setMovingPlayer(rollingPlayer)
     setAnimationWindowStart(fixedWindowStart)
     setDisplayPositions(prev => ({ ...prev, [rollingPlayer]: startPosition }))
@@ -149,9 +147,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
     setPhase('idle')
   }
 
-  const rollButtonText = ended
-    ? '本局已结束'
-    : phase === 'rolling'
+  const rollButtonText = phase === 'rolling'
       ? '骰子滚动中'
       : phase === 'moving'
         ? '棋子前进中'
@@ -161,8 +157,8 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
 
   return (
     <div className="flex flex-col gap-3">
-      <section className="pixel-card p-3">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+      <section className="pixel-card private-flying-player-strip px-3 py-1">
+        <div className="grid h-full grid-cols-[minmax(0,1fr)_48px_minmax(0,1fr)] items-center gap-5">
           <PlayerStatusCard player="A" name={playerNames.A} active={activeTaskPlayer === 'A'} />
           <DiceWidget value={dicePreview} phase={phase} />
           <PlayerStatusCard player="B" name={playerNames.B} active={activeTaskPlayer === 'B'} />
@@ -212,13 +208,13 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
       </section>
 
       <section className="pixel-card p-4">
-        <ResultPanel phase={phase} result={result} currentPlayer={currentPlayer} ended={ended} playerNames={playerNames} />
+        <ResultPanel phase={phase} result={result} currentPlayer={currentPlayer} playerNames={playerNames} />
       </section>
 
       <button
         type="button"
         onClick={rollDice}
-        disabled={ended || phase !== 'idle'}
+        disabled={phase !== 'idle'}
         className="flex min-h-[52px] items-center justify-center gap-2 rounded-3xl bg-warm-500 px-4 py-3 text-base font-black text-white shadow-sm disabled:bg-warm-200 disabled:text-text-muted"
       >
         <Dice5 size={18} />
@@ -322,7 +318,7 @@ function DiceWidget({ value, phase }: { value: number, phase: TurnPhase }) {
   const rolling = phase === 'rolling'
 
   return (
-    <div className={`flex h-[72px] w-[72px] items-center justify-center rounded-3xl bg-warm-500 text-4xl font-black text-white shadow-sm transition-all duration-150 ${rolling ? 'scale-110 rotate-6' : 'scale-100 rotate-0'}`}>
+    <div className={`mx-auto flex h-[38px] w-[38px] -translate-y-0.5 items-center justify-center rounded-2xl bg-warm-500 text-2xl font-black text-white shadow-sm transition-all duration-150 ${rolling ? 'scale-105 rotate-6' : 'scale-100 rotate-0'}`}>
       {DICE_FACES[Math.max(0, Math.min(5, value - 1))]}
     </div>
   )
@@ -339,20 +335,17 @@ function PieceBadge({ player, moving, active }: { player: PlayerKey, moving: boo
 function PlayerStatusCard({ player, name, active }: { player: PlayerKey, name: string, active: boolean }) {
   const activeColor = player === 'A' ? 'text-warm-600' : 'text-pink-500'
   const labelColor = player === 'A' ? 'text-warm-500' : 'text-pink-500'
+  const alignClass = player === 'B' ? 'items-end text-right' : 'items-start text-left'
 
   return (
-    <div className="min-w-0 px-1 py-2">
-      <p className={`text-[10px] font-black ${active ? activeColor : labelColor}`}>{player}</p>
-      <p className={`mt-1 truncate text-base font-black ${active ? activeColor : 'text-text-primary'}`}>{name}</p>
+    <div className={`flex min-w-0 flex-col px-1 py-0.5 ${alignClass}`}>
+      <p className={`text-[9px] font-black ${active ? activeColor : labelColor}`}>{player}</p>
+      <p className={`mt-0.5 max-w-full truncate text-[13px] font-black leading-tight ${active ? activeColor : 'text-text-primary'}`}>{name}</p>
     </div>
   )
 }
 
-function ResultPanel({ phase, result, currentPlayer, ended, playerNames }: { phase: TurnPhase, result: HeartbeatResult | null, currentPlayer: PlayerKey, ended: boolean, playerNames: Record<PlayerKey, string> }) {
-  if (ended) {
-    return <p className="text-center text-sm font-semibold leading-relaxed text-text-secondary">本局已结束。想继续的话直接点“重开”。</p>
-  }
-
+function ResultPanel({ phase, result, currentPlayer, playerNames }: { phase: TurnPhase, result: HeartbeatResult | null, currentPlayer: PlayerKey, playerNames: Record<PlayerKey, string> }) {
   if (phase === 'rolling') {
     return <p className="text-center text-sm font-black leading-relaxed text-text-primary">骰子滚动中...</p>
   }

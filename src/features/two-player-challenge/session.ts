@@ -21,7 +21,8 @@ import {
   type TaskMode,
 } from './types'
 
-export type ChallengeScreenState = 'challenge-ready' | 'challenge-running' | 'challenge-result' | 'result-task' | 'remedy-task' | 'ending'
+export type ChallengePlayableScreenState = 'challenge-ready' | 'challenge-running' | 'challenge-result' | 'result-task' | 'remedy-task'
+export type ChallengeScreenState = ChallengePlayableScreenState | 'challenge-paused' | 'ending' | 'session-ended'
 
 export interface ChallengeRoundState {
   stageKey: IntimacyStageKey
@@ -55,6 +56,7 @@ export interface ChallengeSessionState {
   gateResult: GateResult | null
   identityAssignment: IdentityAssignment | null
   renderedTask: RenderedTask | null
+  pausedFromScreenState: ChallengePlayableScreenState | null
   error: string | null
 }
 
@@ -72,6 +74,10 @@ export type ChallengeSessionAction =
   | { type: 'open-result-task' }
   | { type: 'complete-result-task' }
   | { type: 'complete-remedy-task' }
+  | { type: 'pause-challenge' }
+  | { type: 'resume-challenge' }
+  | { type: 'skip-round' }
+  | { type: 'end-session' }
   | { type: 'restart'; playerLabels?: ChallengePlayerLabels }
 
 export const INTIMACY_STAGE_ORDER: IntimacyStageKey[] = ['flirt', 'foreplay', 'deepening', 'sex']
@@ -144,6 +150,43 @@ export function challengeSessionReducer(state: ChallengeSessionState, action: Ch
       gateResult: null,
       identityAssignment: null,
       renderedTask: null,
+      error: null,
+    }
+  }
+
+  if (action.type === 'pause-challenge') {
+    if (!isPlayableScreenState(state.screenState)) return state
+    return {
+      ...state,
+      screenState: 'challenge-paused',
+      pausedFromScreenState: state.screenState,
+    }
+  }
+
+  if (action.type === 'resume-challenge') {
+    if (state.screenState !== 'challenge-paused') return state
+    return {
+      ...state,
+      screenState: state.pausedFromScreenState ?? 'challenge-ready',
+      pausedFromScreenState: null,
+    }
+  }
+
+  if (action.type === 'skip-round') {
+    if (state.screenState === 'ending' || state.screenState === 'session-ended') return state
+    return advanceAfterRound(state)
+  }
+
+  if (action.type === 'end-session') {
+    return {
+      ...state,
+      screenState: 'session-ended',
+      targetZone: null,
+      gateProfile: null,
+      locksByPlayer: initialLocks,
+      blockedByPlayer: initialBlocked,
+      renderedTask: null,
+      pausedFromScreenState: null,
       error: null,
     }
   }
@@ -284,6 +327,7 @@ function settleGateLikeChallenge(
     gateResult,
     identityAssignment: identity,
     renderedTask: rendered.task,
+    pausedFromScreenState: null,
     error: rendered.error,
   }
 }
@@ -311,11 +355,20 @@ function advanceAfterRound(state: ChallengeSessionState): ChallengeSessionState 
       locksByPlayer: initialLocks,
       blockedByPlayer: initialBlocked,
       renderedTask: null,
+      pausedFromScreenState: null,
       error: null,
     }
   }
 
   return prepareRound(nextStageIndex, 0, 0, nextTotal, state.playerLabels)
+}
+
+export function isPlayableScreenState(screenState: ChallengeScreenState): screenState is ChallengePlayableScreenState {
+  return screenState === 'challenge-ready'
+    || screenState === 'challenge-running'
+    || screenState === 'challenge-result'
+    || screenState === 'result-task'
+    || screenState === 'remedy-task'
 }
 
 function prepareRound(
@@ -353,6 +406,7 @@ function prepareRound(
     gateResult: null,
     identityAssignment: null,
     renderedTask: null,
+    pausedFromScreenState: null,
     error: null,
   }
 }

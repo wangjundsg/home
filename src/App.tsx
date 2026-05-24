@@ -23,19 +23,12 @@ import { SettingsPage } from './pages/SettingsPage'
 import { EmotionStationPage } from './pages/EmotionStationPage'
 import { InteractionMaterialsPage } from './pages/InteractionMaterialsPage'
 import { InteractionMaterialLibraryPage } from './pages/InteractionMaterialLibraryPage'
-import { PrivateOfflineGamesPage } from './pages/PrivateOfflineGamesPage'
 import { OfflineGamesPage } from './pages/OfflineGamesPage'
 import { PrivateFlyingChessPage } from './pages/PrivateFlyingChessPage'
 import { TwoPlayerChallengePage } from './pages/TwoPlayerChallengePage'
 import { FoodDecisionPage } from './pages/FoodDecisionPage'
-import { TruthBox } from './components/interact/TruthBox'
-import { MatchBox } from './components/interact/MatchBox'
-import { DoodleCanvas } from './components/interact/DoodleCanvas'
 import { SharedDiary } from './components/interact/SharedDiary'
 import { RelayStory } from './components/interact/RelayStory'
-import { DiceGame } from './components/interact/DiceGame'
-import { TruthDarePerson } from './components/interact/TruthDarePerson'
-import { WheelGame } from './components/interact/WheelGame'
 
 const MAIN_SCREENS: Record<string, string> = {
   '/': '首页',
@@ -62,21 +55,14 @@ const SUB_SCREENS: Record<string, string> = {
   '/interact/materials/intermediate': '中级素材库',
   '/interact/materials/advanced': '高级素材库',
   '/interact/materials/finale': '最终素材库',
-  '/interact/private': '线上游戏',
-  '/interact/online-games': '线上游戏',
   '/interact/offline-games': '线下游戏',
+  '/interact/offline-games/heart-cards': '心动花色牌',
+  '/interact/offline-games/prop-banquet': '秘密道具宴',
   '/interact/food': '今天吃什么',
-  '/interact/private/games': '线上游戏',
   '/interact/private/flying-chess': '双人心跳棋',
   '/interact/private/two-player-challenge': '双人默契闯关',
-  '/interact/truth': '真心话盲盒',
-  '/interact/match': '默契大考验',
-  '/interact/doodle': '心情大涂鸦',
   '/interact/diary': '共同日记',
   '/interact/story': '接力故事',
-  '/interact/dice': '掷骰子比大小',
-  '/interact/truthdare': '真心话大冒险',
-  '/interact/wheel': '奖惩转盘',
 }
 
 const MENU_SCREENS = Object.entries(SUB_SCREENS).filter(([key]) => !key.startsWith('/interact/') && !key.startsWith('/emotion/'))
@@ -206,21 +192,14 @@ export default function App() {
       case '/interact/materials/tasks':
       case '/interact/materials/dice':
       case '/interact/materials/private': return <InteractionMaterialsPage navigate={navigate} />
-      case '/interact/private': return <PrivateOfflineGamesPage navigate={navigate} />
-      case '/interact/online-games': return <PrivateOfflineGamesPage navigate={navigate} />
       case '/interact/offline-games': return <OfflineGamesPage />
+      case '/interact/offline-games/heart-cards': return <OfflineGamesPage gameId="heart-cards" />
+      case '/interact/offline-games/prop-banquet': return <OfflineGamesPage gameId="prop-banquet" />
       case '/interact/food': return <FoodDecisionPage partnerName={partnerName} />
-      case '/interact/private/games': return <PrivateOfflineGamesPage navigate={navigate} />
       case '/interact/private/flying-chess': return <PrivateFlyingChessPage identity={identity} partnerName={partnerName} navigate={navigate} />
       case '/interact/private/two-player-challenge': return <TwoPlayerChallengePage identity={identity} partnerName={partnerName} navigate={navigate} />
-      case '/interact/truth': return <TruthBox {...props} />
-      case '/interact/match': return <MatchBox {...props} />
-      case '/interact/doodle': return <DoodleCanvas {...props} />
       case '/interact/diary': return <SharedDiary {...props} />
       case '/interact/story': return <RelayStory {...props} />
-      case '/interact/dice': return <DiceGame identity={identity} partnerName={partnerName} />
-      case '/interact/truthdare': return <TruthDarePerson />
-      case '/interact/wheel': return <WheelGame />
       default: return <HomePage {...props} warmReminder={warmReminder} />
     }
   }

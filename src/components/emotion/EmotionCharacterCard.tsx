@@ -14,6 +14,17 @@ export function EmotionCharacterCard({ state, saving, bubbleText, onOpenPicker }
   const sprite = desktopPet ? null : getEmotionSpriteByStateId(state.id)
 
   const spriteScale = sprite ? Math.min(132 / sprite.rect.width, 96 / sprite.rect.height) : 1
+  const spriteStyle = sprite ? {
+    '--sprite-sheet-width': `${sprite.sheet === 'sweet' ? 1024 : 1200}px`,
+    '--sprite-sheet-height': `${sprite.sheet === 'sweet' ? 1024 : 896}px`,
+    '--sprite-rect-x': `${sprite.rect.x}px`,
+    '--sprite-rect-y': `${sprite.rect.y}px`,
+    '--sprite-rect-width': `${sprite.rect.width}px`,
+    '--sprite-rect-height': `${sprite.rect.height}px`,
+    '--sprite-scale': `${spriteScale}`,
+    '--sprite-window-width': `${sprite.rect.width * spriteScale}px`,
+    '--sprite-window-height': `${sprite.rect.height * spriteScale}px`,
+  } as CSSProperties : undefined
 
   const stage = (
     <>
@@ -24,20 +35,12 @@ export function EmotionCharacterCard({ state, saving, bubbleText, onOpenPicker }
             <img className="emotion-desktop-pet-image" src={desktopPet.src} alt="" />
           </span>
         ) : sprite ? (
-          <span className="emotion-sprite-window" aria-hidden="true">
+          <span className="emotion-sprite-window" aria-hidden="true" style={spriteStyle}>
             <img
               className="emotion-sprite-sheet"
               src={sprite.src}
               alt=""
-              style={{
-                '--sprite-sheet-width': `${sprite.sheet === 'sweet' ? 1024 : 1200}px`,
-                '--sprite-sheet-height': `${sprite.sheet === 'sweet' ? 1024 : 896}px`,
-                '--sprite-rect-x': `${sprite.rect.x}px`,
-                '--sprite-rect-y': `${sprite.rect.y}px`,
-                '--sprite-rect-width': `${sprite.rect.width}px`,
-                '--sprite-rect-height': `${sprite.rect.height}px`,
-                '--sprite-scale': `${spriteScale}`,
-              } as CSSProperties}
+              style={spriteStyle}
             />
           </span>
         ) : (

@@ -1,4 +1,4 @@
-import { BookOpen, ChevronRight, Flame, HeartHandshake, Trophy } from 'lucide-react'
+import { BookOpen, Flame, HeartHandshake, Trophy } from 'lucide-react'
 import { MATERIAL_LEVEL_META, getMaterialCounts, type MaterialLevel } from '../data/interact-materials'
 
 interface InteractionMaterialsPageProps {
@@ -52,21 +52,6 @@ export function InteractionMaterialsPage({ navigate }: InteractionMaterialsPageP
           )
         })}
       </section>
-
-      <button
-        type="button"
-        onClick={() => navigate('/interact/private')}
-        className="pixel-card card-pressable ui-touch-target flex items-center gap-3 p-4 text-left"
-      >
-        <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-pink-50 text-pink-500">
-          <HeartHandshake size={18} />
-        </span>
-        <span className="min-w-0 flex-1">
-          <span className="block text-sm font-black text-text-primary">想玩完整游戏流程</span>
-          <span className="mt-1 block text-xs leading-relaxed text-text-muted">去私密见面游戏中心，素材库这里只负责按层级抽卡。</span>
-        </span>
-        <ChevronRight size={18} className="shrink-0 text-text-muted" />
-      </button>
     </div>
   )
 }

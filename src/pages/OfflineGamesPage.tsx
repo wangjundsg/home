@@ -1,6 +1,7 @@
 import { CheckCircle2, Dice5, HeartHandshake, Layers3, PackageCheck, PlayCircle, Spade, Timer } from 'lucide-react'
 
 interface OfflinePhysicalGame {
+  id: string
   title: string
   summary: string
   duration: string
@@ -23,6 +24,7 @@ interface OfflinePhysicalGame {
 
 const physicalGames: readonly OfflinePhysicalGame[] = [
   {
+    id: 'heart-cards',
     title: '心动花色牌',
     summary: '用一副扑克牌完成四阶段实体互动：比牌决定主动方，花色决定互动类型，Boss 门决定是否继续深入。',
     duration: '20-35 分钟',
@@ -84,6 +86,7 @@ const physicalGames: readonly OfflinePhysicalGame[] = [
     ],
   },
   {
+    id: 'prop-banquet',
     title: '秘密道具宴',
     summary: '用骰子、食物、服装和触感小道具推进四阶段，让真实道具成为互动本体。',
     duration: '18-30 分钟',
@@ -159,13 +162,19 @@ function GuideList({ items }: { items: readonly string[] }) {
   )
 }
 
-export function OfflineGamesPage() {
+interface OfflineGamesPageProps {
+  gameId?: string
+}
+
+export function OfflineGamesPage({ gameId }: OfflineGamesPageProps) {
+  const games = gameId ? physicalGames.filter(game => game.id === gameId) : physicalGames
+
   return (
     <div className="pixel-page flex min-h-full flex-col gap-4 px-4 pt-4 pb-8">
       <section className="pixel-hero shrink-0 p-5">
         <div className="relative z-10">
-          <p className="text-xs font-semibold leading-[1.45] text-white/75">扑克牌、骰子和道具直接开玩</p>
-          <h2 className="mt-1 text-xl font-black leading-tight tracking-tight">实体线下游戏</h2>
+          <p className="text-xs font-semibold leading-[1.45] text-white/75">实体线下游戏</p>
+          <h2 className="mt-1 text-xl font-black leading-tight tracking-tight">{games[0]?.title || '线下游戏'}</h2>
           <p className="mt-2 text-sm leading-relaxed text-white/80">手机只查规则和素材，不判定输赢、不保存敏感过程。</p>
         </div>
       </section>
@@ -178,7 +187,7 @@ export function OfflineGamesPage() {
         <GuideList items={['任一方说暂停、跳过或停止时立即生效。', 'Boss 轮按更保守的一方决定，不说服对方升级。', '食物、服装和道具必须安全、干净、舒适。']} />
       </section>
 
-      {physicalGames.map(game => (
+      {games.map(game => (
         <article key={game.title} className="pixel-card p-4">
           <p className="text-xs font-black text-pink-500">2 人 · {game.duration}</p>
           <h3 className="mt-1 text-lg font-black text-text-primary">{game.title}</h3>
