@@ -60,7 +60,7 @@ const SUB_SCREENS: Record<string, string> = {
   '/interact/offline-games/prop-banquet': '秘密道具宴',
   '/interact/food': '今天吃什么',
   '/interact/private/flying-chess': '双人心跳棋',
-  '/interact/private/two-player-challenge': '双人默契闯关',
+  '/interact/private/two-player-challenge': '心动调温台',
   '/interact/diary': '共同日记',
   '/interact/story': '接力故事',
 }

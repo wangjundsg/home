@@ -7,7 +7,11 @@ export type ResultKey = 'perfect-sync' | 'heart-hit' | 'near-miss' | 'overheat' 
 export type TaskMode = 'directed' | 'response' | 'duo' | 'scene'
 export type TaskModifier = 'reverse' | 'add-on' | 'cooldown'
 export type ChallengeTaskKind = 'result-task' | 'remedy-task'
-export type ChallengeMechanicType = 'reaction-stop' | 'choice-sync' | 'rhythm-chain' | 'dynamic-gate' | 'boss-gate'
+export type ChallengeMechanicType =
+  | 'guess-heart'
+  | 'entrust'
+  | 'lead-shift'
+  | 'stage-boss'
 export type ChallengeOutcomeKey = 'success' | 'partial' | 'miss' | 'blocked' | 'boss-clear' | 'boss-failed'
 
 export const stageLabels: Record<StageKey, string> = {
@@ -21,7 +25,7 @@ export const intimacyStageLabels: Record<IntimacyStageKey, string> = {
   flirt: '调情',
   foreplay: '前戏',
   deepening: '深入',
-  sex: '做爱',
+  sex: '最终',
 }
 
 export const intimacyStageDescriptions: Record<IntimacyStageKey, string> = {
@@ -54,11 +58,10 @@ export const resultLabels: Record<ResultKey, string> = {
 }
 
 export const challengeMechanicLabels: Record<ChallengeMechanicType, string> = {
-  'reaction-stop': '反应停点',
-  'choice-sync': '默契选择',
-  'rhythm-chain': '节奏连击',
-  'dynamic-gate': '动态同步门',
-  'boss-gate': 'Boss 机关门',
+  'guess-heart': '猜心小门',
+  entrust: '委托小门',
+  'lead-shift': '主导权小门',
+  'stage-boss': '阶段 Boss',
 }
 
 export const challengeOutcomeLabels: Record<ChallengeOutcomeKey, string> = {

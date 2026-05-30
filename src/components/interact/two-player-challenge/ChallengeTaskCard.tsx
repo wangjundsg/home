@@ -8,9 +8,10 @@ interface ChallengeTaskCardProps {
   canReroll?: boolean
   rerollsLeft?: number
   retryAfterRemedy?: boolean
+  onSkip?: () => void
 }
 
-export function ChallengeTaskCard({ task, error, onComplete, onReroll, canReroll = false, rerollsLeft = 0, retryAfterRemedy = false }: ChallengeTaskCardProps) {
+export function ChallengeTaskCard({ task, error, onComplete, onReroll, canReroll = false, rerollsLeft = 0, retryAfterRemedy = false, onSkip }: ChallengeTaskCardProps) {
   if (error) {
     return (
       <section className="pixel-card p-4">
@@ -35,16 +36,25 @@ export function ChallengeTaskCard({ task, error, onComplete, onReroll, canReroll
             disabled={!canReroll}
             className="min-h-[48px] rounded-2xl border border-warm-200 bg-white/70 px-4 py-3 text-sm font-black text-text-muted active:scale-[0.99] disabled:opacity-45"
           >
-            换一张 {rerollsLeft}
+            换温和一点 {rerollsLeft}
+          </button>
+        ) : null}
+        {onSkip ? (
+          <button
+            type="button"
+            onClick={onSkip}
+            className="min-h-[48px] rounded-2xl border border-warm-200 bg-white/70 px-4 py-3 text-sm font-black text-text-muted active:scale-[0.99]"
+          >
+            跳过此卡
           </button>
         ) : null}
         <button
           type="button"
           onClick={onComplete}
-          className={`${onReroll ? '' : 'col-span-2'} min-h-[48px] rounded-2xl bg-warm-500 px-4 py-3 text-sm font-black text-white active:scale-[0.99]`}
+          className={`${onReroll || onSkip ? 'col-span-2' : 'col-span-2'} min-h-[48px] rounded-2xl bg-warm-500 px-4 py-3 text-sm font-black text-white active:scale-[0.99]`}
         >
           {task.kind === 'remedy-task'
-            ? retryAfterRemedy ? '完成补救，重试 Boss' : '完成补救，继续'
+            ? retryAfterRemedy ? '完成补救，再开 Boss' : '完成补救，继续'
             : '完成结果任务，进入下一轮'}
         </button>
       </div>

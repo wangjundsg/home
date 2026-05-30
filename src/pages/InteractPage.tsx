@@ -1,4 +1,4 @@
-import { BookOpen, Dice5, Gamepad2, Library, Route, ScrollText, Spade, Utensils } from 'lucide-react'
+import { BookOpen, Dice5, Gamepad2, Library, ScrollText, SlidersHorizontal, Spade, Utensils } from 'lucide-react'
 import type { Identity } from '../hooks/useIdentity'
 
 interface InteractPageProps {
@@ -25,10 +25,10 @@ export function InteractPage({ navigate, partnerName }: InteractPageProps) {
           className="pixel-card card-pressable ui-touch-target min-h-[112px] p-3 text-left"
         >
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-pink-50 text-pink-500">
-            <Route size={19} />
+            <SlidersHorizontal size={19} />
           </span>
-          <span className="mt-2 block text-sm font-black text-text-primary">双人默契闯关</span>
-          <span className="mt-1 block text-xs leading-relaxed text-text-muted">四阶段机关挑战。</span>
+          <span className="mt-2 block text-sm font-black text-text-primary">心动调温台</span>
+          <span className="mt-1 block text-xs leading-relaxed text-text-muted">公开放筹码调出互动。</span>
         </button>
 
         <button

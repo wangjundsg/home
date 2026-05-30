@@ -51,7 +51,7 @@ export function judgeGateResult(gateId: string, targetZone: TargetZone, locks: P
     gateId,
     resultKey,
     outcomeKey,
-    mechanicType: options.mechanicType ?? 'dynamic-gate',
+    mechanicType: options.mechanicType ?? 'guess-heart',
     isBoss: options.isBoss ?? false,
     retryAfterRemedy: options.retryAfterRemedy ?? false,
     blocked: options.blocked ?? false,
@@ -73,7 +73,7 @@ function createCooldownResult(gateId: string, targetZone: TargetZone, options: J
     gateId,
     resultKey: 'cooldown',
     outcomeKey,
-    mechanicType: options.mechanicType ?? 'dynamic-gate',
+    mechanicType: options.mechanicType ?? 'guess-heart',
     isBoss: options.isBoss ?? false,
     retryAfterRemedy: options.retryAfterRemedy ?? false,
     blocked: options.blocked ?? false,
@@ -140,8 +140,8 @@ function getFeedback(
 
   if (outcomeKey === 'blocked') {
     return {
-      feedbackTitle: '撞到障碍区了',
-      feedbackText: '节奏被障碍挡了一下，先用补救任务把彼此重新接住。',
+      feedbackTitle: '先换成温和补救',
+      feedbackText: '这道门没有完全打开，先用补救任务把彼此重新接住。',
     }
   }
 

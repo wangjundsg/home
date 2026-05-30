@@ -19,20 +19,19 @@ export function ChallengeProgressHeader({
   roundState,
   totalCompletedRounds,
   totalRoundCount,
-  gateProfile,
 }: ChallengeProgressHeaderProps) {
   const stageLabel = intimacyStageLabels[stageState.stageKey]
   const stageDescription = intimacyStageDescriptions[stageState.stageKey]
   const stageProgress = Math.min(stageState.completedRounds, stageState.roundCount)
   const totalProgress = Math.min(totalCompletedRounds, totalRoundCount)
   const stagePercent = (stageProgress / stageState.roundCount) * 100
-  const currentRoundLabel = roundState.isBoss ? 'Boss 机关' : `第 ${roundState.roundIndex + 1} 轮`
+  const currentRoundLabel = roundState.isBoss ? 'Boss 收束' : `第 ${roundState.roundIndex + 1} 道小门`
 
   return (
     <section className="pixel-card space-y-4 p-4">
       <div className="flex items-center justify-between gap-3">
         <div>
-          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-warm-500">挑战机关推进</p>
+          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-warm-500">双人默契路线</p>
           <h2 className="mt-1 text-lg font-black text-text-primary">{stageLabel} {stageProgress}/{stageState.roundCount}</h2>
         </div>
         <span className="rounded-2xl bg-pink-100 px-3 py-2 text-xs font-black text-pink-600">
@@ -41,7 +40,7 @@ export function ChallengeProgressHeader({
       </div>
       <p className="text-xs leading-relaxed text-text-muted">{stageDescription}</p>
       <p className="rounded-2xl bg-pink-50 px-3 py-2 text-xs font-black leading-relaxed text-pink-600">
-        单手机轮流玩：A 操作后交给 B，手机只做机关裁判和结果结算。
+        一起看屏幕，轮流完成 A 动作和 B 回应。双方动作完成后，才揭晓当前阶段素材卡。
       </p>
       <div className="grid grid-cols-4 gap-1.5">
         {INTIMACY_STAGE_ORDER.map((key, index) => {
@@ -62,14 +61,9 @@ export function ChallengeProgressHeader({
           {currentRoundLabel} · {challengeMechanicLabels[roundState.mechanicType]}
         </div>
         <div className="rounded-2xl bg-warm-50 px-3 py-2 text-right text-text-muted">
-          难度 {roundState.difficulty}{roundState.attempt > 0 ? ` · 重试 ${roundState.attempt}` : ''}
+          当前 {roundState.activePlayer} 发起
         </div>
       </div>
-      {gateProfile ? (
-        <p className="rounded-2xl bg-pink-50 px-3 py-2 text-xs font-black text-pink-600">
-          {roundState.isBoss ? 'Boss 规则' : '机关规则'}：{gateProfile.pressureLabel}
-        </p>
-      ) : null}
     </section>
   )
 }
