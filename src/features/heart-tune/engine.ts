@@ -39,22 +39,22 @@ export const HEART_TUNE_LEADS: readonly HeartTuneLeadMeta[] = [
 export const HEART_TUNE_RULES: readonly HeartTuneRule[] = [
   {
     key: 'a-decides',
-    label: '听 A 的',
-    description: '争夺时偏向大大怪支持的命题。',
+    label: '听大大怪的',
+    description: '左右同分时，采用大大怪支持的那边。',
     modeDecider: 'A',
     leadDecider: 'A',
   },
   {
     key: 'b-decides',
-    label: '听 B 的',
-    description: '争夺时偏向小怪兽支持的命题。',
+    label: '听小怪兽的',
+    description: '左右同分时，采用小怪兽支持的那边。',
     modeDecider: 'B',
     leadDecider: 'B',
   },
   {
     key: 'turn-decides',
-    label: '轮值拍板',
-    description: '争夺时偏向本轮轮值方支持的命题。',
+    label: '轮到谁谁拍板',
+    description: '左右同分时，采用本轮轮值方支持的那边。',
     modeDecider: 'turn',
     leadDecider: 'turn',
   },
@@ -67,15 +67,15 @@ export const HEART_TUNE_RULES: readonly HeartTuneRule[] = [
   },
   {
     key: 'together-priority',
-    label: '亲近优先',
-    description: '争夺时更偏向双人卡或场景卡。',
+    label: '贴近优先',
+    description: '左右同分时，更偏向双人卡或场景卡。',
     modePriority: ['duo', 'scene', 'response', 'directed'],
     leadDecider: 'turn',
   },
   {
     key: 'fate-decides',
-    label: '命运拍板',
-    description: '争夺时随机采用一个命题。',
+    label: '随机拍板',
+    description: '左右同分时，随机采用其中一边。',
     modeDecider: 'fate',
     leadDecider: 'fate',
   },
@@ -169,8 +169,8 @@ export function drawHeartTuneProposals(previous?: readonly HeartTuneProposal[]):
     : pairs
   const selected = pool[Math.floor(Math.random() * pool.length)] ?? pairs[0]
   return [
-    { ...selected[0], key: 'A', label: '命题 A' },
-    { ...selected[1], key: 'B', label: '命题 B' },
+    { ...selected[0], key: 'A', label: '左命题' },
+    { ...selected[1], key: 'B', label: '右命题' },
   ]
 }
 
@@ -309,10 +309,10 @@ function createRuleSummary(
   usedRule: boolean,
 ): string {
   const scores = getProposalScores(votes, boosts)
-  const scoreText = proposals.map(proposal => `${proposal.key} ${scores[proposal.key]}`).join(' : ')
-  const boostText = Object.values(boosts).some(Boolean) ? '，含加码' : ''
-  if (!usedRule) return `${scoreText}，采用命题 ${selectedProposal.key}${boostText}。`
-  return `${scoreText}，暗牌「${rule.label}」采用命题 ${selectedProposal.key}${boostText}。`
+  const scoreText = proposals.map(proposal => `${proposal.label} ${scores[proposal.key]}`).join(' : ')
+  const boostText = Object.values(boosts).some(Boolean) ? '，加码已计入分数' : ''
+  if (!usedRule) return `${scoreText}，采用${selectedProposal.label}${boostText}。`
+  return `${scoreText}，左右同分时暗牌「${rule.label}」生效，采用${selectedProposal.label}${boostText}。`
 }
 
 function resolveSceneWinners(
@@ -370,8 +370,8 @@ function createProposalPairs(): readonly [HeartTuneProposal, HeartTuneProposal][
     base
       .filter(second => second.mode !== first.mode || second.leadPlayer !== first.leadPlayer)
       .map(second => [
-        { key: 'A', label: '命题 A', ...first },
-        { key: 'B', label: '命题 B', ...second },
+        { key: 'A', label: '左命题', ...first },
+        { key: 'B', label: '右命题', ...second },
       ] as [HeartTuneProposal, HeartTuneProposal]),
   )
 }

@@ -471,7 +471,7 @@ function ProposalDuel({
                   disabled={resultLocked}
                   className={`min-h-[40px] rounded-2xl px-3 text-sm font-black ${votes[player] === proposal.key ? 'bg-pink-500 text-white' : 'bg-white text-text-primary ring-1 ring-pink-100'}`}
                 >
-                  支持 {proposal.key}
+                  支持{proposal.key === 'A' ? '左边' : '右边'}
                 </button>
               ))}
             </div>
@@ -652,12 +652,12 @@ function getProposalModeText(proposal: HeartTuneProposal): string {
 
 function getScenePrompt(scene: HeartTuneScene): string {
   const prompts: Record<HeartTuneScene['key'], string> = {
-    'same-wave': '两个人押同一命题；如果它生效，双方各拿 1 枚印记。',
-    'split-bet': '两个人押不同命题；结果生效的支持者拿 1 枚印记。',
-    'lead-race': '押你认为会生效的主导方；最终主导方拿 1 枚印记。',
-    'give-and-take': '押对方主导的命题；它生效时，支持者拿 1 枚印记。',
-    'close-range': '押双人卡或场景卡；如果这类命题生效，双方各拿 1 枚印记。',
-    'reverse-read': '押非自己主导的命题；它生效时，支持者拿 1 枚印记。',
+    'same-wave': '你们选同一边，命中就都拿印记。',
+    'split-bet': '你们分开押，最终生效的一边拿印记。',
+    'lead-race': '最终谁主导，谁拿印记。',
+    'give-and-take': '押对方主导，押中了就拿印记。',
+    'close-range': '让双人卡/场景卡胜出，双方都拿印记。',
+    'reverse-read': '不是主导方但押中命题，就拿印记。',
   }
   return prompts[scene.key]
 }

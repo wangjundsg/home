@@ -1,6 +1,6 @@
 export type HeartbeatLevel = 'beginner' | 'intermediate' | 'advanced' | 'finale'
 
-export type HeartbeatCellType = 'normal' | 'double' | 'boost' | 'reverse' | 'choice' | 'rest' | 'reward' | 'penalty' | 'reroll'
+export type HeartbeatCellType = 'normal' | 'double' | 'boost' | 'reverse' | 'choice' | 'rest' | 'reward' | 'penalty' | 'reroll' | 'close' | 'advance'
 
 export interface HeartbeatCell {
   index: number
@@ -17,17 +17,38 @@ export interface HeartbeatCellMeta {
 const SEGMENT_SIZE = 40
 
 const CELL_BAG: readonly HeartbeatCellType[] = [
-  'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal',
-  'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal',
+  'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal',
   'double', 'double', 'double', 'double', 'double',
-  'boost', 'boost', 'boost', 'boost', 'boost',
-  'reverse', 'reverse', 'reverse',
-  'choice', 'choice', 'choice',
-  'rest', 'rest', 'rest',
-  'reward', 'reward',
+  'boost', 'boost', 'boost', 'boost',
+  'reverse', 'reverse', 'reverse', 'reverse',
+  'choice', 'choice', 'choice', 'choice',
+  'reward', 'reward', 'reward',
+  'close', 'close', 'close',
+  'advance', 'advance',
+  'rest', 'rest',
   'penalty', 'penalty',
   'reroll',
 ]
+
+export interface HeartbeatProgressMilestone {
+  steps: number
+  label: string
+  description: string
+}
+
+export const heartbeatPersonalMilestones: readonly HeartbeatProgressMilestone[] = [
+  { steps: 20, label: '领先奖励', description: '谁先到 20 步，另一方抽一张当前阶段指向性任务卡。' },
+  { steps: 40, label: '加速奖励', description: '谁先到 40 步，再触发一次当前阶段指向性任务。' },
+  { steps: 60, label: '阶段通关', description: '谁先到 60 步，触发当前阶段通关任务；通关后仍可继续玩。' },
+]
+
+export const heartbeatSharedMilestones: readonly HeartbeatProgressMilestone[] = [
+  { steps: 30, label: '共振任务', description: '两人合计到 30 步，抽一张当前阶段共同任务。' },
+  { steps: 60, label: '升温共振', description: '两人合计到 60 步，再抽一张当前阶段共同任务。' },
+  { steps: 90, label: '深度共振', description: '两人合计到 90 步，再抽一张当前阶段共同任务。' },
+]
+
+export const heartbeatPersonalCompletionStep = 60
 
 export const heartbeatLevelOrder: readonly HeartbeatLevel[] = ['beginner', 'intermediate', 'advanced', 'finale']
 
@@ -100,6 +121,18 @@ export const heartbeatCellMeta: Record<HeartbeatCellType, HeartbeatCellMeta> = {
     description: '派发任务后当前玩家可再掷一次',
     tone: 'bg-sky-50 text-sky-600 ring-sky-100',
   },
+  close: {
+    label: '贴近格',
+    icon: '↘',
+    description: '走得更远的一方回到另一方附近',
+    tone: 'bg-rose-50 text-rose-600 ring-rose-100',
+  },
+  advance: {
+    label: '前进格',
+    icon: '↑',
+    description: '双方共同推进一点心跳进度',
+    tone: 'bg-orange-50 text-orange-600 ring-orange-100',
+  },
 }
 
 export const heartbeatBoosts = [
@@ -170,3 +203,9 @@ export const getLowerHeartbeatLevel = (level: HeartbeatLevel): HeartbeatLevel =>
   const index = heartbeatLevelOrder.indexOf(level)
   return heartbeatLevelOrder[Math.max(0, index - 1)]
 }
+
+export const getNextHeartbeatPersonalMilestone = (claimedSteps: readonly number[] = []): HeartbeatProgressMilestone | undefined =>
+  heartbeatPersonalMilestones.find(milestone => !claimedSteps.includes(milestone.steps))
+
+export const getNextHeartbeatSharedMilestone = (claimedSteps: readonly number[] = []): HeartbeatProgressMilestone | undefined =>
+  heartbeatSharedMilestones.find(milestone => !claimedSteps.includes(milestone.steps))

@@ -160,8 +160,8 @@ body {
 }
 
 .private-flying-player-strip.pixel-card {
-  height: 54px;
-  min-height: 54px;
+  height: 40px;
+  min-height: 40px;
 }
 
 .pixel-page {
