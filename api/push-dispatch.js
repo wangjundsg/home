@@ -46,6 +46,25 @@ const pickPhrase = (phrases, seed) => {
   return phrases[index]
 }
 
+const insertNotifications = async (supabase, recipients, baseKey, sourceAuthor, kind, title, body, route, payload) => {
+  const uniqueRecipients = [...new Set(recipients.map((recipient) => recipient.trim()).filter(Boolean))]
+  if (uniqueRecipients.length === 0) return
+
+  const rows = uniqueRecipients.map((recipient) => ({
+    delivery_key: `${baseKey}:${recipient}`,
+    recipient,
+    source_author: sourceAuthor,
+    kind,
+    title,
+    body,
+    route,
+    payload,
+  }))
+
+  const { error } = await supabase.from('notifications').upsert(rows, { onConflict: 'delivery_key' })
+  if (error) throw error
+}
+
 const authOk = (req) => {
   if (req.headers['x-vercel-cron']) return true
 
@@ -167,6 +186,7 @@ export default async function handler(req, res) {
     let delivered = 0
     let cleaned = 0
     let skippedDuplicated = 0
+    const route = '/'
 
     if (slot === 'morning' || slot === 'night') {
       for (const author of authorSet) {
@@ -196,6 +216,20 @@ export default async function handler(req, res) {
         delivered += outcome.delivered
         cleaned += outcome.cleaned
       }
+
+      await insertNotifications(
+        supabase,
+        [...authorSet],
+        `daily-${slot}-${nowLocal.dateText}`,
+        'system',
+        slot,
+        slot === 'morning' ? '早安，来自小花园' : '晚安，来自小花园',
+        slot === 'morning'
+          ? pickPhrase(morningPhrases, `notify-${nowLocal.dateText}`)
+          : pickPhrase(nightPhrases, `notify-${nowLocal.dateText}`),
+        route,
+        { date: nowLocal.dateText, slot, route },
+      )
     }
 
     res.status(200).json({

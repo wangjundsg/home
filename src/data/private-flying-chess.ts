@@ -36,6 +36,10 @@ export interface HeartbeatProgressMilestone {
   description: string
 }
 
+export const heartbeatPersonalMilestoneInterval = 20
+export const heartbeatSharedMilestoneInterval = 30
+export const heartbeatPersonalCompletionStep = 60
+
 export const heartbeatPersonalMilestones: readonly HeartbeatProgressMilestone[] = [
   { steps: 20, label: '领先奖励', description: '谁先到 20 步，另一方抽一张当前阶段指向性任务卡。' },
   { steps: 40, label: '加速奖励', description: '谁先到 40 步，再触发一次当前阶段指向性任务。' },
@@ -47,8 +51,6 @@ export const heartbeatSharedMilestones: readonly HeartbeatProgressMilestone[] = 
   { steps: 60, label: '升温共振', description: '两人合计到 60 步，再抽一张当前阶段共同任务。' },
   { steps: 90, label: '深度共振', description: '两人合计到 90 步，再抽一张当前阶段共同任务。' },
 ]
-
-export const heartbeatPersonalCompletionStep = 60
 
 export const heartbeatLevelOrder: readonly HeartbeatLevel[] = ['beginner', 'intermediate', 'advanced', 'finale']
 
@@ -204,8 +206,41 @@ export const getLowerHeartbeatLevel = (level: HeartbeatLevel): HeartbeatLevel =>
   return heartbeatLevelOrder[Math.max(0, index - 1)]
 }
 
-export const getNextHeartbeatPersonalMilestone = (claimedSteps: readonly number[] = []): HeartbeatProgressMilestone | undefined =>
-  heartbeatPersonalMilestones.find(milestone => !claimedSteps.includes(milestone.steps))
+const getNextMilestoneStep = (claimedSteps: readonly number[], interval: number): number => {
+  const claimed = new Set(claimedSteps)
+  let step = interval
 
-export const getNextHeartbeatSharedMilestone = (claimedSteps: readonly number[] = []): HeartbeatProgressMilestone | undefined =>
-  heartbeatSharedMilestones.find(milestone => !claimedSteps.includes(milestone.steps))
+  while (claimed.has(step)) {
+    step += interval
+  }
+
+  return step
+}
+
+const getPersonalMilestoneCopy = (steps: number): HeartbeatProgressMilestone => {
+  const preset = heartbeatPersonalMilestones.find(milestone => milestone.steps === steps)
+  if (preset) return preset
+
+  return {
+    steps,
+    label: steps % heartbeatPersonalCompletionStep === 0 ? '阶段通关' : '连续奖励',
+    description: `谁先到 ${steps} 步，触发一次当前阶段指向性任务；通关后仍可继续玩。`,
+  }
+}
+
+const getSharedMilestoneCopy = (steps: number): HeartbeatProgressMilestone => {
+  const preset = heartbeatSharedMilestones.find(milestone => milestone.steps === steps)
+  if (preset) return preset
+
+  return {
+    steps,
+    label: steps % 90 === 0 ? '深度共振' : '连续共振',
+    description: `两人合计到 ${steps} 步，抽一张当前阶段共同任务。`,
+  }
+}
+
+export const getNextHeartbeatPersonalMilestone = (claimedSteps: readonly number[] = []): HeartbeatProgressMilestone =>
+  getPersonalMilestoneCopy(getNextMilestoneStep(claimedSteps, heartbeatPersonalMilestoneInterval))
+
+export const getNextHeartbeatSharedMilestone = (claimedSteps: readonly number[] = []): HeartbeatProgressMilestone =>
+  getSharedMilestoneCopy(getNextMilestoneStep(claimedSteps, heartbeatSharedMilestoneInterval))

@@ -175,7 +175,7 @@ export function RelayStory({ identity, partnerName }: RelayStoryProps) {
       sentence: input.trim(),
       turn_number: nextTurn,
     })
-    if (!error) void notifyPartnerActivity(identity, 'story')
+    if (!error) void notifyPartnerActivity(identity, 'story', partnerName)
     setInput('')
     setSaving(false)
     loadSentences(currentStoryId)

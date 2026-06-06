@@ -20,6 +20,18 @@ const eventCopy = {
     title: 'TA接上了你们的故事',
     body: '故事又往前走了一小步，轮到你把温柔接下去了。',
   },
+  need_hug: {
+    title: 'TA需要被哄一下',
+    body: 'TA现在有点委屈，想要你抱抱、哄哄，快去接住TA。',
+  },
+}
+
+const notificationRouteByCategory = {
+  checkin: '/daily',
+  diary: '/interact/diary',
+  interaction: '/interact',
+  story: '/interact/story',
+  need_hug: '/',
 }
 
 const getLocalDateText = () => {
@@ -61,6 +73,18 @@ const setupWebPush = () => {
   webpush.setVapidDetails(subject, publicKey, privateKey)
 }
 
+const trySetupWebPush = () => {
+  try {
+    setupWebPush()
+    return { ok: true, message: '' }
+  } catch (error) {
+    return {
+      ok: false,
+      message: error instanceof Error ? error.message : 'VAPID setup failed',
+    }
+  }
+}
+
 const insertDeliveryGuard = async (supabase, key, author, category, payload) => {
   const { error } = await supabase.from('push_delivery_logs').insert({
     delivery_key: key,
@@ -72,6 +96,25 @@ const insertDeliveryGuard = async (supabase, key, author, category, payload) => 
   if (!error) return true
   if (error.code === '23505') return false
   throw error
+}
+
+const insertNotifications = async (supabase, recipients, baseKey, sourceAuthor, kind, title, body, route, payload) => {
+  const uniqueRecipients = [...new Set(recipients.map((recipient) => recipient.trim()).filter(Boolean))]
+  if (uniqueRecipients.length === 0) return
+
+  const rows = uniqueRecipients.map((recipient) => ({
+    delivery_key: `${baseKey}:${recipient}`,
+    recipient,
+    source_author: sourceAuthor,
+    kind,
+    title,
+    body,
+    route,
+    payload,
+  }))
+
+  const { error } = await supabase.from('notifications').upsert(rows, { onConflict: 'delivery_key' })
+  if (error) throw error
 }
 
 const sendNotifications = async (supabase, subscriptions, notification) => {
@@ -112,15 +155,16 @@ export default async function handler(req, res) {
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : req.body || {}
     const author = typeof body.author === 'string' ? body.author.trim() : ''
+    const explicitRecipient = typeof body.recipient === 'string' ? body.recipient.trim() : ''
+    const requestedDeliveryKey = typeof body.deliveryKey === 'string' ? body.deliveryKey.trim() : ''
     const category = typeof body.category === 'string' ? body.category : ''
     const copy = eventCopy[category]
 
-    if (!author || author.length > 64 || !copy) {
+    if (!author || author.length > 64 || explicitRecipient.length > 64 || requestedDeliveryKey.length > 160 || !copy) {
       res.status(400).json({ ok: false, message: 'Invalid push event' })
       return
     }
 
-    setupWebPush()
     const supabase = createSupabase()
     const { data: subscriptions, error } = await supabase
       .from('push_subscriptions')
@@ -128,13 +172,20 @@ export default async function handler(req, res) {
       .neq('author', author)
 
     if (error) throw error
-    if (!subscriptions || subscriptions.length === 0) {
-      res.status(200).json({ ok: true, delivered: 0, cleaned: 0, skipped: true })
+    const recipients = [
+      ...new Set([
+        explicitRecipient,
+        ...(subscriptions || []).map((row) => row.author).filter(Boolean),
+      ]),
+    ].filter((recipient) => recipient && recipient !== author)
+
+    if (recipients.length === 0) {
+      res.status(200).json({ ok: true, delivered: 0, cleaned: 0, skipped: true, message: 'No notification recipient' })
       return
     }
 
     const dateText = getLocalDateText()
-    const key = `activity-${category}-${dateText}-${author}`
+    const key = requestedDeliveryKey || `activity-${category}-${dateText}-${author}`
     const isFirst = await insertDeliveryGuard(supabase, key, author, `activity-${category}`, { date: dateText, author })
 
     if (!isFirst) {
@@ -142,15 +193,40 @@ export default async function handler(req, res) {
       return
     }
 
-    const outcome = await sendNotifications(supabase, subscriptions, {
-      title: copy.title,
-      body: copy.body,
-      icon: '/icons/icon-192.png',
-      badge: '/icons/icon-192.png',
-      url: '/',
-    })
+    const route = notificationRouteByCategory[category] || '/'
+    await insertNotifications(
+      supabase,
+      recipients,
+      key,
+      author,
+      category,
+      copy.title,
+      copy.body,
+      route,
+      { date: dateText, author, category, route },
+    )
 
-    res.status(200).json({ ok: true, ...outcome })
+    const pushSetup = trySetupWebPush()
+    const subscribedRecipients = new Set((subscriptions || []).map((row) => row.author).filter(Boolean))
+    const targetSubscriptions = (subscriptions || []).filter((row) => subscribedRecipients.has(row.author))
+    const outcome = pushSetup.ok && targetSubscriptions.length > 0
+      ? await sendNotifications(supabase, targetSubscriptions, {
+        title: copy.title,
+        body: copy.body,
+        icon: '/icons/icon-192.png',
+        badge: '/icons/icon-192.png',
+        url: route,
+        route,
+      })
+      : { delivered: 0, cleaned: 0 }
+
+    res.status(200).json({
+      ok: true,
+      ...outcome,
+      persisted: recipients.length,
+      pushSkipped: !pushSetup.ok || targetSubscriptions.length === 0,
+      pushMessage: pushSetup.ok ? '' : pushSetup.message,
+    })
   } catch (error) {
     res.status(500).json({
       ok: false,

@@ -236,7 +236,7 @@ export function DailyPage({ identity, partnerName, navigate }: DailyPageProps) {
       daily_score: newCount,
     }, { onConflict: 'author,date' })
 
-    if (!checkinError) void notifyPartnerActivity(identity, 'checkin')
+    if (!checkinError) void notifyPartnerActivity(identity, 'checkin', partnerName)
 
     await supabase.from('score_logs').insert({
       author: identity,

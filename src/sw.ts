@@ -27,6 +27,7 @@ type PushPayload = {
   icon?: string
   badge?: string
   url?: string
+  route?: string
 }
 
 self.addEventListener('push', (event) => {
@@ -42,7 +43,7 @@ self.addEventListener('push', (event) => {
     body: payload.body,
     icon: payload.icon,
     badge: payload.badge,
-    data: { url: payload.url ?? '/' },
+    data: { url: payload.route ?? payload.url ?? '/' },
   })
 
   if (!event.data) {

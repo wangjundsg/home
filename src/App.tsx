@@ -1,9 +1,10 @@
-import { useState, useMemo, useCallback } from 'react'
-import { CheckCircle, FileText, CalendarHeart, Sprout, MessageSquare, Cake, BarChart3, CalendarDays, Heart, Settings, Gift } from 'lucide-react'
+import { useEffect, useState, useMemo, useCallback } from 'react'
+import { CheckCircle, FileText, CalendarHeart, Sprout, MessageSquare, Cake, BarChart3, CalendarDays, Heart, Settings, Gift, Bell } from 'lucide-react'
 import { useIdentity } from './hooks/useIdentity'
 import { useMigration } from './hooks/useMigration'
 import { useWarmReminders } from './hooks/useWarmReminders'
 import { useDataWarmup } from './hooks/useDataWarmup'
+import { useNotificationInbox } from './features/notifications/useNotificationInbox'
 import { Header } from './components/ui/Header'
 import { BottomNav } from './components/ui/BottomNav'
 import { OnboardingPage } from './pages/OnboardingPage'
@@ -24,6 +25,7 @@ import { EmotionStationPage } from './pages/EmotionStationPage'
 import { InteractionMaterialsPage } from './pages/InteractionMaterialsPage'
 import { InteractionMaterialLibraryPage } from './pages/InteractionMaterialLibraryPage'
 import { OfflineGamesPage } from './pages/OfflineGamesPage'
+import { NotificationsPage } from './pages/NotificationsPage'
 import { PrivateFlyingChessPage } from './pages/PrivateFlyingChessPage'
 import { TwoPlayerChallengePage } from './pages/TwoPlayerChallengePage'
 import { FoodDecisionPage } from './pages/FoodDecisionPage'
@@ -43,6 +45,7 @@ const SUB_SCREENS: Record<string, string> = {
   '/growth': '成长层',
   '/phrases': '启动句库',
   '/anniversary': '纪念日',
+  '/notifications': '消息中心',
   '/points-log': '积分明细',
   '/period': '经期记录',
   '/intimacy': '爱爱记录',
@@ -67,14 +70,44 @@ const SUB_SCREENS: Record<string, string> = {
 
 const MENU_SCREENS = Object.entries(SUB_SCREENS).filter(([key]) => !key.startsWith('/interact/') && !key.startsWith('/emotion/'))
 
+function normalizeScreen(route: string) {
+  const path = route.split('?')[0] || '/'
+  return path in MAIN_SCREENS || path in SUB_SCREENS ? path : '/'
+}
+
+function getInitialScreen() {
+  if (typeof window === 'undefined') return '/'
+  return normalizeScreen(window.location.pathname)
+}
+
+function syncBrowserPath(route: string, mode: 'push' | 'replace' = 'push') {
+  if (typeof window === 'undefined') return
+  const nextPath = normalizeScreen(route)
+  if (window.location.pathname === nextPath) return
+  const method = mode === 'replace' ? 'replaceState' : 'pushState'
+  window.history[method](null, '', nextPath)
+}
+
 export default function App() {
   const { identity, partnerName, setIdentity, setPartnerName, ready } = useIdentity()
   const { hasV1Data, migrating, migrated, migratedCount, migrate, skip } = useMigration(identity)
   const { reminder: warmReminder } = useWarmReminders(identity, partnerName)
   useDataWarmup(identity)
-  const [screen, setScreen] = useState('/')
+  const { unreadCount } = useNotificationInbox(identity)
+  const [screen, setScreen] = useState(getInitialScreen)
   const [screenHistory, setScreenHistory] = useState<string[]>([])
   const [showMenu, setShowMenu] = useState(false)
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setScreen(normalizeScreen(window.location.pathname))
+      setScreenHistory([])
+      setShowMenu(false)
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
 
   const currentTitle = useMemo(() => {
     return MAIN_SCREENS[screen] || SUB_SCREENS[screen] || ''
@@ -85,25 +118,31 @@ export default function App() {
   const isEmotionScreen = screen.startsWith('/emotion/')
 
   const navigate = useCallback((route: string) => {
+    const nextScreen = normalizeScreen(route)
     setScreenHistory(prev => [...prev, screen])
-    setScreen(route)
+    setScreen(nextScreen)
     setShowMenu(false)
+    syncBrowserPath(nextScreen)
   }, [screen])
 
   const goBack = useCallback(() => {
     if (screenHistory.length === 0) {
       setScreen('/')
+      syncBrowserPath('/', 'replace')
       return
     }
     const last = screenHistory[screenHistory.length - 1]
     setScreenHistory(prev => prev.slice(0, -1))
     setScreen(last)
+    syncBrowserPath(last, 'replace')
   }, [screenHistory])
 
   const navigateTab = useCallback((route: string) => {
+    const nextScreen = normalizeScreen(route)
     setScreenHistory([])
-    setScreen(route)
+    setScreen(nextScreen)
     setShowMenu(false)
+    syncBrowserPath(nextScreen)
   }, [])
 
   if (!ready) {
@@ -172,6 +211,7 @@ export default function App() {
       case '/growth': return <GrowthPage identity={identity} partnerName={partnerName} navigate={navigate} />
       case '/phrases': return <PhrasesPage identity={identity} navigate={navigate} />
       case '/anniversary': return <AnniversaryPage identity={identity} navigate={navigate} />
+      case '/notifications': return <NotificationsPage identity={identity} navigate={navigate} />
       case '/points-log': return <PointsLogPage identity={identity} navigate={navigate} />
       case '/period': return <PeriodPage identity={identity} navigate={navigate} />
       case '/intimacy': return <IntimacyPage identity={identity} navigate={navigate} />
@@ -215,7 +255,9 @@ export default function App() {
           onMenu={() => setShowMenu(!showMenu)}
           showSettings={isMainScreen}
           onSettings={() => navigate('/settings')}
-          identity={identity}
+          showNotifications
+          unreadCount={unreadCount}
+          onNotifications={() => navigate('/notifications')}
         />
       )}
       <main className={`min-h-0 flex-1 w-full max-w-full overflow-x-hidden page-enter ${isEmotionScreen ? 'emotion-screen-content overflow-hidden pt-0' : `pt-1 ${isMainScreen ? 'main-screen-content' : 'overflow-y-auto'}`}`}>
@@ -258,6 +300,7 @@ function getMenuIcon(key: string) {
     case '/growth': return <Sprout size={size} className={className} />
     case '/phrases': return <MessageSquare size={size} className={className} />
     case '/anniversary': return <Cake size={size} className={className} />
+    case '/notifications': return <Bell size={size} className={className} />
     case '/points-log': return <BarChart3 size={size} className={className} />
     case '/period': return <CalendarDays size={size} className={className} />
     case '/intimacy': return <Heart size={size} className={className} />

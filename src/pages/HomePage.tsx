@@ -7,6 +7,7 @@ import { EmotionCharacterCard } from '../components/emotion/EmotionCharacterCard
 import { useCoupleEmotionState } from '../hooks/useCoupleEmotionState'
 import { EMOTION_CATEGORIES } from '../data/emotion-character-states'
 import { readCache, writeCache } from '../utils/localCache'
+import { notifyPartnerActivity } from '../utils/pushEvents'
 
 interface HomePageProps {
   identity: Identity
@@ -30,6 +31,7 @@ interface Anniversary {
 
 const RELATIONSHIP_START_DATE = '2024-05-20'
 const HOME_EMOTION_BUBBLE_KEY = 'qinggan_home_emotion_bubble'
+const NEED_HUG_BUBBLE_TEXT = '我现在有点委屈，想被你哄一下'
 
 function getStoredMeeting() {
   const stored = localStorage.getItem('qinggan_meeting_date')
@@ -115,7 +117,7 @@ function daysUntilNext(dateStr: string) {
   return Math.ceil((target.getTime() - new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime()) / (1000 * 60 * 60 * 24))
 }
 
-export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProps) {
+export function HomePage({ identity, partnerName, navigate, warmReminder = '' }: HomePageProps) {
   const [toast, setToast] = useState('')
   const [toastType, setToastType] = useState<'success' | 'error'>('success')
   const [meetingDate, setMeetingDate] = useState<string | null>(() => getStoredMeeting().meetingDate)
@@ -129,6 +131,7 @@ export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProp
     saving: emotionSaving,
     error: emotionError,
     clearError: clearEmotionError,
+    saveState,
   } = useCoupleEmotionState(identity)
 
   const loadAll = useCallback(async () => {
@@ -200,6 +203,18 @@ export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProp
     return () => window.clearTimeout(timeoutId)
   }, [emotionBubble])
 
+  const handleNeedHugPress = useCallback(async () => {
+    if (emotionSaving) return
+
+    const saved = await saveState('need_hug')
+    if (!saved) return
+
+    setEmotionBubble(NEED_HUG_BUBBLE_TEXT)
+    setToastType('success')
+    setToast('已发出需要被哄提醒')
+    void notifyPartnerActivity(identity, 'need_hug', partnerName)
+  }, [emotionSaving, identity, partnerName, saveState])
+
   return (
     <div className="home-stitch-page relative h-full w-full max-w-full overflow-hidden">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
@@ -259,8 +274,20 @@ export function HomePage({ identity, navigate, warmReminder = '' }: HomePageProp
 
         <section className="home-emotion-card min-h-0 flex-1">
           <div className="home-emotion-title-row">
-            <Heart size={18} fill="currentColor" />
-            <h2>情绪修理站</h2>
+            <div className="home-emotion-title-copy">
+              <Heart size={18} fill="currentColor" />
+              <h2>情绪修理站</h2>
+            </div>
+            <button
+              type="button"
+              className={`home-emotion-urgent-button ui-touch-target ${emotionState.id === 'need_hug' ? 'is-active' : ''}`}
+              aria-pressed={emotionState.id === 'need_hug'}
+              disabled={emotionSaving}
+              onClick={handleNeedHugPress}
+            >
+              <Heart size={14} fill="currentColor" />
+              <span>{emotionState.id === 'need_hug' ? '已在哄' : '需要被哄'}</span>
+            </button>
           </div>
           <div className="home-emotion-list">
             {EMOTION_CATEGORIES.map(category => {

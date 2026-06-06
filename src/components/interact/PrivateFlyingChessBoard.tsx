@@ -8,19 +8,15 @@ import {
   getNextHeartbeatSharedMilestone,
   heartbeatBoosts,
   heartbeatCellMeta,
-  heartbeatPersonalCompletionStep,
   heartbeatChoices,
   heartbeatPenalties,
-  heartbeatPersonalMilestones,
   heartbeatRewards,
-  heartbeatSharedMilestones,
   type HeartbeatProgressMilestone,
   type HeartbeatCell,
   type HeartbeatLevel,
 } from '../../data/private-flying-chess'
 import { getRandomMaterial, type InteractionMaterial } from '../../data/interact-materials'
 import {
-  drawMaterial,
   drawMaterialForLead,
   renderHeartTuneCard,
   type HeartTuneMaterial,
@@ -35,18 +31,21 @@ interface PrivateFlyingChessBoardProps {
 }
 
 interface HeartbeatResult {
-  player: 'A' | 'B'
-  partner: 'A' | 'B'
+  player: PlayerKey
+  partner: PlayerKey
   roll: number
   position: number
   cell: HeartbeatCell
   level: HeartbeatLevel
-  material?: InteractionMaterial
-  secondMaterial?: InteractionMaterial
+  draw?: HeartbeatCardDraw
+  secondDraw?: HeartbeatCardDraw
+  fallbackMaterial?: InteractionMaterial
+  secondFallbackMaterial?: InteractionMaterial
   effect?: string
   addon?: string
   retainTurn?: boolean
   choicePending?: boolean
+  rewardPending?: boolean
   progressEvent?: HeartbeatProgressEvent
   movementNote?: string
 }
@@ -54,16 +53,58 @@ interface HeartbeatResult {
 type TurnPhase = 'idle' | 'rolling' | 'moving' | 'revealing'
 
 type PlayerKey = 'A' | 'B'
-type ChoiceAction = 'normal' | 'lower' | 'swap'
+type ChoiceAction = 'normal' | 'lower' | 'swap' | HeartTuneMode
 type HeartbeatProgressEventType = 'personal' | 'shared'
+
+interface HeartbeatCardDrawInput {
+  cellType: HeartbeatCell['type']
+  level: HeartbeatLevel
+  roller: PlayerKey
+  partner: PlayerKey
+  positions: Record<PlayerKey, number>
+  forcedMode?: HeartTuneMode
+  levelOverride?: HeartbeatLevel
+}
+
+interface HeartbeatMilestoneDrawInput {
+  type: HeartbeatProgressEventType
+  level: HeartbeatLevel
+  triggerPlayer: PlayerKey
+  follower?: PlayerKey
+  forcedMode?: HeartTuneMode
+}
+
+interface HeartbeatCardDraw {
+  cellType?: HeartbeatCell['type']
+  stage: HeartTuneStage
+  level: HeartbeatLevel
+  primaryMode: HeartTuneMode | null
+  secondMode?: HeartTuneMode
+  leadPlayer: PlayerKey
+  responsePlayer: PlayerKey | null
+  triggerPlayer: PlayerKey
+  shared: boolean
+  needsChoice: boolean
+  roleSummary: string
+  material?: HeartTuneMaterial
+  secondMaterial?: HeartTuneMaterial
+  fallbackMaterial?: InteractionMaterial
+  secondFallbackMaterial?: InteractionMaterial
+}
 
 interface HeartbeatProgressEvent {
   type: HeartbeatProgressEventType
   milestone: HeartbeatProgressMilestone
   player?: PlayerKey
   follower?: PlayerKey
-  material: HeartTuneMaterial
-  leadPlayer: PlayerKey
+  draw: HeartbeatCardDraw
+}
+
+interface OpeningRollState {
+  ready: boolean
+  rolls: Record<PlayerKey, number> | null
+  winner: PlayerKey | null
+  tied: boolean
 }
 
 const MAP_COLUMNS = 5
@@ -71,7 +112,7 @@ const MAP_ROWS = 5
 const VISIBLE_CELL_COUNT = MAP_COLUMNS * MAP_ROWS
 const DICE_FACES = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'] as const
 
-const pickRandom = (items: readonly string[]) => items[Math.floor(Math.random() * items.length)]
+const pickRandom = <T,>(items: readonly T[]): T => items[Math.floor(Math.random() * items.length)]
 const heartbeatStageMap: Record<HeartbeatLevel, HeartTuneStage> = {
   beginner: 'flirt',
   intermediate: 'foreplay',
@@ -80,6 +121,7 @@ const heartbeatStageMap: Record<HeartbeatLevel, HeartTuneStage> = {
 }
 const personalEventModes: readonly HeartTuneMode[] = ['directed', 'response']
 const sharedEventModes: readonly HeartTuneMode[] = ['duo', 'scene']
+const rewardChoiceModes: readonly HeartTuneMode[] = ['directed', 'response', 'duo', 'scene']
 
 export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: PrivateFlyingChessBoardProps) {
   const [board, setBoard] = useState<HeartbeatCell[]>(() => generateHeartbeatSegment(0))
@@ -90,6 +132,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
   const [phase, setPhase] = useState<TurnPhase>('idle')
   const [dicePreview, setDicePreview] = useState(1)
   const [result, setResult] = useState<HeartbeatResult | null>(null)
+  const [openingRoll, setOpeningRoll] = useState<OpeningRollState>(() => createInitialOpeningRoll(level))
   const [animationWindowStart, setAnimationWindowStart] = useState<number | null>(null)
   const [claimedPersonalMilestones, setClaimedPersonalMilestones] = useState<Record<PlayerKey, number[]>>({ A: [], B: [] })
   const [claimedSharedMilestones, setClaimedSharedMilestones] = useState<number[]>([])
@@ -104,6 +147,14 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
   const leader = positions.A >= positions.B ? 'A' : 'B'
   const nextPersonalMilestone = getNextHeartbeatPersonalMilestone(claimedPersonalMilestones[leader])
   const nextSharedMilestone = getNextHeartbeatSharedMilestone(claimedSharedMilestones)
+  const personalProgressBase = Math.max(0, nextPersonalMilestone.steps - 20)
+  const personalProgressRange = nextPersonalMilestone.steps - personalProgressBase
+  const sharedProgressBase = Math.max(0, nextSharedMilestone.steps - 30)
+  const sharedProgressRange = nextSharedMilestone.steps - sharedProgressBase
+  const personalProgressPercent = Math.max(0, Math.min(100, ((Math.max(positions.A, positions.B) - personalProgressBase) / personalProgressRange) * 100))
+  const sharedProgressPercent = Math.max(0, Math.min(100, ((sharedSteps - sharedProgressBase) / sharedProgressRange) * 100))
+  const shouldRollForOpening = shouldContinueOpeningRoll(level, openingRoll, positions)
+  const shouldShowOpening = shouldShowOpeningRoll(level, openingRoll, positions)
 
   const visibleCells = useMemo(() => {
     return board.slice(visibleStart, visibleStart + VISIBLE_CELL_COUNT)
@@ -132,6 +183,25 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
   const rollDice = async () => {
     if (phase !== 'idle') return
 
+    if (shouldRollForOpening) {
+      const rolls = {
+        A: Math.floor(Math.random() * 6) + 1,
+        B: Math.floor(Math.random() * 6) + 1,
+      }
+      const openingResult = resolveOpeningRoll(rolls)
+
+      setDicePreview(rolls[openingResult.winner ?? 'A'])
+      setOpeningRoll({
+        ready: !openingResult.tied,
+        rolls,
+        winner: openingResult.winner,
+        tied: openingResult.tied,
+      })
+      setCurrentPlayer(openingResult.winner ?? 'A')
+      setResult(null)
+      return
+    }
+
     clearTimers()
     const runId = runIdRef.current + 1
     runIdRef.current = runId
@@ -153,7 +223,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
       claimedSharedMilestones,
     )
     const resolved = withProgressEvent(
-      resolveHeartbeatCell(cell, rollingPlayer, partner, roll, nextPosition, level, resolvedMovement.note),
+      resolveHeartbeatCell(cell, rollingPlayer, partner, roll, nextPosition, level, positions, resolvedMovement.note),
       progressEvent,
     )
     const fixedWindowStart = Math.max(0, startPosition - 8)
@@ -219,7 +289,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
         ? '棋子前进中'
         : phase === 'revealing'
           ? '任务卡出现中'
-          : '掷骰 / 再掷一次'
+          : shouldRollForOpening ? '比大小决定先手' : '掷骰 / 再掷一次'
 
   return (
     <div className="flex flex-col gap-2">
@@ -235,23 +305,23 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
         <div className="mb-2 flex items-center justify-between gap-3">
           <p className="text-xs font-black text-warm-500">心跳地图</p>
           <div className="rounded-full bg-warm-100 px-3 py-1 text-xs font-black text-warm-600">
-            {playerNames.A} {positions.A}/{heartbeatPersonalCompletionStep} · {playerNames.B} {positions.B}/{heartbeatPersonalCompletionStep}
+            {playerNames.A} {positions.A}步 · {playerNames.B} {positions.B}步
           </div>
         </div>
         <div className="mb-2 grid gap-2 rounded-2xl bg-white/70 px-3 py-2 ring-1 ring-warm-100">
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2">
             <p className="text-[10px] font-black text-warm-600">个人</p>
             <div className="h-2 overflow-hidden rounded-full bg-warm-100">
-              <div className="h-full rounded-full bg-warm-500 transition-all" style={{ width: `${Math.min(100, (Math.max(positions.A, positions.B) / heartbeatPersonalCompletionStep) * 100)}%` }} />
+              <div className="h-full rounded-full bg-warm-500 transition-all" style={{ width: `${personalProgressPercent}%` }} />
             </div>
-            <p className="text-[10px] font-black text-warm-600">{nextPersonalMilestone ? `${nextPersonalMilestone.steps}步 ${nextPersonalMilestone.label}` : '可继续玩'}</p>
+            <p className="text-[10px] font-black text-warm-600">下次 {nextPersonalMilestone.steps}步 {nextPersonalMilestone.label}</p>
           </div>
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2">
             <p className="text-[10px] font-black text-pink-600">共同</p>
             <div className="h-2 overflow-hidden rounded-full bg-pink-100">
-              <div className="h-full rounded-full bg-pink-500 transition-all" style={{ width: `${Math.min(100, (sharedSteps / (nextSharedMilestone?.steps ?? heartbeatSharedMilestones.at(-1)?.steps ?? 180)) * 100)}%` }} />
+              <div className="h-full rounded-full bg-pink-500 transition-all" style={{ width: `${sharedProgressPercent}%` }} />
             </div>
-            <p className="text-[10px] font-black text-pink-600">{nextSharedMilestone ? `共${nextSharedMilestone.steps}步 ${nextSharedMilestone.label}` : '共振已满'}</p>
+            <p className="text-[10px] font-black text-pink-600">下次 共{nextSharedMilestone.steps}步 {nextSharedMilestone.label}</p>
           </div>
         </div>
 
@@ -290,7 +360,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
       </section>
 
       <section className="pixel-card p-4">
-        <ResultPanel phase={phase} result={result} currentPlayer={currentPlayer} playerNames={playerNames} onChoice={choice => {
+        <ResultPanel phase={phase} result={result} currentPlayer={currentPlayer} playerNames={playerNames} openingRoll={openingRoll} useOpeningRoll={shouldShowOpening} onChoice={choice => {
           if (!result?.choicePending) return
           setResult(resolveHeartbeatChoice(result, choice, level))
         }} />
@@ -309,6 +379,181 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
   )
 }
 
+export function createHeartbeatCellDraw(input: HeartbeatCardDrawInput): HeartbeatCardDraw {
+  const stage = heartbeatStageMap[input.levelOverride ?? input.level]
+  const mode = getCellPrimaryMode(input)
+  const leadPlayer = getCellLeadPlayer(input, mode)
+  const responsePlayer = getCellResponsePlayer(input, mode, leadPlayer)
+  const shared = mode === 'duo' || mode === 'scene'
+  const baseDraw: HeartbeatCardDraw = {
+    cellType: input.cellType,
+    stage,
+    level: input.levelOverride ?? input.level,
+    primaryMode: mode,
+    secondMode: input.cellType === 'double' ? 'response' : undefined,
+    leadPlayer,
+    responsePlayer,
+    triggerPlayer: input.roller,
+    shared,
+    needsChoice: input.cellType === 'choice' || input.cellType === 'reward',
+    roleSummary: createHeartbeatRoleSummary(input.cellType, mode, input.roller, leadPlayer, responsePlayer, shared),
+  }
+
+  if (!mode) return baseDraw
+
+  const material = drawHeartbeatMaterial(stage, mode, leadPlayer)
+  const secondMaterial = input.cellType === 'double'
+    ? drawHeartbeatMaterial(stage, 'response', input.partner)
+    : undefined
+
+  return {
+    ...baseDraw,
+    material: material.material,
+    fallbackMaterial: material.fallbackMaterial,
+    secondMaterial: secondMaterial?.material,
+    secondFallbackMaterial: secondMaterial?.fallbackMaterial,
+  }
+}
+
+export function createHeartbeatMilestoneDraw(input: HeartbeatMilestoneDrawInput): HeartbeatCardDraw {
+  const stage = heartbeatStageMap[input.level]
+  const mode = input.forcedMode ?? pickRandom(input.type === 'personal' ? personalEventModes : sharedEventModes)
+  const shared = mode === 'duo' || mode === 'scene'
+  const leadPlayer = getMilestoneLeadPlayer(input, mode)
+  const responsePlayer = input.type === 'personal' && mode === 'response'
+    ? input.follower ?? (input.triggerPlayer === 'A' ? 'B' : 'A')
+    : null
+  const material = drawHeartbeatMaterial(stage, mode, leadPlayer)
+
+  return {
+    stage,
+    level: input.level,
+    primaryMode: mode,
+    leadPlayer,
+    responsePlayer,
+    triggerPlayer: input.triggerPlayer,
+    shared,
+    needsChoice: false,
+    roleSummary: createHeartbeatMilestoneRoleSummary(input, mode, leadPlayer, responsePlayer, shared),
+    material: material.material,
+    fallbackMaterial: material.fallbackMaterial,
+  }
+}
+
+export function resolveOpeningRoll(rolls: Record<PlayerKey, number>): { winner: PlayerKey | null, tied: boolean } {
+  if (rolls.A === rolls.B) return { winner: null, tied: true }
+  return { winner: rolls.A > rolls.B ? 'A' : 'B', tied: false }
+}
+
+export function shouldUseOpeningRoll(level: HeartbeatLevel): boolean {
+  return level === 'beginner'
+}
+
+export function shouldShowOpeningRoll(level: HeartbeatLevel, openingRoll: OpeningRollState, positions: Record<PlayerKey, number>): boolean {
+  return shouldUseOpeningRoll(level) && Boolean(openingRoll.rolls) && positions.A === 0 && positions.B === 0
+}
+
+export function shouldContinueOpeningRoll(level: HeartbeatLevel, openingRoll: OpeningRollState, positions: Record<PlayerKey, number>): boolean {
+  return shouldUseOpeningRoll(level) && !openingRoll.ready && positions.A === 0 && positions.B === 0
+}
+
+function createInitialOpeningRoll(level: HeartbeatLevel): OpeningRollState {
+  return shouldUseOpeningRoll(level)
+    ? { ready: false, rolls: null, winner: null, tied: false }
+    : { ready: true, rolls: null, winner: null, tied: false }
+}
+
+export function createOpeningRollSummary(openingRoll: OpeningRollState, playerNames: Record<PlayerKey, string>): string {
+  if (!openingRoll.rolls) return '比大小不移动、不抽卡、不计步。'
+
+  const scoreText = `${playerNames.A} ${openingRoll.rolls.A} · ${playerNames.B} ${openingRoll.rolls.B}`
+  if (openingRoll.tied) return `${scoreText}，平局，再比一次。`
+  if (openingRoll.winner) return `${scoreText}，${playerNames[openingRoll.winner]}先手。`
+  return scoreText
+}
+
+function getCellPrimaryMode(input: HeartbeatCardDrawInput): HeartTuneMode | null {
+  if (input.forcedMode) return input.forcedMode
+
+  switch (input.cellType) {
+    case 'rest':
+    case 'choice':
+    case 'reward':
+      return null
+    case 'penalty':
+      return 'directed'
+    case 'close':
+      return 'duo'
+    case 'advance':
+      return 'scene'
+    default:
+      return 'directed'
+  }
+}
+
+function getCellLeadPlayer(input: HeartbeatCardDrawInput, mode: HeartTuneMode | null): PlayerKey {
+  if (input.cellType === 'reverse') return input.partner
+  if (input.cellType === 'penalty' && mode === 'response') return input.partner
+  return input.roller
+}
+
+function getCellResponsePlayer(input: HeartbeatCardDrawInput, mode: HeartTuneMode | null, leadPlayer: PlayerKey): PlayerKey | null {
+  if (mode !== 'response') return input.cellType === 'penalty' ? input.roller : null
+  if (input.cellType === 'penalty') return input.roller
+  return leadPlayer === 'A' ? 'B' : 'A'
+}
+
+function getMilestoneLeadPlayer(input: HeartbeatMilestoneDrawInput, mode: HeartTuneMode): PlayerKey {
+  if (input.type === 'shared') return input.triggerPlayer
+  const follower = input.follower ?? (input.triggerPlayer === 'A' ? 'B' : 'A')
+  if (mode === 'response') return input.triggerPlayer
+  return follower
+}
+
+function drawHeartbeatMaterial(stage: HeartTuneStage, mode: HeartTuneMode, leadPlayer: PlayerKey): { material?: HeartTuneMaterial, fallbackMaterial?: InteractionMaterial } {
+  try {
+    return { material: drawMaterialForLead(stage, mode, leadPlayer, []) }
+  } catch {
+    const fallbackLevel = getHeartbeatLevelByStage(stage)
+    return { fallbackMaterial: getRandomMaterial({ level: fallbackLevel }) }
+  }
+}
+
+function getHeartbeatLevelByStage(stage: HeartTuneStage): HeartbeatLevel {
+  const entry = Object.entries(heartbeatStageMap).find(([, value]) => value === stage)
+  return (entry?.[0] ?? 'beginner') as HeartbeatLevel
+}
+
+function createHeartbeatRoleSummary(
+  cellType: HeartbeatCell['type'],
+  mode: HeartTuneMode | null,
+  roller: PlayerKey,
+  leadPlayer: PlayerKey,
+  responsePlayer: PlayerKey | null,
+  shared: boolean,
+): string {
+  if (cellType === 'rest') return '休息格：本回合不抽任务。'
+  if (cellType === 'choice') return '选择格：掷骰者先决定正常、降档或换主导。'
+  if (cellType === 'reward') return '奖励格：掷骰者先选择主动、回应、双人或场景。'
+  if (shared) return '共同执行：两人一起完成这张卡。'
+  if (cellType === 'penalty' && mode === 'response' && responsePlayer) return `${roller} 踩到惩罚：${leadPlayer} 发起要求，${responsePlayer} 必须回应。`
+  if (cellType === 'penalty') return `${roller} 踩到惩罚：${leadPlayer} 主动完成，并追加惩罚条件。`
+  if (mode === 'response' && responsePlayer) return `${leadPlayer} 发起要求，${responsePlayer} 回应。`
+  return `${leadPlayer} 主导，对方配合。`
+}
+
+function createHeartbeatMilestoneRoleSummary(
+  _input: HeartbeatMilestoneDrawInput,
+  mode: HeartTuneMode,
+  leadPlayer: PlayerKey,
+  responsePlayer: PlayerKey | null,
+  shared: boolean,
+): string {
+  if (shared) return '共同里程碑：两人一起完成这张共同任务。'
+  if (mode === 'response' && responsePlayer) return `个人里程碑：${leadPlayer} 发起要求，${responsePlayer} 作为落后方回应。`
+  return `个人里程碑：${leadPlayer} 作为落后方主动获得一次任务机会。`
+}
+
 function resolveHeartbeatCell(
   cell: HeartbeatCell,
   player: PlayerKey,
@@ -316,6 +561,7 @@ function resolveHeartbeatCell(
   roll: number,
   position: number,
   level: HeartbeatLevel,
+  positions: Record<PlayerKey, number>,
   movementNote?: string,
 ): HeartbeatResult {
   const baseResult: HeartbeatResult = {
@@ -327,10 +573,18 @@ function resolveHeartbeatCell(
     level,
     movementNote,
   }
+  const drawInput: HeartbeatCardDrawInput = {
+    cellType: cell.type,
+    level,
+    roller: player,
+    partner,
+    positions,
+  }
 
   if (cell.type === 'rest') {
     return {
       ...baseResult,
+      draw: createHeartbeatCellDraw(drawInput),
       effect: '休息格：这一格不抽卡，自然缓一缓。想继续就直接再掷骰。',
     }
   }
@@ -338,25 +592,26 @@ function resolveHeartbeatCell(
   if (cell.type === 'choice') {
     return {
       ...baseResult,
+      draw: createHeartbeatCellDraw(drawInput),
       effect: pickRandom(heartbeatChoices),
       choicePending: true,
     }
   }
 
   if (cell.type === 'reward') {
-    const lowerLevel = getLowerHeartbeatLevel(level)
     return {
       ...baseResult,
-      level: lowerLevel,
-      material: getRandomMaterial({ level: lowerLevel }),
+      draw: createHeartbeatCellDraw(drawInput),
       effect: pickRandom(heartbeatRewards),
+      rewardPending: true,
     }
   }
 
   if (cell.type === 'penalty') {
+    const mode = pickRandom(personalEventModes)
     return {
       ...baseResult,
-      material: getRandomMaterial({ level }),
+      draw: createHeartbeatCellDraw({ ...drawInput, forcedMode: mode }),
       addon: pickRandom(heartbeatPenalties),
     }
   }
@@ -364,7 +619,7 @@ function resolveHeartbeatCell(
   if (cell.type === 'boost') {
     return {
       ...baseResult,
-      material: getRandomMaterial({ level }),
+      draw: createHeartbeatCellDraw(drawInput),
       addon: pickRandom(heartbeatBoosts),
     }
   }
@@ -374,24 +629,23 @@ function resolveHeartbeatCell(
       ...baseResult,
       player: partner,
       partner: player,
-      material: getRandomMaterial({ level }),
-      effect: '反转格：本回合卡片里的“玩家”与“伴侣”身份互换。',
+      draw: createHeartbeatCellDraw(drawInput),
+      effect: '反转格：本回合由对方获得主导权。',
     }
   }
 
   if (cell.type === 'double') {
     return {
       ...baseResult,
-      material: getRandomMaterial({ level }),
-      secondMaterial: getRandomMaterial({ level }),
-      effect: '双抽格：抽两张，你们现场二选一。',
+      draw: createHeartbeatCellDraw(drawInput),
+      effect: '双抽格：抽一张主动卡和一张回应卡，掷骰者现场二选一。',
     }
   }
 
   if (cell.type === 'reroll') {
     return {
       ...baseResult,
-      material: getRandomMaterial({ level }),
+      draw: createHeartbeatCellDraw(drawInput),
       retainTurn: true,
       addon: '再掷格：派发这张后，当前玩家保留回合，可以立刻再掷一次。',
     }
@@ -400,7 +654,7 @@ function resolveHeartbeatCell(
   if (cell.type === 'close') {
     return {
       ...baseResult,
-      material: getRandomMaterial({ level }),
+      draw: createHeartbeatCellDraw(drawInput),
       effect: '贴近格：走得更远的一方回到另一方附近，再完成这一张靠近任务。',
     }
   }
@@ -408,14 +662,14 @@ function resolveHeartbeatCell(
   if (cell.type === 'advance') {
     return {
       ...baseResult,
-      material: getRandomMaterial({ level }),
+      draw: createHeartbeatCellDraw(drawInput),
       effect: '前进格：两个人一起向前推进 1 步，心跳旅程更快到达奖励点。',
     }
   }
 
   return {
     ...baseResult,
-    material: getRandomMaterial({ level }),
+    draw: createHeartbeatCellDraw(drawInput),
   }
 }
 
@@ -462,16 +716,13 @@ function resolveProgressEvent(
   claimedPersonalMilestones: Record<PlayerKey, number[]>,
   claimedSharedMilestones: number[],
 ): HeartbeatProgressEvent | undefined {
-  const stage = heartbeatStageMap[level]
   const partner = rollingPlayer === 'A' ? 'B' : 'A'
   const playersByPriority: readonly PlayerKey[] = [rollingPlayer, partner]
 
   for (const player of playersByPriority) {
-    const milestone = heartbeatPersonalMilestones
-      .filter(item => !claimedPersonalMilestones[player].includes(item.steps))
-      .find(item => previousPositions[player] < item.steps && nextPositions[player] >= item.steps)
+    const milestone = getNextHeartbeatPersonalMilestone(claimedPersonalMilestones[player])
 
-    if (milestone) {
+    if (previousPositions[player] < milestone.steps && nextPositions[player] >= milestone.steps) {
       const follower = player === 'A' ? 'B' : 'A'
       const mode = personalEventModes[Math.floor(Math.random() * personalEventModes.length)]
       return {
@@ -479,26 +730,33 @@ function resolveProgressEvent(
         milestone,
         player,
         follower,
-        material: drawMaterialForLead(stage, mode, follower, []),
-        leadPlayer: follower,
+        draw: createHeartbeatMilestoneDraw({
+          type: 'personal',
+          level,
+          triggerPlayer: player,
+          follower,
+          forcedMode: mode,
+        }),
       }
     }
   }
 
   const previousSharedSteps = previousPositions.A + previousPositions.B
   const nextSharedSteps = nextPositions.A + nextPositions.B
-  const sharedMilestone = heartbeatSharedMilestones
-    .filter(item => !claimedSharedMilestones.includes(item.steps))
-    .find(item => previousSharedSteps < item.steps && nextSharedSteps >= item.steps)
+  const sharedMilestone = getNextHeartbeatSharedMilestone(claimedSharedMilestones)
 
-  if (!sharedMilestone) return undefined
+  if (!(previousSharedSteps < sharedMilestone.steps && nextSharedSteps >= sharedMilestone.steps)) return undefined
 
   const mode = sharedEventModes[Math.floor(Math.random() * sharedEventModes.length)]
   return {
     type: 'shared',
     milestone: sharedMilestone,
-    material: drawMaterial(stage, mode, []),
-    leadPlayer: rollingPlayer,
+    draw: createHeartbeatMilestoneDraw({
+      type: 'shared',
+      level,
+      triggerPlayer: rollingPlayer,
+      forcedMode: mode,
+    }),
   }
 }
 
@@ -510,24 +768,63 @@ function withProgressEvent(result: HeartbeatResult, progressEvent?: HeartbeatPro
 }
 
 function resolveHeartbeatChoice(result: HeartbeatResult, choice: ChoiceAction, currentLevel: HeartbeatLevel): HeartbeatResult {
+  const partner = result.player === 'A' ? 'B' : 'A'
+
+  if (result.rewardPending && rewardChoiceModes.includes(choice as HeartTuneMode)) {
+    const mode = choice as HeartTuneMode
+    const draw = createHeartbeatCellDraw({
+      cellType: result.cell.type,
+      level: currentLevel,
+      roller: result.player,
+      partner,
+      positions: { A: 0, B: 0 },
+      forcedMode: mode,
+    })
+
+    return {
+      ...result,
+      draw,
+      choicePending: false,
+      rewardPending: false,
+      effect: `奖励格：已选择${getHeartbeatModeLabel(mode)}，抽当前阶段任务卡。`,
+    }
+  }
+
   if (choice === 'lower') {
     const lowerLevel = getLowerHeartbeatLevel(currentLevel)
     return {
       ...result,
       level: lowerLevel,
       choicePending: false,
-      material: getRandomMaterial({ level: lowerLevel }),
+      draw: createHeartbeatCellDraw({
+        cellType: result.cell.type,
+        level: currentLevel,
+        levelOverride: lowerLevel,
+        roller: result.player,
+        partner,
+        positions: { A: 0, B: 0 },
+        forcedMode: 'directed',
+      }),
       effect: '选择格：已选择降低一档，抽一张更柔和的任务卡。',
     }
   }
 
   if (choice === 'swap') {
+    const swappedPlayer = result.partner
+    const swappedPartner = result.player
     return {
       ...result,
-      player: result.partner,
-      partner: result.player,
+      player: swappedPlayer,
+      partner: swappedPartner,
       choicePending: false,
-      material: getRandomMaterial({ level: currentLevel }),
+      draw: createHeartbeatCellDraw({
+        cellType: result.cell.type,
+        level: currentLevel,
+        roller: swappedPlayer,
+        partner: swappedPartner,
+        positions: { A: 0, B: 0 },
+        forcedMode: 'directed',
+      }),
       effect: '选择格：已交换主导，本回合由伴侣来带节奏。',
     }
   }
@@ -535,9 +832,56 @@ function resolveHeartbeatChoice(result: HeartbeatResult, choice: ChoiceAction, c
   return {
     ...result,
     choicePending: false,
-    material: getRandomMaterial({ level: currentLevel }),
+    draw: createHeartbeatCellDraw({
+      cellType: result.cell.type,
+      level: currentLevel,
+      roller: result.player,
+      partner,
+      positions: { A: 0, B: 0 },
+      forcedMode: 'directed',
+    }),
     effect: '选择格：已选择正常执行，抽当前阶段任务卡。',
   }
+}
+
+function getHeartbeatModeLabel(mode: HeartTuneMode): string {
+  const labels: Record<HeartTuneMode, string> = {
+    directed: '主动卡',
+    response: '回应卡',
+    duo: '双人卡',
+    scene: '场景卡',
+  }
+  return labels[mode]
+}
+
+function getPlayerRoleLabel(player: PlayerKey): string {
+  return player === 'A' ? '大大怪' : '小怪兽'
+}
+
+function createCompactTaskMeta(draw: HeartbeatCardDraw, playerNames: Record<PlayerKey, string>, label?: string): string {
+  const cellLabel = label ?? heartbeatCellMeta[drawCellTypeForMeta(draw)].label
+  const modeLabel = draw.primaryMode ? getHeartbeatModeLabel(draw.primaryMode) : '任务卡'
+  const roleLabel = getCompactRoleLabel(draw, playerNames)
+  return [cellLabel, modeLabel, roleLabel].filter(Boolean).join(' · ')
+}
+
+function drawCellTypeForMeta(draw: HeartbeatCardDraw): HeartbeatCell['type'] {
+  if (draw.cellType) return draw.cellType
+  if (draw.primaryMode === 'duo') return 'close'
+  if (draw.primaryMode === 'scene') return 'advance'
+  return 'normal'
+}
+
+function getCompactRoleLabel(draw: HeartbeatCardDraw, playerNames: Record<PlayerKey, string>): string {
+  if (draw.shared) return '共同执行'
+  if (draw.primaryMode === 'response' && draw.responsePlayer) {
+    return `${getShortPlayerLabel(draw.leadPlayer, playerNames)}发起 / ${getShortPlayerLabel(draw.responsePlayer, playerNames)}回应`
+  }
+  return `${getShortPlayerLabel(draw.leadPlayer, playerNames)}主导`
+}
+
+function getShortPlayerLabel(player: PlayerKey, playerNames: Record<PlayerKey, string>): string {
+  return playerNames[player] || getPlayerRoleLabel(player)
 }
 
 function DiceWidget({ value, phase }: { value: number, phase: TurnPhase }) {
@@ -571,7 +915,7 @@ function PlayerStatusCard({ player, name, active }: { player: PlayerKey, name: s
   )
 }
 
-function ResultPanel({ phase, result, currentPlayer, playerNames, onChoice }: { phase: TurnPhase, result: HeartbeatResult | null, currentPlayer: PlayerKey, playerNames: Record<PlayerKey, string>, onChoice: (choice: ChoiceAction) => void }) {
+function ResultPanel({ phase, result, currentPlayer, playerNames, openingRoll, useOpeningRoll, onChoice }: { phase: TurnPhase, result: HeartbeatResult | null, currentPlayer: PlayerKey, playerNames: Record<PlayerKey, string>, openingRoll: OpeningRollState, useOpeningRoll: boolean, onChoice: (choice: ChoiceAction) => void }) {
   if (phase === 'rolling') {
     return <p className="text-center text-sm font-black leading-relaxed text-text-primary">骰子滚动中...</p>
   }
@@ -584,67 +928,110 @@ function ResultPanel({ phase, result, currentPlayer, playerNames, onChoice }: { 
     return <p className="text-center text-sm font-black leading-relaxed text-text-primary">任务卡出现中...</p>
   }
 
+  if (useOpeningRoll && !openingRoll.ready) {
+    return (
+      <div className="space-y-2 text-center">
+        <p className="text-sm font-black leading-relaxed text-text-primary">先比大小决定谁先投掷。</p>
+        <p className="text-xs font-semibold leading-relaxed text-text-muted">{createOpeningRollSummary(openingRoll, playerNames)}</p>
+      </div>
+    )
+  }
+
   if (!result) {
-    return <p className="text-center text-sm font-semibold leading-relaxed text-text-muted">{playerNames[currentPlayer]} 点击掷骰开始。</p>
+    return (
+      <div className="space-y-1 text-center">
+        {useOpeningRoll && openingRoll.rolls ? <p className="text-xs font-semibold leading-relaxed text-warm-500">{createOpeningRollSummary(openingRoll, playerNames)}</p> : null}
+        <p className="text-sm font-semibold leading-relaxed text-text-muted">{playerNames[currentPlayer]} 点击掷骰开始。</p>
+      </div>
+    )
   }
 
   return (
-    <div className="space-y-3">
-      <p className="text-xs font-black text-warm-500">{playerNames[result.player]} 掷出 {result.roll}</p>
-      {result.movementNote ? (
-        <p className="rounded-2xl bg-orange-50 px-3 py-2 text-sm font-semibold leading-relaxed text-orange-700">{result.movementNote}</p>
-      ) : null}
+    <div className="space-y-2">
+      <p className="text-[10px] font-bold leading-tight text-warm-400">{playerNames[result.player]} 掷出 {result.roll}</p>
       {result.progressEvent ? <ProgressEventCard event={result.progressEvent} playerNames={playerNames} /> : null}
-      {result.effect ? (
-        <p className="rounded-2xl bg-warm-50 px-3 py-2 text-sm font-semibold leading-relaxed text-text-secondary">{result.effect}</p>
-      ) : null}
       {!result.progressEvent && result.choicePending ? (
-        <div className="grid grid-cols-3 gap-1.5">
-          <button type="button" onClick={() => onChoice('normal')} className="min-h-[38px] rounded-2xl bg-warm-500 px-2 text-xs font-black text-white">正常</button>
-          <button type="button" onClick={() => onChoice('lower')} className="min-h-[38px] rounded-2xl bg-white px-2 text-xs font-black text-warm-600 ring-1 ring-warm-100">降档</button>
-          <button type="button" onClick={() => onChoice('swap')} className="min-h-[38px] rounded-2xl bg-white px-2 text-xs font-black text-pink-600 ring-1 ring-pink-100">换主导</button>
-        </div>
+        result.rewardPending ? (
+          <div className="grid grid-cols-4 gap-1.5">
+            {rewardChoiceModes.map(mode => (
+              <button key={mode} type="button" onClick={() => onChoice(mode)} className="min-h-[38px] rounded-2xl bg-white px-1 text-[11px] font-black text-pink-600 ring-1 ring-pink-100">
+                {getHeartbeatModeLabel(mode).replace('卡', '')}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-3 gap-1.5">
+            <button type="button" onClick={() => onChoice('normal')} className="min-h-[38px] rounded-2xl bg-warm-500 px-2 text-xs font-black text-white">正常</button>
+            <button type="button" onClick={() => onChoice('lower')} className="min-h-[38px] rounded-2xl bg-white px-2 text-xs font-black text-warm-600 ring-1 ring-warm-100">降档</button>
+            <button type="button" onClick={() => onChoice('swap')} className="min-h-[38px] rounded-2xl bg-white px-2 text-xs font-black text-pink-600 ring-1 ring-pink-100">换主导</button>
+          </div>
+        )
       ) : null}
-      {!result.progressEvent && result.material ? <MaterialCard material={result.material} /> : null}
-      {!result.progressEvent && result.secondMaterial ? <MaterialCard material={result.secondMaterial} label="备选" muted /> : null}
-      {!result.progressEvent && result.addon ? (
-        <p className="rounded-2xl bg-pink-50 px-3 py-2 text-sm font-semibold leading-relaxed text-pink-700">{result.addon}</p>
-      ) : null}
+      {!result.progressEvent && result.draw ? <HeartbeatDrawCard draw={result.draw} playerNames={playerNames} addon={result.addon} /> : null}
+      {!result.progressEvent && (result.draw?.secondMaterial || result.draw?.secondFallbackMaterial) ? <HeartbeatDrawCard draw={createSecondHeartbeatDraw(result.draw)} playerNames={playerNames} label="备选" muted /> : null}
     </div>
   )
 }
 
 function ProgressEventCard({ event, playerNames }: { event: HeartbeatProgressEvent, playerNames: Record<PlayerKey, string> }) {
-  const renderedCard = renderHeartTuneCard(
-    event.material,
-    event.leadPlayer,
-    playerNames,
-    getProgressEventSummary(event, playerNames),
-    false,
-    '',
-  )
-
   return (
-    <div className="rounded-3xl border border-pink-100 bg-pink-50/80 p-3">
-      <p className="text-[11px] font-black text-pink-600">
-        {event.type === 'personal' ? '竞争触发' : '共同触发'} · {event.milestone.label}
-      </p>
-      <p className="mt-1 text-xs font-semibold leading-relaxed text-pink-700">{renderedCard.ruleSummary}</p>
-      <div className="mt-2 rounded-2xl bg-white/90 p-3 ring-1 ring-pink-100">
-        <p className="text-[10px] font-black text-pink-500">{renderedCard.stageLabel} · {renderedCard.modeLabel} · {renderedCard.leadLabel}主导</p>
-        <p className="mt-1 text-base font-black leading-relaxed text-text-primary">{renderedCard.text}</p>
-      </div>
+    <div className="rounded-3xl border border-pink-100 bg-pink-50/60 p-2.5">
+      <HeartbeatDrawCard draw={event.draw} playerNames={playerNames} label={`${event.type === 'personal' ? '竞争触发' : '共同触发'} · ${event.milestone.label}`} />
     </div>
   )
 }
 
-function getProgressEventSummary(event: HeartbeatProgressEvent, playerNames: Record<PlayerKey, string>): string {
-  if (event.type === 'personal' && event.player && event.follower) {
-    const prefix = event.milestone.steps >= heartbeatPersonalCompletionStep ? '阶段通关' : '领先奖励'
-    return `${prefix}：${playerNames[event.player]} 先到 ${event.milestone.steps} 步，${playerNames[event.follower]} 抽一张当前阶段指向性任务。通关后仍可继续玩或自由切阶段。`
+function HeartbeatDrawCard({ draw, playerNames, label, muted = false, addon }: { draw: HeartbeatCardDraw, playerNames: Record<PlayerKey, string>, label?: string, muted?: boolean, addon?: string }) {
+  if (!draw.material) {
+    if (draw.primaryMode === null) {
+      return (
+        <div className={`rounded-3xl border p-3 ${muted ? 'border-pink-100 bg-pink-50/60' : 'border-warm-100 bg-white/90'}`}>
+          <p className="truncate text-[10px] font-bold leading-tight text-pink-400">{createCompactTaskMeta(draw, playerNames, label)}</p>
+          <p className="mt-2 text-base font-black leading-relaxed text-text-primary">这一格不抽任务，自然缓一缓。</p>
+        </div>
+      )
+    }
+    return draw.fallbackMaterial ? <MaterialCard material={draw.fallbackMaterial} label={label ?? '备用旧素材'} muted={muted} /> : null
   }
 
-  return `${event.milestone.label}：两人合计到 ${event.milestone.steps} 步，触发当前阶段共同任务。`
+  const renderedCard = renderHeartTuneCard(
+    draw.material,
+    draw.leadPlayer,
+    playerNames,
+    '',
+    false,
+    '',
+  )
+  const metaText = createCompactTaskMeta(draw, playerNames, label)
+
+  return (
+    <div className={`rounded-3xl border p-3 ${muted ? 'border-pink-100 bg-pink-50/60' : 'border-warm-100 bg-white/90'}`}>
+      <p className="truncate text-[10px] font-bold leading-tight text-pink-400">{metaText}</p>
+      <p className="mt-2 text-base font-black leading-relaxed text-text-primary">{renderedCard.text}</p>
+      {addon ? <p className="mt-2 text-[11px] font-semibold leading-relaxed text-pink-500">附加条件：{addon}</p> : null}
+    </div>
+  )
+}
+
+function createSecondHeartbeatDraw(draw: HeartbeatCardDraw): HeartbeatCardDraw {
+  const mode = draw.secondMode ?? 'response'
+  const responsePlayer = mode === 'response' ? draw.triggerPlayer : null
+
+  return {
+    ...draw,
+    primaryMode: mode,
+    secondMode: undefined,
+    material: draw.secondMaterial,
+    secondMaterial: undefined,
+    fallbackMaterial: draw.secondFallbackMaterial,
+    secondFallbackMaterial: undefined,
+    leadPlayer: mode === 'response' ? (draw.triggerPlayer === 'A' ? 'B' : 'A') : draw.leadPlayer,
+    responsePlayer,
+    shared: mode === 'duo' || mode === 'scene',
+    roleSummary: mode === 'response'
+      ? `${draw.triggerPlayer === 'A' ? 'B' : 'A'} 发起要求，${draw.triggerPlayer} 回应。`
+      : draw.roleSummary,
+  }
 }
 
 function MaterialCard({ material, label, muted = false }: { material: InteractionMaterial, label?: string, muted?: boolean }) {

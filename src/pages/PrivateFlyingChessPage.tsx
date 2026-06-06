@@ -32,7 +32,7 @@ export function PrivateFlyingChessPage({ identity, partnerName }: PrivateFlyingC
         </div>
       </section>
 
-      <PrivateFlyingChessBoard key={level} level={level} playerAName={identity || '大大怪'} playerBName={partnerName || '小怪兽'} />
+      <PrivateFlyingChessBoard level={level} playerAName={identity || '大大怪'} playerBName={partnerName || '小怪兽'} />
     </div>
   )
 }

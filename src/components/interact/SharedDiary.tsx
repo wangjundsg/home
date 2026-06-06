@@ -72,7 +72,7 @@ export function SharedDiary({ identity, partnerName }: SharedDiaryProps) {
       content: content.trim(),
       mood,
     })
-    if (!error) void notifyPartnerActivity(identity, 'diary')
+    if (!error) void notifyPartnerActivity(identity, 'diary', partnerName)
     setContent('')
     setMood('😊')
     setSaving(false)
