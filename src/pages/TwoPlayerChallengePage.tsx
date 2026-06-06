@@ -11,6 +11,7 @@ import {
   drawMaterialForLead,
   getHigherStage,
   getLowerStage,
+  isMaterialBlockedByState,
   renderHeartTuneCard,
   resolveTuneRound,
   type HeartTuneBoosts,
@@ -56,6 +57,7 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
   const [roundResult, setRoundResult] = useState<HeartTuneRoundResult | null>(null)
   const [selectedCard, setSelectedCard] = useState<HeartTuneRenderedCard | null>(null)
   const [usedIds, setUsedIds] = useState<string[]>([])
+  const [completedMaterialStates, setCompletedMaterialStates] = useState<string[]>([])
   const [rule, setRule] = useState(() => drawHeartTuneRule())
   const [proposals, setProposals] = useState<readonly [HeartTuneProposal, HeartTuneProposal]>(() => drawHeartTuneProposals())
   const [scene, setScene] = useState(() => drawCompatibleHeartTuneScene(proposals))
@@ -72,6 +74,7 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
   const readyToTune = flowState === 'voting' && proposalsRevealed && playerKeys.every(player => votes[player])
   const canLowerStage = selectedCard ? getLowerStage(selectedCard.stage) !== selectedCard.stage : false
   const canHigherStage = selectedCard ? getHigherStage(selectedCard.stage) !== selectedCard.stage : false
+  const selectedHasStateConflict = selectedCard ? isMaterialBlockedByState(selectedCard, completedMaterialStates) : false
 
   const renderSelectedCard = useCallback((material: HeartTuneMaterial, result: HeartTuneRoundResult): HeartTuneRenderedCard =>
     renderHeartTuneCard(material, result.leadPlayer, playerLabels, result.ruleSummary, result.ruleUsed, getRewardSummary(result, playerLabels)), [playerLabels])
@@ -167,7 +170,7 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
   const tuneRound = () => {
     try {
       if (!readyToTune) return
-      const result = resolveTuneRound({ stage, defaultLead, proposals, votes, boosts, usedIds, rule, scene })
+      const result = resolveTuneRound({ stage, defaultLead, proposals, votes, boosts, usedIds, rule, scene, completedStates: completedMaterialStates })
       if (result.ruleUsed) {
         setPendingRoundResult(result)
         setAnimationTick(0)
@@ -195,7 +198,10 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
   const rerollSameType = (player: HeartTunePlayerKey) => {
     if (!selectedCard || !roundResult) return
     if (!spendMark(player)) return
-    const material = drawMaterialForLead(selectedCard.stage, selectedCard.mode, roundResult.leadPlayer, [...usedIds, selectedCard.materialId])
+    const material = drawMaterialForLead(selectedCard.stage, selectedCard.mode, roundResult.leadPlayer, {
+      usedIds: [...usedIds, selectedCard.materialId],
+      blockedStates: completedMaterialStates,
+    })
     setSelectedCard(renderSelectedCard(material, roundResult))
   }
 
@@ -204,7 +210,10 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
     const lowerStage = getLowerStage(selectedCard.stage)
     if (lowerStage === selectedCard.stage) return
     if (!spendMark(player, stageShiftCost)) return
-    const material = drawMaterialForLead(lowerStage, selectedCard.mode, roundResult.leadPlayer, usedIds)
+    const material = drawMaterialForLead(lowerStage, selectedCard.mode, roundResult.leadPlayer, {
+      usedIds,
+      blockedStates: completedMaterialStates,
+    })
     setSelectedCard(renderSelectedCard(material, { ...roundResult, stage: lowerStage }))
   }
 
@@ -213,7 +222,10 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
     const higherStage = getHigherStage(selectedCard.stage)
     if (higherStage === selectedCard.stage) return
     if (!spendMark(player, stageShiftCost)) return
-    const material = drawMaterialForLead(higherStage, selectedCard.mode, roundResult.leadPlayer, usedIds)
+    const material = drawMaterialForLead(higherStage, selectedCard.mode, roundResult.leadPlayer, {
+      usedIds,
+      blockedStates: completedMaterialStates,
+    })
     setSelectedCard(renderSelectedCard(material, { ...roundResult, stage: higherStage }))
   }
 
@@ -224,12 +236,31 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
     setRule(drawHeartTuneRule(rule.key))
   }
 
+  const replaceStateConflictCard = () => {
+    if (!selectedCard || !roundResult || !selectedHasStateConflict) return
+    const material = drawMaterialForLead(selectedCard.stage, selectedCard.mode, roundResult.leadPlayer, {
+      usedIds: [...usedIds, selectedCard.materialId],
+      blockedStates: completedMaterialStates,
+    })
+    setSelectedCard(renderSelectedCard(material, roundResult))
+  }
+
   const nextRound = () => {
     if (selectedCard) {
       setUsedIds(prev => prev.includes(selectedCard.materialId) ? prev : [...prev, selectedCard.materialId])
+      rememberMaterialStates(selectedCard.stateTags)
     }
     startNewRound(drawHeartTuneProposals(proposals))
     setRule(drawHeartTuneRule(rule.key))
+  }
+
+  const rememberMaterialStates = (stateTags?: readonly string[]) => {
+    if (!stateTags?.length) return
+    setCompletedMaterialStates(prev => {
+      const next = new Set(prev)
+      stateTags.forEach(tag => next.add(tag))
+      return Array.from(next)
+    })
   }
 
   const startNewRound = (nextProposals: readonly [HeartTuneProposal, HeartTuneProposal]) => {
@@ -322,6 +353,8 @@ export function TwoPlayerChallengePage({ identity, partnerName }: TwoPlayerChall
           onNext={nextRound}
           canLowerStage={canLowerStage}
           canHigherStage={canHigherStage}
+          stateConflict={selectedHasStateConflict}
+          onReplaceConflict={replaceStateConflictCard}
         />
       ) : null}
     </div>
@@ -557,6 +590,8 @@ interface SelectedCardPanelProps {
   onNext: () => void
   canLowerStage: boolean
   canHigherStage: boolean
+  stateConflict: boolean
+  onReplaceConflict: () => void
 }
 
 function SelectedCardPanel({
@@ -570,6 +605,8 @@ function SelectedCardPanel({
   onNext,
   canLowerStage,
   canHigherStage,
+  stateConflict,
+  onReplaceConflict,
 }: SelectedCardPanelProps) {
   return (
     <section className="pixel-card p-3.5" style={{ animation: 'scaleIn 0.18s ease' }}>
@@ -594,6 +631,15 @@ function SelectedCardPanel({
         </div>
       </div>
       <div className="mt-2.5 grid gap-2">
+        {stateConflict ? (
+          <button
+            type="button"
+            onClick={onReplaceConflict}
+            className="min-h-[38px] rounded-2xl bg-pink-50 px-3 text-xs font-black text-pink-600 ring-1 ring-pink-100"
+          >
+            状态已完成，免费换一张
+          </button>
+        ) : null}
         {playerKeys.map(player => (
           <div key={player} className="grid grid-cols-[minmax(62px,0.75fr)_1.9fr] items-center gap-2 rounded-2xl bg-white/70 p-2 ring-1 ring-warm-100">
             <div className="min-w-0">

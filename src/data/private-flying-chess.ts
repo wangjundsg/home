@@ -17,16 +17,16 @@ export interface HeartbeatCellMeta {
 const SEGMENT_SIZE = 40
 
 const CELL_BAG: readonly HeartbeatCellType[] = [
-  'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal',
-  'double', 'double', 'double', 'double', 'double',
-  'boost', 'boost', 'boost', 'boost',
+  'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal',
+  'double', 'double', 'double', 'double', 'double', 'double',
+  'boost', 'boost', 'boost', 'boost', 'boost',
   'reverse', 'reverse', 'reverse', 'reverse',
-  'choice', 'choice', 'choice', 'choice',
-  'reward', 'reward', 'reward',
+  'penalty', 'penalty', 'penalty', 'penalty',
   'close', 'close', 'close',
   'advance', 'advance',
-  'rest', 'rest',
-  'penalty', 'penalty',
+  'choice', 'choice',
+  'reward',
+  'rest',
   'reroll',
 ]
 

@@ -18,7 +18,9 @@ import {
 import { getRandomMaterial, type InteractionMaterial } from '../../data/interact-materials'
 import {
   drawMaterialForLead,
+  isMaterialBlockedByState,
   renderHeartTuneCard,
+  type HeartTuneDrawOptions,
   type HeartTuneMaterial,
   type HeartTuneMode,
   type HeartTuneStage,
@@ -64,6 +66,7 @@ interface HeartbeatCardDrawInput {
   positions: Record<PlayerKey, number>
   forcedMode?: HeartTuneMode
   levelOverride?: HeartbeatLevel
+  drawOptions?: HeartTuneDrawOptions
 }
 
 interface HeartbeatMilestoneDrawInput {
@@ -72,6 +75,7 @@ interface HeartbeatMilestoneDrawInput {
   triggerPlayer: PlayerKey
   follower?: PlayerKey
   forcedMode?: HeartTuneMode
+  drawOptions?: HeartTuneDrawOptions
 }
 
 interface HeartbeatCardDraw {
@@ -136,6 +140,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
   const [animationWindowStart, setAnimationWindowStart] = useState<number | null>(null)
   const [claimedPersonalMilestones, setClaimedPersonalMilestones] = useState<Record<PlayerKey, number[]>>({ A: [], B: [] })
   const [claimedSharedMilestones, setClaimedSharedMilestones] = useState<number[]>([])
+  const [completedMaterialStates, setCompletedMaterialStates] = useState<string[]>([])
   const timersRef = useRef<number[]>([])
   const runIdRef = useRef(0)
 
@@ -211,6 +216,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
     const startPosition = positions[rollingPlayer]
     const roll = Math.floor(Math.random() * 6) + 1
     const nextPosition = startPosition + roll
+    const drawOptions: HeartTuneDrawOptions = { blockedStates: completedMaterialStates }
     const nextBoard = ensureHeartbeatBoard(board, nextPosition + VISIBLE_CELL_COUNT)
     const cell = nextBoard[nextPosition]
     const resolvedMovement = resolveHeartbeatMovement(cell, rollingPlayer, nextPosition, positions)
@@ -221,9 +227,10 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
       level,
       claimedPersonalMilestones,
       claimedSharedMilestones,
+      drawOptions,
     )
     const resolved = withProgressEvent(
-      resolveHeartbeatCell(cell, rollingPlayer, partner, roll, nextPosition, level, positions, resolvedMovement.note),
+      resolveHeartbeatCell(cell, rollingPlayer, partner, roll, nextPosition, level, positions, resolvedMovement.note, drawOptions),
       progressEvent,
     )
     const fixedWindowStart = Math.max(0, startPosition - 8)
@@ -272,11 +279,7 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
     }
     setDisplayPositions(resolvedMovement.positions)
     setResult(resolved)
-    setPhase('revealing')
-
-    await wait(420)
-    if (runIdRef.current !== runId) return
-
+    rememberHeartbeatResultStates(resolved)
     setCurrentPlayer(resolved.retainTurn ? rollingPlayer : partner)
     setMovingPlayer(null)
     setAnimationWindowStart(null)
@@ -360,9 +363,16 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
       </section>
 
       <section className="pixel-card p-4">
-        <ResultPanel phase={phase} result={result} currentPlayer={currentPlayer} playerNames={playerNames} openingRoll={openingRoll} useOpeningRoll={shouldShowOpening} onChoice={choice => {
+        <ResultPanel phase={phase} result={result} currentPlayer={currentPlayer} playerNames={playerNames} openingRoll={openingRoll} useOpeningRoll={shouldShowOpening} completedMaterialStates={completedMaterialStates} onChoice={choice => {
           if (!result?.choicePending) return
-          setResult(resolveHeartbeatChoice(result, choice, level))
+          const nextResult = resolveHeartbeatChoice(result, choice, level, { blockedStates: completedMaterialStates })
+          setResult(nextResult)
+          rememberHeartbeatResultStates(nextResult)
+        }} onReplaceDraw={() => {
+          if (!result) return
+          const nextResult = replaceHeartbeatConflictDraw(result, level, completedMaterialStates)
+          setResult(nextResult)
+          rememberHeartbeatResultStates(nextResult)
         }} />
       </section>
 
@@ -377,6 +387,16 @@ export function PrivateFlyingChessBoard({ level, playerAName, playerBName }: Pri
       </button>
     </div>
   )
+
+  function rememberHeartbeatResultStates(nextResult: HeartbeatResult) {
+    const stateTags = collectHeartbeatResultStateTags(nextResult, completedMaterialStates)
+    if (stateTags.length === 0) return
+    setCompletedMaterialStates(prev => {
+      const next = new Set(prev)
+      stateTags.forEach(tag => next.add(tag))
+      return Array.from(next)
+    })
+  }
 }
 
 export function createHeartbeatCellDraw(input: HeartbeatCardDrawInput): HeartbeatCardDraw {
@@ -401,9 +421,9 @@ export function createHeartbeatCellDraw(input: HeartbeatCardDrawInput): Heartbea
 
   if (!mode) return baseDraw
 
-  const material = drawHeartbeatMaterial(stage, mode, leadPlayer)
+  const material = drawHeartbeatMaterial(stage, mode, leadPlayer, input.drawOptions)
   const secondMaterial = input.cellType === 'double'
-    ? drawHeartbeatMaterial(stage, 'response', input.partner)
+    ? drawHeartbeatMaterial(stage, 'response', input.partner, input.drawOptions)
     : undefined
 
   return {
@@ -423,7 +443,7 @@ export function createHeartbeatMilestoneDraw(input: HeartbeatMilestoneDrawInput)
   const responsePlayer = input.type === 'personal' && mode === 'response'
     ? input.follower ?? (input.triggerPlayer === 'A' ? 'B' : 'A')
     : null
-  const material = drawHeartbeatMaterial(stage, mode, leadPlayer)
+  const material = drawHeartbeatMaterial(stage, mode, leadPlayer, input.drawOptions)
 
   return {
     stage,
@@ -510,9 +530,14 @@ function getMilestoneLeadPlayer(input: HeartbeatMilestoneDrawInput, mode: HeartT
   return follower
 }
 
-function drawHeartbeatMaterial(stage: HeartTuneStage, mode: HeartTuneMode, leadPlayer: PlayerKey): { material?: HeartTuneMaterial, fallbackMaterial?: InteractionMaterial } {
+function drawHeartbeatMaterial(
+  stage: HeartTuneStage,
+  mode: HeartTuneMode,
+  leadPlayer: PlayerKey,
+  drawOptions: HeartTuneDrawOptions = {},
+): { material?: HeartTuneMaterial, fallbackMaterial?: InteractionMaterial } {
   try {
-    return { material: drawMaterialForLead(stage, mode, leadPlayer, []) }
+    return { material: drawMaterialForLead(stage, mode, leadPlayer, drawOptions) }
   } catch {
     const fallbackLevel = getHeartbeatLevelByStage(stage)
     return { fallbackMaterial: getRandomMaterial({ level: fallbackLevel }) }
@@ -563,6 +588,7 @@ function resolveHeartbeatCell(
   level: HeartbeatLevel,
   positions: Record<PlayerKey, number>,
   movementNote?: string,
+  drawOptions?: HeartTuneDrawOptions,
 ): HeartbeatResult {
   const baseResult: HeartbeatResult = {
     player,
@@ -579,6 +605,7 @@ function resolveHeartbeatCell(
     roller: player,
     partner,
     positions,
+    drawOptions,
   }
 
   if (cell.type === 'rest') {
@@ -715,6 +742,7 @@ function resolveProgressEvent(
   level: HeartbeatLevel,
   claimedPersonalMilestones: Record<PlayerKey, number[]>,
   claimedSharedMilestones: number[],
+  drawOptions?: HeartTuneDrawOptions,
 ): HeartbeatProgressEvent | undefined {
   const partner = rollingPlayer === 'A' ? 'B' : 'A'
   const playersByPriority: readonly PlayerKey[] = [rollingPlayer, partner]
@@ -736,6 +764,7 @@ function resolveProgressEvent(
           triggerPlayer: player,
           follower,
           forcedMode: mode,
+          drawOptions,
         }),
       }
     }
@@ -756,6 +785,7 @@ function resolveProgressEvent(
       level,
       triggerPlayer: rollingPlayer,
       forcedMode: mode,
+      drawOptions,
     }),
   }
 }
@@ -767,7 +797,71 @@ function withProgressEvent(result: HeartbeatResult, progressEvent?: HeartbeatPro
   }
 }
 
-function resolveHeartbeatChoice(result: HeartbeatResult, choice: ChoiceAction, currentLevel: HeartbeatLevel): HeartbeatResult {
+function replaceHeartbeatConflictDraw(
+  result: HeartbeatResult,
+  currentLevel: HeartbeatLevel,
+  completedStates: readonly string[],
+): HeartbeatResult {
+  const draw = result.progressEvent?.draw ?? result.draw
+  if (!draw?.primaryMode || !isHeartbeatDrawBlockedByState(draw, completedStates)) return result
+
+  const replacement = redrawHeartbeatDraw(draw, currentLevel, completedStates)
+  if (result.progressEvent) {
+    return {
+      ...result,
+      progressEvent: {
+        ...result.progressEvent,
+        draw: replacement,
+      },
+    }
+  }
+  return {
+    ...result,
+    draw: replacement,
+  }
+}
+
+function redrawHeartbeatDraw(
+  draw: HeartbeatCardDraw,
+  _currentLevel: HeartbeatLevel,
+  completedStates: readonly string[],
+): HeartbeatCardDraw {
+  if (!draw.primaryMode) return draw
+
+  const replacement = drawHeartbeatMaterial(draw.stage, draw.primaryMode, draw.leadPlayer, {
+    usedIds: draw.material ? [draw.material.id] : [],
+    blockedStates: completedStates,
+  })
+
+  return {
+    ...draw,
+    material: replacement.material,
+    fallbackMaterial: replacement.fallbackMaterial,
+  }
+}
+
+function collectHeartbeatResultStateTags(result: HeartbeatResult, completedStates: readonly string[]): readonly string[] {
+  const draws = [
+    result.progressEvent?.draw,
+    result.draw,
+  ].filter(Boolean) as HeartbeatCardDraw[]
+  const materials = draws.flatMap(draw => [draw.material, draw.secondMaterial]).filter(Boolean) as HeartTuneMaterial[]
+  const tags = materials
+    .filter(material => !isMaterialBlockedByState(material, completedStates))
+    .flatMap(material => material.stateTags ?? [])
+  return [...new Set(tags)]
+}
+
+function isHeartbeatDrawBlockedByState(draw: HeartbeatCardDraw, completedStates: readonly string[]): boolean {
+  return Boolean(draw.material && isMaterialBlockedByState(draw.material, completedStates))
+}
+
+function resolveHeartbeatChoice(
+  result: HeartbeatResult,
+  choice: ChoiceAction,
+  currentLevel: HeartbeatLevel,
+  drawOptions?: HeartTuneDrawOptions,
+): HeartbeatResult {
   const partner = result.player === 'A' ? 'B' : 'A'
 
   if (result.rewardPending && rewardChoiceModes.includes(choice as HeartTuneMode)) {
@@ -779,6 +873,7 @@ function resolveHeartbeatChoice(result: HeartbeatResult, choice: ChoiceAction, c
       partner,
       positions: { A: 0, B: 0 },
       forcedMode: mode,
+      drawOptions,
     })
 
     return {
@@ -804,6 +899,7 @@ function resolveHeartbeatChoice(result: HeartbeatResult, choice: ChoiceAction, c
         partner,
         positions: { A: 0, B: 0 },
         forcedMode: 'directed',
+        drawOptions,
       }),
       effect: '选择格：已选择降低一档，抽一张更柔和的任务卡。',
     }
@@ -824,6 +920,7 @@ function resolveHeartbeatChoice(result: HeartbeatResult, choice: ChoiceAction, c
         partner: swappedPartner,
         positions: { A: 0, B: 0 },
         forcedMode: 'directed',
+        drawOptions,
       }),
       effect: '选择格：已交换主导，本回合由伴侣来带节奏。',
     }
@@ -839,6 +936,7 @@ function resolveHeartbeatChoice(result: HeartbeatResult, choice: ChoiceAction, c
       partner,
       positions: { A: 0, B: 0 },
       forcedMode: 'directed',
+      drawOptions,
     }),
     effect: '选择格：已选择正常执行，抽当前阶段任务卡。',
   }
@@ -915,7 +1013,27 @@ function PlayerStatusCard({ player, name, active }: { player: PlayerKey, name: s
   )
 }
 
-function ResultPanel({ phase, result, currentPlayer, playerNames, openingRoll, useOpeningRoll, onChoice }: { phase: TurnPhase, result: HeartbeatResult | null, currentPlayer: PlayerKey, playerNames: Record<PlayerKey, string>, openingRoll: OpeningRollState, useOpeningRoll: boolean, onChoice: (choice: ChoiceAction) => void }) {
+function ResultPanel({
+  phase,
+  result,
+  currentPlayer,
+  playerNames,
+  openingRoll,
+  useOpeningRoll,
+  completedMaterialStates,
+  onChoice,
+  onReplaceDraw,
+}: {
+  phase: TurnPhase
+  result: HeartbeatResult | null
+  currentPlayer: PlayerKey
+  playerNames: Record<PlayerKey, string>
+  openingRoll: OpeningRollState
+  useOpeningRoll: boolean
+  completedMaterialStates: readonly string[]
+  onChoice: (choice: ChoiceAction) => void
+  onReplaceDraw: () => void
+}) {
   if (phase === 'rolling') {
     return <p className="text-center text-sm font-black leading-relaxed text-text-primary">骰子滚动中...</p>
   }
@@ -949,7 +1067,7 @@ function ResultPanel({ phase, result, currentPlayer, playerNames, openingRoll, u
   return (
     <div className="space-y-2">
       <p className="text-[10px] font-bold leading-tight text-warm-400">{playerNames[result.player]} 掷出 {result.roll}</p>
-      {result.progressEvent ? <ProgressEventCard event={result.progressEvent} playerNames={playerNames} /> : null}
+      {result.progressEvent ? <ProgressEventCard event={result.progressEvent} playerNames={playerNames} completedMaterialStates={completedMaterialStates} onReplaceDraw={onReplaceDraw} /> : null}
       {!result.progressEvent && result.choicePending ? (
         result.rewardPending ? (
           <div className="grid grid-cols-4 gap-1.5">
@@ -967,21 +1085,53 @@ function ResultPanel({ phase, result, currentPlayer, playerNames, openingRoll, u
           </div>
         )
       ) : null}
-      {!result.progressEvent && result.draw ? <HeartbeatDrawCard draw={result.draw} playerNames={playerNames} addon={result.addon} /> : null}
+      {!result.progressEvent && result.draw ? <HeartbeatDrawCard draw={result.draw} playerNames={playerNames} addon={result.addon} stateConflict={isHeartbeatDrawBlockedByState(result.draw, completedMaterialStates)} onReplaceDraw={onReplaceDraw} /> : null}
       {!result.progressEvent && (result.draw?.secondMaterial || result.draw?.secondFallbackMaterial) ? <HeartbeatDrawCard draw={createSecondHeartbeatDraw(result.draw)} playerNames={playerNames} label="备选" muted /> : null}
     </div>
   )
 }
 
-function ProgressEventCard({ event, playerNames }: { event: HeartbeatProgressEvent, playerNames: Record<PlayerKey, string> }) {
+function ProgressEventCard({
+  event,
+  playerNames,
+  completedMaterialStates,
+  onReplaceDraw,
+}: {
+  event: HeartbeatProgressEvent
+  playerNames: Record<PlayerKey, string>
+  completedMaterialStates: readonly string[]
+  onReplaceDraw: () => void
+}) {
   return (
     <div className="rounded-3xl border border-pink-100 bg-pink-50/60 p-2.5">
-      <HeartbeatDrawCard draw={event.draw} playerNames={playerNames} label={`${event.type === 'personal' ? '竞争触发' : '共同触发'} · ${event.milestone.label}`} />
+      <HeartbeatDrawCard
+        draw={event.draw}
+        playerNames={playerNames}
+        label={`${event.type === 'personal' ? '竞争触发' : '共同触发'} · ${event.milestone.label}`}
+        stateConflict={isHeartbeatDrawBlockedByState(event.draw, completedMaterialStates)}
+        onReplaceDraw={onReplaceDraw}
+      />
     </div>
   )
 }
 
-function HeartbeatDrawCard({ draw, playerNames, label, muted = false, addon }: { draw: HeartbeatCardDraw, playerNames: Record<PlayerKey, string>, label?: string, muted?: boolean, addon?: string }) {
+function HeartbeatDrawCard({
+  draw,
+  playerNames,
+  label,
+  muted = false,
+  addon,
+  stateConflict = false,
+  onReplaceDraw,
+}: {
+  draw: HeartbeatCardDraw
+  playerNames: Record<PlayerKey, string>
+  label?: string
+  muted?: boolean
+  addon?: string
+  stateConflict?: boolean
+  onReplaceDraw?: () => void
+}) {
   if (!draw.material) {
     if (draw.primaryMode === null) {
       return (
@@ -1009,6 +1159,15 @@ function HeartbeatDrawCard({ draw, playerNames, label, muted = false, addon }: {
       <p className="truncate text-[10px] font-bold leading-tight text-pink-400">{metaText}</p>
       <p className="mt-2 text-base font-black leading-relaxed text-text-primary">{renderedCard.text}</p>
       {addon ? <p className="mt-2 text-[11px] font-semibold leading-relaxed text-pink-500">附加条件：{addon}</p> : null}
+      {stateConflict && onReplaceDraw ? (
+        <button
+          type="button"
+          onClick={onReplaceDraw}
+          className="mt-2 min-h-[34px] rounded-2xl bg-pink-50 px-3 text-[11px] font-black text-pink-600 ring-1 ring-pink-100"
+        >
+          状态已完成，免费换一张
+        </button>
+      ) : null}
     </div>
   )
 }

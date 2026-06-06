@@ -7,21 +7,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "亲吻锁骨",
-    "text": "玩家靠向伴侣，在伴侣锁骨凹陷处连续亲吻30秒。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-directed-002",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "褪去外套",
-    "text": "玩家用双手解开伴侣上衣纽扣，将其外套缓慢脱下。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "后颈亲吻",
+    "text": "大大怪站在小怪兽身后，双手隔着衣服扣住她的腰，低头亲吻她后颈10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-M-01",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-003",
@@ -29,10 +19,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "揉捏后颈",
-    "text": "大大怪用手掌贴住小怪兽后颈，轻轻揉捏60秒。",
+    "title": "靠墙压近",
+    "text": "大大怪让小怪兽背靠墙站着，一手撑在她耳边，一手隔着衣服按住她腰侧，对视10秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-M-03",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-004",
@@ -40,10 +31,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "亲吻手腕",
-    "text": "小怪兽拉起大大怪的手，在手腕内侧亲吻15秒。",
+    "title": "隔衣胸侧",
+    "text": "大大怪一手扶住小怪兽腰侧，另一只手隔着衣服从她胸侧慢慢滑到腰侧。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-M-04",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-005",
@@ -51,10 +43,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "指尖划腰",
-    "text": "玩家用食指隔着衣服，在伴侣腰侧来回划拉30秒。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "大腿外侧",
+    "text": "小怪兽坐在床沿，大大怪站在她面前，手掌隔着衣服从她膝盖滑到大腿外侧。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-M-05",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-006",
@@ -62,10 +55,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "脱掉鞋袜",
-    "text": "玩家让伴侣坐在床沿，亲手为伴侣脱下鞋子和袜子。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "嘴唇延迟",
+    "text": "大大怪靠近小怪兽嘴唇，停在一指距离，保持5秒后亲吻她下唇一次。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-M-06",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-007",
@@ -73,10 +67,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "抚摸头发",
-    "text": "大大怪用手穿过小怪兽的头发，轻抚头皮30秒。",
+    "title": "外套背抱",
+    "text": "大大怪帮小怪兽脱下外套，脱完后从背后抱住她，把下巴抵在她肩上10秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-M-07",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-008",
@@ -84,21 +79,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "亲吻侧脸",
-    "text": "小怪兽凑近大大怪，在他的左侧脸颊用力亲吻两下。",
+    "title": "肩头亲吻",
+    "text": "大大怪隔着衣服扶住小怪兽肩膀，低头亲吻她肩头5秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-directed-009",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "耳后吹气",
-    "text": "玩家凑近伴侣的耳后敏感区，轻轻吹气10秒。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-M-08",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-010",
@@ -106,10 +91,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "捏脸对视",
-    "text": "大大怪捏住小怪兽的下巴抬起，直视她的眼睛30秒。",
+    "title": "腰侧按住",
+    "text": "大大怪把小怪兽拉近，双手隔着衣服按住她腰侧，保持15秒不亲吻。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-M-10",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-011",
@@ -117,10 +103,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "掌心画圈",
-    "text": "小怪兽拉过大大怪的手掌，用指腹在掌心画圈30秒。",
+    "title": "耳后停留",
+    "text": "大大怪靠近小怪兽耳后，亲吻一下后停住呼吸5秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-M-11",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-012",
@@ -128,10 +115,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "抚摸脸颊",
-    "text": "玩家用双手捧起伴侣的脸颊，用大拇指轻轻摩挲30秒。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "臀上方停留",
+    "text": "大大怪从背后抱住小怪兽，双手隔着衣服按在她臀部上方，停留10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-M-12",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-013",
@@ -139,10 +127,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "咬红耳朵",
-    "text": "大大怪凑近小怪兽的右耳，轻轻咬住耳垂拉扯3秒。",
+    "title": "锁骨呼吸",
+    "text": "大大怪低头靠近小怪兽锁骨，不亲吻，只在她锁骨上方呼吸10秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-M-13",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-014",
@@ -150,10 +139,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "亲吻指尖",
-    "text": "小怪兽举起大大怪的手，依次亲吻他的五根手指。",
+    "title": "膝前靠近",
+    "text": "小怪兽坐在床边，大大怪站在她两腿之间，双手扶住她肩膀，对视10秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-M-14",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-015",
@@ -161,10 +151,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "额头轻吻",
-    "text": "玩家按住伴侣的双肩，低头在伴侣额头上留下长吻。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "禁止亲吻",
+    "text": "大大怪靠近小怪兽嘴唇，小怪兽用手指挡住他的嘴，大大怪只能亲吻她的手指。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-M-15",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-016",
@@ -172,10 +163,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "解开领带",
-    "text": "小怪兽双手抓住大大怪的领带或衣领，慢慢往下拉。",
+    "title": "衣领牵引",
+    "text": "小怪兽抓住大大怪衣领，把他拉近，让他亲吻自己的嘴角一次。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-F-01",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-017",
@@ -183,10 +175,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "抚摸喉结",
-    "text": "小怪兽伸出手指，在大大怪的喉结上轻轻滑动15秒。",
+    "title": "胸口贴近",
+    "text": "小怪兽站到大大怪面前，双手扶住他的肩膀，隔着衣服把胸口贴近他10秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-F-02",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-018",
@@ -194,10 +187,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "摘下首饰",
-    "text": "玩家伸手解开伴侣的手表或项链，放到旁边的桌子上。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "胸前停留",
+    "text": "小怪兽把手放在大大怪胸口外衣上，慢慢向下滑到腰带上方后停住。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-F-03",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-019",
@@ -205,10 +199,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "揉捏肩膀",
-    "text": "大大怪站在小怪兽身后，双手用力揉捏她的双肩60秒。",
+    "title": "背部抚摸",
+    "text": "小怪兽抱住大大怪，双手隔着衣服从他的肩胛骨摸到后腰。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-F-04",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-020",
@@ -216,10 +211,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "鼻尖轻蹭",
-    "text": "玩家把脸凑近伴侣，用自己的鼻尖蹭对方的鼻尖15秒。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "腰侧拉近",
+    "text": "小怪兽双手按住大大怪腰侧，把他拉到自己面前，对视10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-F-05",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-021",
@@ -227,10 +223,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "隔衣抚背",
-    "text": "小怪兽双手环抱大大怪，隔着衣服在他的背部上下抚摸。",
+    "title": "跨坐停留",
+    "text": "小怪兽跨坐在大大怪腿上，双手扶住他的肩膀，大腿贴住他的腿保持15秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-F-06",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-022",
@@ -238,10 +235,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "亲吻脖颈",
-    "text": "大大怪拨开小怪兽的头发，在她的脖颈侧边亲吻15秒。",
+    "title": "领口解开",
+    "text": "小怪兽解开大大怪最上方一颗衣扣，拉住他的衣领让他低头亲吻自己。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-F-07",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-023",
@@ -249,10 +247,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "扯掉发圈",
-    "text": "玩家伸手解开伴侣的发圈，用手拨弄让头发自然散落。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "隔衣揉腰",
+    "text": "小怪兽双手隔着衣服揉捏大大怪腰侧10秒，再抱住他。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-F-08",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-024",
@@ -260,10 +259,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "指刮下颌",
-    "text": "小怪兽用食指指节，顺着大大怪的下颌线慢慢刮动3次。",
+    "title": "嘴角连吻",
+    "text": "小怪兽亲吻大大怪左嘴角、右嘴角、下唇各一次。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#D-F-09",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-directed-025",
@@ -271,10 +271,755 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "轻点嘴唇",
-    "text": "玩家用大拇指指腹，在伴侣的嘴唇上轻轻按压摩擦3次。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "膝上侧坐",
+    "text": "小怪兽坐到大大怪膝上，身体侧坐，搂住他的脖子亲吻侧脸。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-F-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-directed-026",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "后颈轻划",
+    "text": "小怪兽站到大大怪身后，用指尖沿着他的后颈轻划3次，再从背后抱住他。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-F-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-directed-027",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "胸口心跳",
+    "text": "小怪兽把掌心贴在大大怪胸口外衣上，数他的心跳15秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-F-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-directed-028",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "肩膀压近",
+    "text": "小怪兽双手按住大大怪肩膀，把他压低一点，亲吻他的额头。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#D-F-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-directed-legacy-001",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "褪去外套",
+    "text": "小怪兽用双手解开大大怪上衣纽扣，将其外套缓慢脱下。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-002",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-002",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "揉捏后颈",
+    "text": "大大怪用手掌贴住小怪兽后颈，轻轻揉捏60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-003",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-003",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "亲吻手腕",
+    "text": "小怪兽拉起大大怪的手，在手腕内侧亲吻15秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-004",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-004",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "脱掉鞋袜",
+    "text": "小怪兽让大大怪坐在床沿，亲手为大大怪脱下鞋子和袜子。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-006",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-005",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "抚摸头发",
+    "text": "大大怪用手穿过小怪兽的头发，轻抚头皮30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-007",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-006",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "亲吻侧脸",
+    "text": "小怪兽凑近大大怪，在他的左侧脸颊用力亲吻两下。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-008",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-007",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "掌心画圈",
+    "text": "小怪兽拉过大大怪的手掌，用指腹在掌心画圈30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-011",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-008",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "抚摸脸颊",
+    "text": "小怪兽用双手捧起大大怪的脸颊，用大拇指轻轻摩挲30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-012",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-009",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "咬红耳朵",
+    "text": "大大怪凑近小怪兽的右耳，轻轻咬住耳垂拉扯3秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-013",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-010",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "亲吻指尖",
+    "text": "小怪兽举起大大怪的手，依次亲吻他的五根手指。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-014",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-011",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "额头轻吻",
+    "text": "大大怪按住小怪兽的双肩，低头在小怪兽额头上留下长吻。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-015",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-012",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "解开领带",
+    "text": "小怪兽双手抓住大大怪的领带或衣领，慢慢往下拉。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-016",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-013",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "抚摸喉结",
+    "text": "小怪兽伸出手指，在大大怪的喉结上轻轻滑动15秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-017",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-014",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "摘下首饰",
+    "text": "小怪兽伸手解开大大怪的手表或项链，放到旁边的桌子上。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-018",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-015",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "揉捏肩膀",
+    "text": "大大怪站在小怪兽身后，双手用力揉捏她的双肩60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-019",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-016",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "隔衣抚背",
+    "text": "小怪兽双手环抱大大怪，隔着衣服在他的背部上下抚摸。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-021",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-017",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "亲吻脖颈",
+    "text": "大大怪拨开小怪兽的头发，在她的脖颈侧边亲吻15秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-022",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-legacy-018",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "扯掉发圈",
+    "text": "大大怪伸手解开小怪兽的发圈，用手拨弄让头发自然散落。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-directed-023",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-001",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "剥夺防御",
+    "text": "小怪兽为大大怪脱去一件衣物（外套/袜子等无关紧要的），动作要慢。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-002",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-002",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "温柔探索",
+    "text": "大大怪亲吻小怪兽的颈部和锁骨，持续30秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-003",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-003",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "倒退惩罚（事件）",
+    "text": "小怪兽退后2格，并亲吻大大怪的手背表示歉意。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-012",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-004",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "交出底线",
+    "text": "小怪兽强制大大怪脱去上半身的最后一件外衣（保留内衣）。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-016",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-005",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "盲人摸象",
+    "text": "大大怪蒙住小怪兽的眼睛，直到下一回合才能摘下。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-019",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-006",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "发际线之吻",
+    "text": "大大怪轻轻撩开小怪兽的头发，在额头和发际线处印下深情一吻。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-021",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-007",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "心跳感应",
+    "text": "大大怪将手掌贴在小怪兽的心口，闭眼感受小怪兽的心跳30秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-023",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-008",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "喉结/颈部诱惑",
+    "text": "大大怪轻轻舔舐小怪兽的喉结（或颈部大动脉处），持续15秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-029",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-009",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "情歌时间",
+    "text": "小怪兽在大大怪耳边轻声哼唱一句情歌，随后亲吻其侧脸。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-034",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-010",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "轻咬下唇",
+    "text": "大大怪在接吻时，轻轻咬住小怪兽的下唇，拉扯一下再松开。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-037",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-011",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "锁骨藏水",
+    "text": "小怪兽在大大怪的锁骨凹陷处滴一滴水，然后用舌尖将其舔掉。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-038",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-012",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "隔衣挑逗",
+    "text": "小怪兽隔着衣服，用胸口轻轻摩擦大大怪的胸膛30秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-040",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-013",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "掌心之吻",
+    "text": "大大怪捧起小怪兽的双手，在小怪兽的掌心和手腕内侧分别留下一个吻。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-041",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-014",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "衣物束缚",
+    "text": "小怪兽用刚脱下来的衣服（如衬衫），轻轻盖住大大怪的头/眼睛，在黑暗中偷吻大大怪。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-042",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-015",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "腰部游走",
+    "text": "大大怪的双手环抱住小怪兽的腰，用大拇指在腰侧最怕痒/敏感的地方轻轻摩挲。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-043",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-016",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "虔诚之吻",
+    "text": "小怪兽单膝跪下，轻轻亲吻大大怪的膝盖，并用脸颊蹭一蹭大大怪的大腿。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-044",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-directed-interaction-017",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "背部拥抱",
+    "text": "大大怪从背后紧紧抱住小怪兽，把下巴搁在小怪兽的肩膀上，轻轻摇晃30秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:beginner-047",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-response-001",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "腰侧回应",
+    "text": "大大怪隔着衣服按住小怪兽腰侧。小怪兽向前贴近一步，让他的手停在那里10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-002",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "脖颈回应",
+    "text": "大大怪亲吻小怪兽脖颈。小怪兽伸手按住他的后脑，让他多停留5秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-003",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "靠墙回应",
+    "text": "大大怪靠近背靠墙的小怪兽。小怪兽抓住他的衣领，把他拉近亲吻嘴角。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-004",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "大腿反馈",
+    "text": "大大怪隔着衣服摸到小怪兽大腿外侧。小怪兽说“停这里”或“再往上一点”，大大怪照做。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-005",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "背抱回应",
+    "text": "大大怪从背后抱住小怪兽。小怪兽把他的手拉到自己腰前，按住不让松开。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-006",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "亲吻选择",
+    "text": "大大怪让小怪兽选择嘴角、锁骨或耳后。小怪兽选完后，大大怪完成10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-007",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "胸侧反馈",
+    "text": "大大怪隔着衣服从小怪兽胸侧滑到腰侧。小怪兽用手盖住他的手，决定停在胸侧还是腰侧。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-008",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "停住不动",
+    "text": "大大怪靠近小怪兽嘴唇后停住不亲。小怪兽必须再主动靠近一次，他才亲吻。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-009",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "肩头回应",
+    "text": "大大怪亲吻小怪兽肩头。小怪兽转身搂住他的脖子，回亲他的下巴。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-010",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "闭眼猜吻",
+    "text": "小怪兽闭眼。大大怪亲吻她耳后、锁骨或嘴角其中一处。小怪兽睁眼后猜位置。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-011",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "胸口贴合",
+    "text": "大大怪抱住小怪兽。小怪兽主动把胸口隔着衣服贴上去，停留10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-012",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "手掌引导",
+    "text": "大大怪伸出手。小怪兽握住他的手，引导他隔着衣服放到自己腰侧或背部。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-013",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "靠近许可",
+    "text": "大大怪问“小怪兽，我可以再近一点吗？”小怪兽点头后，拉住他的腰让他靠近。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-014",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "臀上方回应",
+    "text": "大大怪从背后抱住小怪兽，手停在她臀部上方。小怪兽把身体向后贴近5秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-MF-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-016",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "胸口回应",
+    "text": "小怪兽把手放在大大怪胸口。大大怪握住她的手，让她贴得更紧。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-017",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "衣扣回应",
+    "text": "小怪兽解开大大怪一颗衣扣。大大怪低头亲吻她额头，再让她继续整理衣领。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-018",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "腿贴回应",
+    "text": "小怪兽坐到大大怪身边，用腿碰他的腿。大大怪把腿贴回去，保持10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-019",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "腰带边缘",
+    "text": "小怪兽手指停在大大怪腰带上方。大大怪握住她手腕，让她停在那里5秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-020",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "嘴角回吻",
+    "text": "小怪兽亲吻大大怪嘴角。大大怪必须回亲她下唇一次。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-021",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "锁骨回礼",
+    "text": "小怪兽亲吻大大怪锁骨上方。大大怪低头回吻她耳后。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-022",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "衣角拉近",
+    "text": "小怪兽拉住大大怪衣角。大大怪顺着她的动作靠近，双手扶住她腰侧。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-023",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "力度反馈",
+    "text": "小怪兽隔着衣服揉大大怪后腰。大大怪说“轻一点”或“重一点”，小怪兽照做10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-024",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "主导交换",
+    "text": "小怪兽亲吻大大怪嘴角后，把他的手放到自己腰侧。大大怪决定继续抱住还是停住。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-response-025",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "额头回应",
+    "text": "小怪兽亲吻大大怪额头。大大怪低头抱住她，回亲她额头。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-10",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-response-026",
@@ -282,10 +1027,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "耳边吹气",
-    "text": "玩家在伴侣耳边吹气，伴侣立刻回吻玩家侧脸。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "后颈回应",
+    "text": "小怪兽从背后摸大大怪后颈。大大怪转身抓住她的手，把她拉进怀里。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-11",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-response-027",
@@ -293,10 +1039,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "脸颊贴合",
-    "text": "小怪兽贴住大大怪脸颊摩擦，大大怪伸手抱紧她的腰。",
+    "title": "跨坐回应",
+    "text": "小怪兽坐到大大怪腿上。大大怪双手扶住她的腰，让她停留15秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#R-FM-12",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-response-028",
@@ -304,10 +1051,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "触碰耳朵",
-    "text": "玩家用手指捏伴侣耳垂，伴侣低头靠在玩家肩上。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "禁吻回应",
+    "text": "小怪兽用手指挡住大大怪的嘴。大大怪亲吻她手指后，等她允许再靠近。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-13",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-response-029",
@@ -315,10 +1063,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "解开衣扣",
-    "text": "大大怪解开小怪兽衣领扣子，小怪兽抬头亲吻他下巴。",
+    "title": "胸口反馈",
+    "text": "小怪兽把手贴在大大怪胸口。大大怪告诉她“快了”或“还好”，小怪兽继续停留5秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#R-FM-14",
+    "sourceBatch": "new-480"
   },
   {
     "id": "flirt-response-030",
@@ -326,35 +1075,50 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "调情",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "喂食糖果",
-    "text": "玩家把糖果放在嘴唇中间，伴侣靠过来用嘴接走。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "title": "肩膀回应",
+    "text": "小怪兽按住大大怪肩膀让他低头。大大怪顺着她的动作靠近，亲吻她脸颊。 # C. duo 双人卡 30张",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#R-FM-15",
+    "sourceBatch": "new-480"
   },
   {
-    "id": "flirt-response-031",
+    "id": "flirt-response-legacy-001",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "手心写字",
-    "text": "小怪兽在大大怪手心画圈，大大怪顺势亲吻她的额头。",
+    "title": "耳边吹气",
+    "text": "小怪兽在大大怪耳边吹气，大大怪立刻回吻小怪兽侧脸。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-response-026",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-response-032",
+    "id": "flirt-response-legacy-002",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "脸颊贴合",
+    "text": "小怪兽贴住大大怪脸颊摩擦，大大怪伸手抱紧她的腰。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-response-027",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "flirt-response-legacy-003",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "拉扯衣角",
-    "text": "玩家伸手拉扯伴侣的衣角，伴侣顺势靠近抱住玩家。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "小怪兽伸手拉扯大大怪的衣角，大大怪顺势靠近抱住小怪兽。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-response-032",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-response-033",
+    "id": "flirt-response-legacy-004",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "response",
@@ -362,21 +1126,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "蒙眼猜测",
     "text": "大大怪用手蒙住小怪兽眼睛，小怪兽伸手摸他的脸颊。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-response-033",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-response-034",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "递上水杯",
-    "text": "玩家喝一口水递给伴侣，伴侣就着同一个杯口喝下。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-035",
+    "id": "flirt-response-legacy-005",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "response",
@@ -384,98 +1138,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "张开双臂",
     "text": "小怪兽向大大怪张开双手，大大怪立刻上前紧紧拥抱。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-response-035",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-response-036",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "触碰锁骨",
-    "text": "玩家手指点在伴侣锁骨上，伴侣低头亲吻玩家的手背。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-037",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "轻咬手指",
-    "text": "大大怪把食指放在小怪兽唇边，小怪兽张嘴轻轻咬住。",
-    "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-038",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "捧脸对视",
-    "text": "玩家捧起伴侣的脸对视，伴侣需主动闭上眼睛等待。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-039",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "抚摸后颈",
-    "text": "小怪兽轻抚大大怪后颈，大大怪顺势低头埋进她颈窝。",
-    "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-040",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "凑近颈窝",
-    "text": "玩家把脸埋进伴侣颈窝深呼吸，伴侣伸手抚摸玩家后背。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-041",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "指尖对碰",
-    "text": "大大怪伸出食指，小怪兽也伸出食指与他指尖相触摩擦。",
-    "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-042",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "扯开领口",
-    "text": "玩家稍微扯开自己的领口，伴侣靠过来在锁骨上亲吻。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-043",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "抚摸膝盖",
-    "text": "大大怪把手放在小怪兽膝盖上，小怪兽用双手覆盖他手背。",
-    "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-044",
+    "id": "flirt-response-legacy-006",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "response",
@@ -483,87 +1150,323 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "闭眼靠近",
     "text": "小怪兽闭上眼睛微微仰头，大大怪低头亲吻她的嘴唇。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-response-044",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-response-045",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "捏住脸颊",
-    "text": "玩家轻轻捏住伴侣脸颊两边，伴侣被迫嘟嘴并被亲一口。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-046",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "搂住腰肢",
-    "text": "大大怪伸手搂住小怪兽的腰，小怪兽顺势贴紧他的胸膛。",
-    "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-047",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "靠上肩膀",
-    "text": "玩家主动把头靠在伴侣肩膀上，伴侣侧头亲吻玩家头顶。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-048",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "手指梳头",
-    "text": "小怪兽用手指给大大怪梳理头发，大大怪闭上眼睛靠过去。",
-    "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-049",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "拍打身旁",
-    "text": "玩家拍拍自己身边的空位，伴侣走过去紧挨着大腿坐下。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-response-050",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "轻碰鼻尖",
-    "text": "大大怪用鼻尖碰小怪兽鼻尖，小怪兽轻咬他的下嘴唇。",
-    "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-duo-051",
+    "id": "flirt-duo-001",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
     "modeLabel": "双人卡",
-    "title": "十指紧扣",
-    "text": "两人双手十指交叉紧扣，放在胸前对视60秒。",
+    "title": "胸口贴胸口",
+    "text": "两人面对面拥抱，胸口隔着衣服贴住胸口，保持20秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "一阶段.txt#DU-N-01",
+    "sourceBatch": "new-480"
   },
   {
-    "id": "flirt-duo-052",
+    "id": "flirt-duo-002",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "额头到嘴角",
+    "text": "两人额头相抵10秒。结束后同时亲吻对方嘴角。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-003",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "十指压近",
+    "text": "两人十指相扣。大大怪向前一步，小怪兽也向前一步，直到身体贴近。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-004",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "腿部交叠",
+    "text": "两人坐在床沿，大腿外侧贴住大腿外侧，双手交握30秒。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-005",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互摸后背",
+    "text": "两人拥抱，双手同时隔着衣服从对方肩背摸到后腰。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-006",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互亲锁骨",
+    "text": "两人轮流亲吻对方锁骨上方，每人亲吻5秒。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-007",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "靠近不亲",
+    "text": "两人嘴唇靠近到一指距离，保持10秒。结束后只允许亲吻对方侧脸。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-008",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "同步解扣",
+    "text": "两人同时解开对方外层衣服最上方一颗纽扣，然后停手对视。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-009",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "腰侧互按",
+    "text": "两人面对面站着，双手同时隔着衣服按住对方腰侧10秒。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-010",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "闭眼找位置",
+    "text": "两人同时闭眼，用手摸到对方肩膀、腰侧或后背其中一处，摸到后停留5秒。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-012",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "嘴角交换",
+    "text": "两人同时亲吻对方左嘴角，再换右嘴角。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-013",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "拥抱加深",
+    "text": "两人正面拥抱。每过5秒，各自把对方抱紧一点，共3次。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-015",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "耳边轮流",
+    "text": "两人轮流靠近对方耳边，说一句想让对方继续靠近的话。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-016",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "镜前同步",
+    "text": "两人站在镜前。大大怪从背后抱住小怪兽，小怪兽把手盖在他的手上。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-16",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-017",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "腿间站位",
+    "text": "小怪兽坐在床沿，大大怪站在她两腿之间。两人只牵手对视15秒。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-17",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-018",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互相选择部位",
+    "text": "大大怪说一个想被亲的位置，小怪兽也说一个。两人轮流完成。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-18",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-019",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "同时停手",
+    "text": "两人隔衣抚摸对方背部10秒。倒数3秒后同时停手，看谁先忍不住靠近。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-19",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-020",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "共同确认",
+    "text": "两人面对面站着，各说一句“我想继续”的方式。说完拥抱20秒。",
+    "rolePolicy": "none",
+    "source": "一阶段.txt#DU-N-20",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-021",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "背抱引导",
+    "text": "大大怪从背后抱住小怪兽，引导她把手盖在自己手背上，保持20秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#DU-M-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-022",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "靠近倒数",
+    "text": "大大怪倒数3秒。数到1时，两人同时靠近，大大怪先亲吻小怪兽嘴角。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#DU-M-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-024",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "镜前停留",
+    "text": "大大怪带小怪兽站到镜前，从背后抱住她，让她看镜子里的两人10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#DU-M-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-025",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "亲吻顺序",
+    "text": "大大怪决定亲吻顺序：手背、肩头、嘴角。小怪兽只需要站着接受。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#DU-M-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-026",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "衣领引导",
+    "text": "小怪兽抓住大大怪衣领，引导他靠近自己，停在嘴唇前5秒再亲吻。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#DU-F-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-027",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "膝上停留",
+    "text": "小怪兽坐到大大怪腿上，决定抱住他的脖子还是按住他的胸口。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#DU-F-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-029",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "手掌定位",
+    "text": "小怪兽握住大大怪的手，决定放在自己腰侧还是后背，停留10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#DU-F-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-030",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "主导拥抱",
+    "text": "小怪兽决定正面拥抱还是背后拥抱。大大怪按照她的选择完成20秒。 # D. scene 场景卡 30张",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#DU-F-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-duo-legacy-001",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -571,21 +1474,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "额头相抵",
     "text": "两人额头贴着额头，闭上眼睛平复呼吸30秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-052",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-053",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "嘴对嘴喂",
-    "text": "两人不用手，只用嘴唇互相传递吃下一颗糖果。",
-    "rolePolicy": "none",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-duo-054",
+    "id": "flirt-duo-legacy-002",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -593,10 +1486,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "拥抱深吸",
     "text": "两人站立紧紧拥抱，互相在对方颈窝深呼吸30秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-054",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-055",
+    "id": "flirt-duo-legacy-003",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -604,43 +1498,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互揉肩膀",
     "text": "两人面对面站立，互相用双手揉捏对方的肩膀30秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-055",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-056",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "鼻尖互蹭",
-    "text": "两人闭上眼睛，用鼻尖互相蹭对方的脸颊和鼻子30秒。",
-    "rolePolicy": "none",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-duo-057",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "互相喂水",
-    "text": "两人各拿一杯水，同时把水杯递到对方嘴边喂给对方。",
-    "rolePolicy": "none",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-duo-058",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "紧贴心跳",
-    "text": "两人隔着衣服胸膛紧贴，闭眼感受对方的心跳60秒。",
-    "rolePolicy": "none",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-duo-059",
+    "id": "flirt-duo-legacy-004",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -648,10 +1510,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互脱外套",
     "text": "两人同时伸出手，帮对方脱下最外层的一件衣服。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-059",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-060",
+    "id": "flirt-duo-legacy-005",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -659,10 +1522,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "呼吸同频",
     "text": "两人脸贴脸相距不到三厘米，调整呼吸直到完全一致。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-060",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-061",
+    "id": "flirt-duo-legacy-006",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -670,43 +1534,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "对视憋笑",
     "text": "两人相隔一臂距离站立对视，谁先笑出来就要亲对方一下。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-061",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-062",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "互理头发",
-    "text": "两人同时伸出双手，帮对方整理有些凌乱的头发。",
-    "rolePolicy": "none",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-duo-063",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "掌心互击",
-    "text": "两人像玩游戏一样双手击掌，然后十指相扣停住15秒。",
-    "rolePolicy": "none",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-duo-064",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "交叠双手",
-    "text": "两人把手掌一层层叠在一起，用力压紧保持15秒。",
-    "rolePolicy": "none",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-duo-065",
+    "id": "flirt-duo-legacy-007",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -714,10 +1546,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "隔衣蹭腰",
     "text": "两人面对面拥抱，用自己的腰部隔衣摩擦对方的腰部30秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-065",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-066",
+    "id": "flirt-duo-legacy-008",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -725,10 +1558,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互吻手背",
     "text": "两人同时抬起对方的右手，低头在对方手背上亲吻。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-066",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-067",
+    "id": "flirt-duo-legacy-009",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -736,10 +1570,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "左右贴面",
     "text": "两人像礼仪一样，互相贴一下左右脸颊并亲一口。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-067",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-068",
+    "id": "flirt-duo-legacy-010",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -747,10 +1582,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "交换呼吸",
     "text": "两人张开嘴唇靠近，不碰到对方只互相呼吸对方的空气。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-068",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-069",
+    "id": "flirt-duo-legacy-011",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -758,10 +1594,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "闭眼互摸",
     "text": "两人闭上眼睛，只用双手摸索对方的脸部轮廓30秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-069",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-070",
+    "id": "flirt-duo-legacy-012",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -769,10 +1606,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互扯衣角",
     "text": "两人互相抓住对方的衣角往下扯，拉近彼此的距离。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-070",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-071",
+    "id": "flirt-duo-legacy-013",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -780,10 +1618,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互捏耳垂",
     "text": "两人同时伸出手，捏住对方的右耳垂轻轻揉搓15秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-071",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-072",
+    "id": "flirt-duo-legacy-014",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -791,10 +1630,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "眼神拉丝",
     "text": "两人在脱去鞋袜的过程中，全程保持眼神对视不躲闪。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-072",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-073",
+    "id": "flirt-duo-legacy-015",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -802,10 +1642,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "肩并肩坐",
     "text": "两人紧紧挨着肩膀并排坐下，大腿外侧互相贴紧30秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-073",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-074",
+    "id": "flirt-duo-legacy-016",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -813,10 +1654,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互碰膝盖",
     "text": "两人面对面坐着，双腿交错互相碰触对方的膝盖内侧。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-074",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-duo-075",
+    "id": "flirt-duo-legacy-017",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "duo",
@@ -824,21 +1666,383 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "轻啄嘴唇",
     "text": "两人快速在对方嘴唇上连亲三下，马上分开。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-duo-075",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-076",
+    "id": "flirt-duo-interaction-001",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "腿部依靠",
+    "text": "大大怪将头枕在小怪兽的大腿上（或让小怪兽枕在自己腿上），互相抚摸头发1分钟。",
+    "rolePolicy": "none",
+    "source": "interaction:beginner-035",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "flirt-scene-001",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床沿压近",
+    "text": "酒店床沿，小怪兽坐着。大大怪站在她两腿之间，双手撑在她身侧，低头亲吻她嘴角。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-002",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前背抱",
+    "text": "穿衣镜前，小怪兽面向镜子站着。大大怪站在她身后，双手隔着衣服抱住她腰，让她看镜子里的两个人20秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-003",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门后锁骨",
+    "text": "门后，小怪兽背靠门站着。大大怪一手撑门，一手扶她腰，低头亲吻她锁骨上方。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-004",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "窗边贴背",
+    "text": "窗边，小怪兽面向窗外站着。大大怪从身后贴近她后背，双手按住她腰侧10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-005",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "浴室门框",
+    "text": "浴室门框旁，小怪兽靠着门框站着。大大怪站在她面前，手掌隔着衣服从她肩膀滑到腰侧。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-006",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "书桌后抱",
+    "text": "酒店书桌旁，小怪兽站在桌前。大大怪从背后抱住她，胸口贴住她后背，亲吻她后颈。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-007",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "被子边缘",
+    "text": "床上，小怪兽坐在被子边。大大怪跪坐在她面前，双手扶住她腰侧，问她要不要靠近一点。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-008",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发扶手",
+    "text": "沙发旁，小怪兽坐在扶手上。大大怪站在她面前，双手扶她腰，低头亲吻她肩膀。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-009",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床边脱外套",
+    "text": "床边，小怪兽站着。大大怪帮她脱下外套，脱完后用手从她肩膀摸到后腰。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-010",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "洗手台靠近",
+    "text": "洗手台前，小怪兽靠着台面站着。大大怪站到她面前，双手撑在台面两侧，把她圈在中间10秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-011",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "枕头隔开",
+    "text": "床上，两人面对面躺着，中间隔一个枕头。大大怪拿开枕头，靠近小怪兽亲吻嘴角。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-012",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "地毯贴坐",
+    "text": "地毯上，小怪兽面对大大怪坐下。大大怪握住她腰侧，让她向自己靠近一点。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-013",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "浴巾选择",
+    "text": "浴室外，小怪兽拿着浴巾挡在胸前外衣处。大大怪握住浴巾边缘，让她自己决定放下还是继续挡着。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-014",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发大腿",
+    "text": "沙发上，小怪兽靠着靠背坐下。大大怪侧身坐到她身边，一只手隔着衣服放在她大腿外侧。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-015",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "灯光背抱",
+    "text": "房间灯旁，大大怪把灯光调暗。小怪兽站在原地等他回来，再让他从背后抱住自己20秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-M-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-016",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发跨坐",
+    "text": "酒店沙发上，大大怪靠坐着。小怪兽跨坐在他腿上，双手扶住他的肩膀，对视10秒后亲吻嘴角。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-017",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床头衣扣",
+    "text": "床头位置，大大怪靠坐着。小怪兽坐在他身侧，解开他最上方一颗衣扣，再亲吻他的锁骨。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-018",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "窗帘后亲吻",
+    "text": "窗帘后，两人面对面站着。小怪兽抓住大大怪衣领，把他拉近亲吻下唇一次。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-019",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前胸口",
+    "text": "穿衣镜前，大大怪站在小怪兽身后。小怪兽把他的手拉到自己胸口上方外衣处，停留5秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-020",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "换鞋凳腿贴",
+    "text": "换鞋凳上，大大怪坐着。小怪兽站到他面前，让自己的腿贴住他的膝盖，低头亲吻他额头。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-021",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门板对视",
+    "text": "门板前，大大怪背靠门站着。小怪兽走近，双手隔着衣服按住他的胸口，对视15秒。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-022",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床尾牵近",
+    "text": "床尾位置，大大怪站着。小怪兽坐在床尾，牵起他的双手，把他拉到自己面前。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-023",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "落地窗倒影",
+    "text": "落地窗前，两人并肩站着。小怪兽从倒影里看着大大怪，伸手抱住他的腰侧。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-025",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床边脚踝",
+    "text": "床边，大大怪坐着。小怪兽蹲下帮他脱鞋，脱完后亲吻他的脚踝上方一次。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-026",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "洗手台牵引",
+    "text": "洗手台前，大大怪靠着台面站着。小怪兽抓住他的衣领，把他拉近到自己面前。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-027",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发侧坐",
+    "text": "沙发上，大大怪坐着。小怪兽侧坐到他腿上，双手搂住他的脖子，亲吻他的脸颊。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-028",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门后反压",
+    "text": "门后，大大怪背靠门站着。小怪兽站到他面前，一手按住他胸口，一手拉住他衣领。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-029",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上枕边",
+    "text": "床上，大大怪侧躺着。小怪兽靠近他，手放在他胸口外衣上，亲吻他的下巴。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-030",
+    "stage": "flirt",
+    "stageLabel": "调情",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "灯光等待",
+    "text": "房间灯旁，小怪兽把灯光调暗。大大怪站在原地等她回来，小怪兽走近后抱住他的腰。",
+    "rolePolicy": "fixed",
+    "source": "一阶段.txt#S-F-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "flirt-scene-legacy-001",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "沙发拥抱",
-    "text": "两人在沙发上侧坐，玩家把伴侣抱在怀里30秒。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "两人在沙发上侧坐，小怪兽把大大怪抱在怀里30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-scene-076",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-077",
+    "id": "flirt-scene-legacy-002",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -846,32 +2050,35 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "墙边对视",
     "text": "大大怪把小怪兽按在墙边，低头对视30秒不许笑。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-077",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-078",
+    "id": "flirt-scene-legacy-003",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "床沿脱袜",
-    "text": "玩家坐在床沿，伴侣蹲下为玩家脱掉双脚的袜子。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "小怪兽坐在床沿，大大怪蹲下为小怪兽脱掉双脚的袜子。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-scene-078",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-079",
+    "id": "flirt-scene-legacy-004",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "门后轻吻",
-    "text": "两人站在门后，玩家把伴侣抵在门板上亲吻嘴唇30秒。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "两人站在门后，大大怪把小怪兽抵在门板上亲吻嘴唇30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-scene-079",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-080",
+    "id": "flirt-scene-legacy-005",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -879,10 +2086,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "镜前整理",
     "text": "两人站在穿衣镜前，大大怪从背后帮小怪兽整理衣领。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-080",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-081",
+    "id": "flirt-scene-legacy-006",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -890,10 +2098,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "地毯并坐",
     "text": "两人在地毯上并排靠墙坐下，小怪兽把头靠在大大怪肩上。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-081",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-082",
+    "id": "flirt-scene-legacy-007",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -901,10 +2110,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "椅子背后",
     "text": "小怪兽坐在椅子上，大大怪站在背后低头亲吻她的头发。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-082",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-083",
+    "id": "flirt-scene-legacy-008",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -912,10 +2122,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "餐桌搂腰",
     "text": "大大怪靠在餐桌边，小怪兽走过去双手环抱他的腰。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-083",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-084",
+    "id": "flirt-scene-legacy-009",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -923,10 +2134,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床上侧看",
     "text": "小怪兽仰躺在床上，大大怪侧躺在旁边单手撑头看着她。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-084",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-085",
+    "id": "flirt-scene-legacy-010",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -934,10 +2146,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "沙发跨坐",
     "text": "大大怪靠坐沙发，小怪兽穿着衣服跨坐在他腿上面对面。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-085",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-086",
+    "id": "flirt-scene-legacy-011",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -945,21 +2158,23 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "窗前背抱",
     "text": "两人站在窗前看风景，大大怪从背后搂住小怪兽的肩膀。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-086",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-087",
+    "id": "flirt-scene-legacy-012",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "浴室门框",
-    "text": "玩家靠在浴室门框上，伴侣走过去双手捧住玩家的脸亲吻。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "大大怪靠在浴室门框上，小怪兽走过去双手捧住大大怪的脸亲吻。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-scene-087",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-088",
+    "id": "flirt-scene-legacy-013",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -967,10 +2182,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "梳妆台前",
     "text": "小怪兽坐在梳妆台前，大大怪拿梳子帮她梳理头发60秒。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-088",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-089",
+    "id": "flirt-scene-legacy-014",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -978,43 +2194,35 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床铺中央",
     "text": "两人在床中央面对面盘腿坐，十指紧扣轻轻摇晃30秒。",
     "rolePolicy": "none",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-089",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-090",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "冰箱门前",
-    "text": "大大怪打开冰箱，小怪兽从背后贴上去抱住他的背。",
-    "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-scene-091",
+    "id": "flirt-scene-legacy-015",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "洗手台边",
-    "text": "两人站在洗手台前，玩家用湿毛巾帮伴侣擦手背和手腕。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "两人站在洗手台前，大大怪用湿毛巾帮小怪兽擦手背和手腕。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-scene-091",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-092",
+    "id": "flirt-scene-legacy-016",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "衣柜门前",
-    "text": "玩家站在衣柜前，伴侣走过去在玩家后颈快速亲一口。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "小怪兽站在衣柜前，大大怪走过去在小怪兽后颈快速亲一口。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-scene-092",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-093",
+    "id": "flirt-scene-legacy-017",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -1022,10 +2230,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "沙发扶手",
     "text": "小怪兽坐在沙发扶手上，捏住站着的大大怪脸颊对视。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-093",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-094",
+    "id": "flirt-scene-legacy-018",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -1033,32 +2242,23 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "书桌旁边",
     "text": "大大怪坐在书桌前，小怪兽站到旁边把下巴搁在他肩膀上。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-094",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-095",
-    "stage": "flirt",
-    "stageLabel": "调情",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "地板平躺",
-    "text": "两人在地毯上并排平躺，转过头看着对方的侧脸30秒。",
-    "rolePolicy": "none",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "flirt-scene-096",
+    "id": "flirt-scene-legacy-019",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "走廊挡路",
-    "text": "玩家双手撑住走廊墙壁挡路，伴侣必须亲玩家一口才能过。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "小怪兽双手撑住走廊墙壁挡路，大大怪必须亲小怪兽一口才能过。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-scene-096",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-097",
+    "id": "flirt-scene-legacy-020",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -1066,10 +2266,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床尾地毯",
     "text": "小怪兽趴在床尾地毯上，大大怪坐在旁边揉捏她的小腿。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-097",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-098",
+    "id": "flirt-scene-legacy-021",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -1077,21 +2278,23 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "墙角贴胸",
     "text": "大大怪背靠墙角，小怪兽上前一步贴紧他的胸膛深呼吸。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
+    "source": "legacy:flirt-scene-098",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-099",
+    "id": "flirt-scene-legacy-022",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "换鞋凳上",
-    "text": "玩家坐在换鞋凳上，伴侣半蹲下帮玩家解开鞋带并脱下鞋。",
-    "rolePolicy": "dynamic",
-    "source": "一阶段.txt"
+    "text": "大大怪坐在换鞋凳上，小怪兽半蹲下帮大大怪解开鞋带并脱下鞋。",
+    "rolePolicy": "fixed",
+    "source": "legacy:flirt-scene-099",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "flirt-scene-100",
+    "id": "flirt-scene-legacy-023",
     "stage": "flirt",
     "stageLabel": "调情",
     "mode": "scene",
@@ -1099,18 +2302,8 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "飘窗台面",
     "text": "两人在飘窗上面对面坐下，大大怪低头亲吻小怪兽的手心。",
     "rolePolicy": "fixed",
-    "source": "一阶段.txt"
-  },
-  {
-    "id": "foreplay-directed-001",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "褪去上衣",
-    "text": "玩家双手抓住伴侣贴身上衣下摆，向上完全脱掉。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "source": "legacy:flirt-scene-100",
+    "sourceBatch": "legacy-selected"
   },
   {
     "id": "foreplay-directed-002",
@@ -1118,21 +2311,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "冰块游走",
-    "text": "小怪兽拿一块冰，在大大怪赤裸的胸膛上缓慢滑动30秒。",
+    "title": "隔衣揉胸",
+    "text": "大大怪隔着衣服或内衣，用手掌揉小怪兽胸部10秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-directed-003",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "隔衣揉捏",
-    "text": "大大怪隔着内衣，用手掌揉捏小怪兽的腰侧30秒。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-M-02",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-004",
@@ -1140,10 +2323,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "眼罩遮蔽",
-    "text": "玩家用眼罩蒙住伴侣眼睛，在伴侣大腿上轻抚60秒。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "title": "乳头轻触",
+    "text": "大大怪用指腹轻轻碰小怪兽乳头3次，碰完后停住看她反应。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-M-04",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-005",
@@ -1151,21 +2335,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "亲吻胸沟",
-    "text": "大大怪低头，在小怪兽的胸沟处连续亲吻30秒。",
+    "title": "大腿内侧",
+    "text": "小怪兽坐在床沿，大大怪手掌从她膝盖内侧滑到大腿内侧，停在腿根外侧。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-directed-006",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "解开内衣",
-    "text": "玩家走到伴侣身后，单手解开伴侣背后的内衣搭扣。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-M-05",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-007",
@@ -1173,21 +2347,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "抚摸大腿",
-    "text": "小怪兽用双手从大大怪的膝盖，一路向上抚摸到大腿根。",
+    "title": "裤腰试探",
+    "text": "大大怪手指沿着小怪兽裤腰或内裤边缘滑过，不伸进去，停在腰侧。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-directed-008",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "舔舐耳廓",
-    "text": "大大怪含住小怪兽的耳廓，用舌尖仔细舔舐15秒。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-M-07",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-009",
@@ -1195,10 +2359,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "乳液推背",
-    "text": "玩家把乳液倒在掌心搓热，用力推拿伴侣的后背60秒。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "title": "胸部亲吻",
+    "text": "大大怪低头亲吻小怪兽胸部外侧，每边各5秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-M-09",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-010",
@@ -1206,32 +2371,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "丝带蒙眼",
-    "text": "小怪兽用一条软丝带，从脑后将大大怪的眼睛蒙住。",
+    "title": "下腹停留",
+    "text": "大大怪手掌停在小怪兽小腹下方，慢慢滑到内裤上缘后停住。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-directed-011",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "咬拉肩带",
-    "text": "大大怪用牙齿咬住小怪兽的内衣肩带，向外拉扯后松开。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-directed-012",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "抚摸腹肌",
-    "text": "玩家解开伴侣裤扣，将手伸进边缘抚摸伴侣的下腹部30秒。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-M-10",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-013",
@@ -1239,21 +2383,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "亲吻脊柱",
-    "text": "小怪兽顺着大大怪的脊柱，从脖颈一路向下亲吻到腰窝。",
+    "title": "胸腰路线",
+    "text": "大大怪从小怪兽胸部下方摸到腰侧，再从腰侧滑到大腿内侧边缘。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-directed-014",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "揉捏胸部",
-    "text": "大大怪隔着内衣，用双手大面积揉捏小怪兽的胸部30秒。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-M-13",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-015",
@@ -1261,10 +2395,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "冰块贴唇",
-    "text": "玩家把冰块贴在自己唇上，再去亲吻伴侣的侧颈15秒。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "title": "许可触碰",
+    "text": "大大怪手停在小怪兽内裤边缘，问她“这里可以吗”，等她回答后再继续或移开。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-M-15",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-016",
@@ -1272,10 +2407,17 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "褪去长裤",
-    "text": "玩家解开伴侣腰带，将伴侣的长裤拉到脚踝处完全脱下。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "title": "主动脱衣",
+    "text": "小怪兽慢慢脱下自己的上衣，让大大怪看着她5秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-F-01",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
   },
   {
     "id": "foreplay-directed-017",
@@ -1283,10 +2425,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "指划腿根",
-    "text": "大大怪用食指指甲，在小怪兽的大腿内侧轻轻刮划30秒。",
+    "title": "拉手摸胸",
+    "text": "小怪兽握住大大怪的手，放到自己胸部上，让他停留5秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-F-02",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-018",
@@ -1294,10 +2437,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "吮吸锁骨",
-    "text": "小怪兽用力吮吸大大怪的锁骨，留下一个清晰的红印。",
+    "title": "跨坐贴胸",
+    "text": "小怪兽跨坐在大大怪腿上，用裸露或半裸的胸口贴近他的胸口10秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-F-03",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-019",
@@ -1305,10 +2449,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "抚摸臀线",
-    "text": "玩家将双手伸进伴侣裤腰边缘，顺着臀部曲线抚摸30秒。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "title": "解开衣扣",
+    "text": "小怪兽解开大大怪上衣扣子，低头亲吻他的胸口和锁骨。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-F-04",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-020",
@@ -1316,10 +2461,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "湿吻脖颈",
-    "text": "大大怪张开嘴唇，在小怪兽脖颈大动脉处深吸吮15秒。",
+    "title": "手停小腹",
+    "text": "小怪兽把手放在大大怪胸口，慢慢滑到小腹上方，停住看他。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-F-05",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-021",
@@ -1327,10 +2473,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "褪去裙子",
-    "text": "大大怪拉开小怪兽裙子拉链，顺着大腿将其完全褪下。",
+    "title": "大腿内侧揉按",
+    "text": "小怪兽坐到大大怪身边，双手按住他大腿内侧上方，揉10秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-F-06",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-022",
@@ -1338,21 +2485,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "揉捏大腿",
-    "text": "小怪兽双手握住大大怪的大腿内侧肌肉，用力揉捏30秒。",
+    "title": "腰带边缘",
+    "text": "小怪兽手指沿着大大怪腰带或内裤边缘滑过，不伸进去，停住5秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-directed-023",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "羽毛挑逗",
-    "text": "玩家拿一根羽毛，在伴侣裸露的腰腹上来回扫动30秒。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-F-07",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-024",
@@ -1360,10 +2497,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "亲吻肚脐",
-    "text": "大大怪半跪在小怪兽身前，低头亲吻她的肚脐周围15秒。",
+    "title": "胸口深吻",
+    "text": "小怪兽按住大大怪胸口，主动深吻15秒，再把他的手拉到自己腰上。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#D2-F-09",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-directed-025",
@@ -1371,10 +2509,803 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "directed",
     "modeLabel": "主动卡",
+    "title": "裸腿贴近",
+    "text": "小怪兽脱去外裤后，坐到大大怪腿上，用大腿贴住他的大腿10秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-F-10",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "lower-undress"
+    ],
+    "blockedByState": [
+      "lower-undress"
+    ]
+  },
+  {
+    "id": "foreplay-directed-026",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "乳头展示",
+    "text": "小怪兽上身裸露后，拉住大大怪的手，让他的指尖停在自己乳头旁边。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-F-11",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-directed-027",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "下体外部引导",
+    "text": "小怪兽握住大大怪的手，隔着内裤放到自己下体外部，停留3秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-F-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-directed-028",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "臀部贴近",
+    "text": "小怪兽坐到大大怪腿上，用臀部隔着内裤或衣物贴住他的大腿。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-F-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-directed-029",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "腿根停留",
+    "text": "小怪兽拉住大大怪的手，放到自己大腿根外侧，停住看他的反应。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-F-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-directed-030",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "主动许可",
+    "text": "小怪兽把大大怪的手放到自己腰侧，说“你可以往下靠近一点”。 # B. response 回应卡 30张",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#D2-F-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-directed-legacy-001",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "冰块游走",
+    "text": "小怪兽拿一块冰，在大大怪赤裸的胸膛上缓慢滑动30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-002",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-002",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "隔衣揉捏",
+    "text": "大大怪隔着内衣，用手掌揉捏小怪兽的腰侧30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-003",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-003",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "亲吻胸沟",
+    "text": "大大怪低头，在小怪兽的胸沟处连续亲吻30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-005",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-004",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "解开内衣",
+    "text": "小怪兽走到大大怪身后，单手解开大大怪背后的内衣搭扣。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-006",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-005",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "抚摸大腿",
+    "text": "小怪兽用双手从大大怪的膝盖，一路向上抚摸到大腿根。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-007",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-006",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "舔舐耳廓",
+    "text": "大大怪含住小怪兽的耳廓，用舌尖仔细舔舐15秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-008",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-007",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "乳液推背",
+    "text": "大大怪把乳液倒在掌心搓热，用力推拿小怪兽的后背60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-009",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-008",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "丝带蒙眼",
+    "text": "小怪兽用一条软丝带，从脑后将大大怪的眼睛蒙住。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-010",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-009",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "咬拉肩带",
+    "text": "大大怪用牙齿咬住小怪兽的内衣肩带，向外拉扯后松开。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-011",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-010",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "抚摸腹肌",
+    "text": "小怪兽解开大大怪裤扣，将手伸进边缘抚摸大大怪的下腹部30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-012",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-011",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "亲吻脊柱",
+    "text": "小怪兽顺着大大怪的脊柱，从脖颈一路向下亲吻到腰窝。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-013",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-012",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "揉捏胸部",
+    "text": "大大怪隔着内衣，用双手大面积揉捏小怪兽的胸部30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-014",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-013",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "冰块贴唇",
+    "text": "大大怪把冰块贴在自己唇上，再去亲吻小怪兽的侧颈15秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-015",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-014",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "褪去长裤",
+    "text": "小怪兽解开大大怪腰带，将大大怪的长裤拉到脚踝处完全脱下。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-016",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-015",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "湿吻脖颈",
+    "text": "大大怪张开嘴唇，在小怪兽脖颈大动脉处深吸吮15秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-020",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-016",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "褪去裙子",
+    "text": "大大怪拉开小怪兽裙子拉链，顺着大腿将其完全褪下。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-021",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-017",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "揉捏大腿",
+    "text": "小怪兽双手握住大大怪的大腿内侧肌肉，用力揉捏30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-022",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-018",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "亲吻肚脐",
+    "text": "大大怪半跪在小怪兽身前，低头亲吻她的肚脐周围15秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-directed-024",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-legacy-019",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
     "title": "隔裤摩擦",
     "text": "小怪兽将手掌覆盖在大大怪大腿根部的裤子上按压摩擦。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-directed-025",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-001",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "冰封时刻",
+    "text": "小怪兽含一块冰，在大大怪的锁骨和脖颈处亲吻，直到冰块融化。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-004",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-002",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "腿部沦陷",
+    "text": "小怪兽从大大怪的脚踝一路向上亲吻，直到大腿根部（不碰私密处）。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-006",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-003",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "热力追踪",
+    "text": "大大怪喝一口热水，将温热的嘴唇贴在小怪兽的腹部停留30秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-013",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-004",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "探索深谷",
+    "text": "小怪兽用鼻尖和嘴唇在大大怪的沟壑处（胸沟或臀沟）深呼吸并亲吻。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-016",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-005",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "服务时间",
+    "text": "小怪兽跨坐在大大怪腿上（隔着衣服），随着呼吸轻轻摩擦1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-020",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-006",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "耳鬓厮磨",
+    "text": "大大怪轻轻咬住小怪兽的耳垂拉扯，并向耳道内吹气。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-021",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-007",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "领地标记",
+    "text": "小怪兽在大大怪的肩膀或大腿内侧留下一个清晰的吻痕（种草莓）。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-022",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-008",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "曲线描摹",
+    "text": "小怪兽闭上眼睛，仅用双手去仔细摸索大大怪的全身曲线1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-024",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-009",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "盲猜挑战",
+    "text": "大大怪闭眼，小怪兽用身体的任意部位碰触大大怪的脸颊，让大大怪猜是什么。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-026",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-010",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "丝袜/领带诱惑",
+    "text": "大大怪利用丝袜、领带或内衣带，在小怪兽脸上和脖颈处轻轻拖拽划过。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-029",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-011",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "主动献身",
+    "text": "大大怪拉着小怪兽的手，放在自己身体最渴望被抚摸的地方停留45秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-031",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-012",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "猫咪舔舐",
+    "text": "小怪兽像小猫一样，用舌头舔舐大大怪的手指和手心，持续30秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-032",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-013",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "温度差",
+    "text": "大大怪一手拿冰块，一手拿温热毛巾，交替刺激小怪兽的后背。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-035",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-014",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "隐秘角落",
+    "text": "大大怪亲吻小怪兽的膝盖后侧和手肘内侧（非常敏感的部位）。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-037",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-015",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "贴身热舞",
+    "text": "大大怪站立，用胯部紧贴小怪兽的胯部，进行缓慢的画圈研磨45秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-039",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-016",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "交出底线",
+    "text": "大大怪强制小怪兽脱掉身上所有的衣服（全裸）。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-043",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-017",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "禁区试探",
+    "text": "大大怪的脸贴近小怪兽的私密处（相距3厘米），只闻不碰，持续30秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-047",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-directed-interaction-018",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "摩擦生热",
+    "text": "小怪兽用自己的大腿内侧摩擦大大怪的大腿内侧，持续1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-048",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-response-001",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "胸部反馈",
+    "text": "大大怪揉小怪兽胸部。小怪兽用手盖住他的手，说“轻一点”或“重一点”。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-01",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "cover-change"
+    ],
+    "blockedByState": [
+      "cover-change"
+    ]
+  },
+  {
+    "id": "foreplay-response-002",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "乳头回应",
+    "text": "大大怪轻触小怪兽乳头。小怪兽按住他的手腕，让他停住或继续一次。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-003",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "脱衣配合",
+    "text": "大大怪帮小怪兽脱上衣。小怪兽主动抬起双臂，脱完后抱住他的脖子。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-03",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-response-004",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "大腿回应",
+    "text": "大大怪摸到小怪兽大腿内侧。小怪兽分开一点腿，让他的手停留5秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-006",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "裸胸贴近",
+    "text": "大大怪亲吻小怪兽胸口。小怪兽主动把胸口贴近他，回吻15秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-06",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-response-007",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "裤腰回应",
+    "text": "大大怪手指沿着小怪兽裤腰边缘滑过。小怪兽按住他的手，让他停在内裤边缘。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-008",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "臀部回应",
+    "text": "大大怪揉小怪兽臀部外侧。小怪兽向后贴近一下，再停住不动。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-009",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "胸部选择",
+    "text": "大大怪的手停在小怪兽胸部。小怪兽选择让他继续揉、轻触乳头或移回腰侧。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-010",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "下腹催促",
+    "text": "大大怪亲吻小怪兽小腹上方后停住。小怪兽用手指引他停到大腿内侧。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-013",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "腿间站位",
+    "text": "大大怪站在小怪兽两腿之间。小怪兽用腿轻轻夹住他的腿，让他不能后退。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-014",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "眼神许可",
+    "text": "大大怪问小怪兽能不能碰下体外部。小怪兽只用点头或摇头回应。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-015",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "裸露后拥抱",
+    "text": "大大怪帮小怪兽脱去上衣后停住。小怪兽主动抱住他，让裸露胸口贴近10秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-MF-15",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-response-016",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "胸口回应",
+    "text": "小怪兽按住大大怪胸口深吻。大大怪扶住她后腰，把她拉近。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-017",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "拉手回应",
+    "text": "小怪兽把大大怪的手放到自己胸部。大大怪停住，问她“这里可以吗”。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-019",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "大腿反馈",
+    "text": "小怪兽按住大大怪大腿内侧上方。大大怪说“停这里”或“再靠近一点”。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-020",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "腰带回应",
+    "text": "小怪兽手指停在大大怪腰带或内裤边缘。大大怪握住她手腕，让她停住5秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-021",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "下体外部回应",
+    "text": "小怪兽隔着裤子触碰大大怪下体外部。大大怪扶住她腰，让她停留3秒后移开。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-022",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "脱衣配合",
+    "text": "小怪兽帮大大怪脱上衣。大大怪主动抬起手臂，脱完后抱住她。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-07",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-response-024",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "跨坐回应",
+    "text": "小怪兽跨坐到大大怪腿上。大大怪双手扶住她腰侧，让她贴近10秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-response-025",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "裸腿回应",
+    "text": "小怪兽用裸露大腿贴住大大怪大腿。大大怪把手放到她大腿外侧停留5秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-10",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "lower-undress"
+    ],
+    "blockedByState": [
+      "lower-undress"
+    ]
   },
   {
     "id": "foreplay-response-026",
@@ -1382,10 +3313,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "亲吻胸口",
-    "text": "大大怪亲吻小怪兽胸口，小怪兽用双手按住他的后脑勺。",
+    "title": "亲吻回拉",
+    "text": "小怪兽亲吻大大怪脖颈。大大怪捧住她脸，把她拉回来深吻。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#R2-FM-11",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-response-027",
@@ -1393,10 +3325,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "涂抹乳液",
-    "text": "玩家在伴侣背部涂抹乳液，伴侣出声确认力度大小。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "title": "手腕控制",
+    "text": "小怪兽手停在大大怪小腹上方。大大怪握住她手腕，决定停留还是移回胸口。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#R2-FM-12",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-response-028",
@@ -1404,21 +3337,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "抚摸腹部",
-    "text": "小怪兽抚摸大大怪下腹，大大怪低头亲吻她的锁骨。",
+    "title": "贴身回应",
+    "text": "小怪兽裸露胸口贴住大大怪胸口。大大怪抱住她后背，让她保持贴近10秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-029",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "丝带捆绑",
-    "text": "玩家用丝带绑住伴侣双手，伴侣主动抬起双臂配合动作。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#R2-FM-13",
+    "sourceBatch": "new-480"
   },
   {
     "id": "foreplay-response-030",
@@ -1426,123 +3349,86 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "解开裤扣",
-    "text": "大大怪解开小怪兽裤扣，小怪兽主动抬腰方便脱下长裤。",
+    "title": "继续选择",
+    "text": "小怪兽让大大怪选择：摸胸部、亲脖颈、触碰内裤外侧。大大怪选一个完成。 # C. duo 双人卡 30张",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "二阶段.txt#R2-FM-15",
+    "sourceBatch": "new-480"
   },
   {
-    "id": "foreplay-response-031",
+    "id": "foreplay-response-legacy-001",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "亲吻胸口",
+    "text": "大大怪亲吻小怪兽胸口，小怪兽用双手按住他的后脑勺。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-response-026",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-response-legacy-002",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "丝带捆绑",
+    "text": "大大怪用丝带绑住小怪兽双手，小怪兽主动抬起双臂配合动作。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-response-029",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "foreplay-response-legacy-003",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "隔衣触碰",
-    "text": "玩家手伸进伴侣衣服下摆，伴侣大口喘气回应抚摸。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "text": "大大怪手伸进小怪兽衣服下摆，小怪兽大口喘气回应抚摸。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-response-031",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-response-032",
+    "id": "foreplay-response-legacy-004",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "索要深吻",
-    "text": "玩家手指按压伴侣下唇，伴侣立刻张嘴回应法式深吻。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "text": "小怪兽手指按压大大怪下唇，大大怪立刻张嘴回应法式深吻。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-response-032",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-response-033",
+    "id": "foreplay-response-legacy-005",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "抚摸引导",
-    "text": "伴侣握住玩家的手，拖到自己目前最想被摸的腰侧。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-034",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "轻咬肩膀",
-    "text": "小怪兽用力咬大大怪的肩膀，大大怪伸手搂紧她的腰。",
+    "text": "小怪兽握住大大怪的手，拖到自己目前最想被摸的腰侧。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-response-033",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-response-035",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "捏住下巴",
-    "text": "大大怪捏住小怪兽下巴接吻，小怪兽双手环抱他脖子。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-036",
+    "id": "foreplay-response-legacy-006",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "顺延亲吻",
-    "text": "玩家从小腿向上亲吻到大腿，伴侣微微分开双腿配合。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-037",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "按压腰窝",
-    "text": "大大怪用力按压小怪兽腰窝，小怪兽顺势向后贴紧他。",
+    "text": "小怪兽从小腿向上亲吻到大腿，大大怪微微分开双腿配合。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-response-036",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-response-038",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "抚摸臀部",
-    "text": "玩家双手揉捏伴侣的臀部，伴侣主动向玩家怀里靠紧。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-039",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "冰块刺激",
-    "text": "小怪兽把冰水滴在大大怪胸口，大大怪立刻伸手抱紧她。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-040",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "摘下眼罩",
-    "text": "玩家帮伴侣摘下眼罩，伴侣睁眼后立刻亲吻玩家嘴唇。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-041",
+    "id": "foreplay-response-legacy-007",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "response",
@@ -1550,98 +3436,35 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "靠近锁骨",
     "text": "大大怪脸埋在小怪兽锁骨处，小怪兽伸手抚摸他头发。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-response-041",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-response-042",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "扯落肩带",
-    "text": "玩家扯下伴侣一侧的内衣肩带，伴侣低头吻玩家手背。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-043",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "贴胸摩擦",
-    "text": "小怪兽用胸口摩擦大大怪，大大怪双手托住她的背部。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-044",
+    "id": "foreplay-response-legacy-008",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "抚摸大腿",
-    "text": "玩家双手游走在伴侣大腿，伴侣大声说出痒或爽的位置。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-045",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "脱去内衣",
-    "text": "大大怪脱下小怪兽内衣，小怪兽用双手遮住胸口15秒。",
+    "text": "小怪兽双手游走在大大怪大腿，大大怪大声说出痒或爽的位置。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-response-044",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-response-046",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "咬拉衣角",
-    "text": "玩家用牙齿咬住伴侣衣角拉扯，伴侣顺势脱去这件衣服。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-047",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "按摩小腿",
-    "text": "大大怪揉捏小怪兽小腿肌肉，小怪兽用脚趾蹭他大腿。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-048",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "贴近喘息",
-    "text": "小怪兽在大大怪耳边深喘息，大大怪转头狠狠吻住她。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-response-049",
+    "id": "foreplay-response-legacy-009",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "后背画圈",
-    "text": "玩家在伴侣赤裸的后背画圈，伴侣大声说出被碰的位置。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "text": "大大怪在小怪兽赤裸的后背画圈，小怪兽大声说出被碰的位置。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-response-049",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-response-050",
+    "id": "foreplay-response-legacy-010",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "response",
@@ -1649,10 +3472,323 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "解开皮带",
     "text": "小怪兽解开大大怪的皮带抽走，大大怪按住她的双手。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-response-050",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-051",
+    "id": "foreplay-response-interaction-001",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "气息诱惑",
+    "text": "大大怪贴在小怪兽耳边，用最性感的低音/气声说出自己现在的生理感受。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-009",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-duo-001",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "同步脱衣",
+    "text": "两人同时脱去一件上身衣物，脱完后面对面站着对视10秒。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-01",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-duo-002",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "裸胸贴合",
+    "text": "两人上身脱去外衣后，胸口贴住胸口，保持15秒。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-02",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-duo-003",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "深吻停顿",
+    "text": "两人深吻15秒。结束后额头相抵，手都停在对方腰侧。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-004",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互摸胸口",
+    "text": "两人同时把手放到对方胸口或胸部上，停留5秒后一起移到腰侧。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-005",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互摸大腿",
+    "text": "两人坐在床沿，同时把手放到对方大腿内侧边缘，停留5秒。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-007",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互相选择",
+    "text": "两人各说一个想被触碰的位置，只能选胸部、臀部、大腿内侧、内裤外侧。轮流完成。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-008",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "同步解扣",
+    "text": "两人同时解开对方衣服剩下的一颗扣子，解完后同时停手。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-009",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "靠近禁止",
+    "text": "两人嘴唇靠近到一指距离，双手放在对方裸露腰侧，10秒内不能亲吻。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-011",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "镜前整理",
+    "text": "两人站在镜前，各自帮对方整理脱乱的衣服，再深吻10秒。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-012",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "腰臀互按",
+    "text": "两人面对面站着，双手同时按住对方腰侧或臀部外侧，把对方拉近。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-013",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "轮流停手",
+    "text": "两人触碰对方胸部或腰侧。每人轮流喊一次“停”，对方必须停5秒。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-014",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "脖颈轮换",
+    "text": "两人轮流亲吻对方脖颈，每人10秒，另一方只能抱住不能动。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-016",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互相确认",
+    "text": "两人各说一句“这里可以”或“这里先不要”，说完亲吻对方嘴角。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-16",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-017",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "床沿贴近",
+    "text": "两人坐在床沿，各自向对方靠近一点，直到大腿内侧边缘贴近。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-17",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-018",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "暴露暂停",
+    "text": "两人各自脱去一件外层衣物，然后停住30秒，只能看不能碰。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-18",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-019",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "触碰投票",
+    "text": "两人同时说出“胸部”“臀部”“大腿”“内裤外侧”其中一个词。如果一样，就一起完成5秒。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-19",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-020",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "共同推进",
+    "text": "两人面对面拥抱，各自说一句“我想下一步被碰哪里”，说完深吻10秒。",
+    "rolePolicy": "none",
+    "source": "二阶段.txt#DU2-N-20",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-022",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "触碰路线",
+    "text": "大大怪决定路线：胸部、腰侧、大腿内侧。小怪兽只需要站着接受。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#DU2-M-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-023",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "停手命令",
+    "text": "大大怪触碰小怪兽胸部时说“停”。两人都停住不动5秒后再继续靠近。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#DU2-M-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-024",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "镜前暴露",
+    "text": "大大怪带小怪兽站到镜前，从背后抱住她，让她看着自己被抱住的样子。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#DU2-M-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-026",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "牵衣靠近",
+    "text": "小怪兽抓住大大怪衣领，把他拉到自己面前，决定先深吻还是先摸胸部。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#DU2-F-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-027",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "跨坐停留",
+    "text": "小怪兽跨坐到大大怪腿上，决定他的手放在自己胸部、腰侧还是大腿上。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#DU2-F-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-028",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "触碰路线",
+    "text": "小怪兽握住大大怪的手，决定从自己的胸部、臀部或大腿内侧开始。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#DU2-F-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-030",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "内裤边缘",
+    "text": "小怪兽握住大大怪的手，放到自己内裤边缘，让他停住等她点头。 # D. scene 场景卡 30张",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#DU2-F-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-duo-legacy-001",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1660,21 +3796,17 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "半裸相拥",
     "text": "两人脱去全部上衣，胸膛完全贴合在一起拥抱60秒。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-051",
+    "sourceBatch": "legacy-selected",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
   },
   {
-    "id": "foreplay-duo-052",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "互褪底裤",
-    "text": "两人互相动手，帮对方缓慢褪去最外层的长裤或短裙。",
-    "rolePolicy": "none",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-duo-053",
+    "id": "foreplay-duo-legacy-002",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1682,10 +3814,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互相揉臀",
     "text": "两人面对面站立拥抱，同时用力揉捏对方的臀部30秒。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-053",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-054",
+    "id": "foreplay-duo-legacy-003",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1693,10 +3826,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "舌尖纠缠",
     "text": "两人张开嘴唇，进行长达60秒的深吻，手抚摸对方腰背。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-054",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-055",
+    "id": "foreplay-duo-legacy-004",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1704,10 +3838,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互解纽扣",
     "text": "两人同时伸出手，一颗颗解开对方衬衫或外套的纽扣。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-055",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-056",
+    "id": "foreplay-duo-legacy-005",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1715,10 +3850,17 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "胸膛互贴",
     "text": "两人脱去上衣，用胸膛紧紧贴紧对方，缓慢左右摩擦。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-056",
+    "sourceBatch": "legacy-selected",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
   },
   {
-    "id": "foreplay-duo-057",
+    "id": "foreplay-duo-legacy-006",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1726,10 +3868,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互摸大腿",
     "text": "两人面对面坐着，双手伸进对方的裤管抚摸大腿30秒。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-057",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-058",
+    "id": "foreplay-duo-legacy-007",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1737,10 +3880,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "冰火交替",
     "text": "一人含温水一人含冰水，交替亲吻对方的脖颈和肩膀。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-058",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-059",
+    "id": "foreplay-duo-legacy-008",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1748,10 +3892,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互咬耳垂",
     "text": "两人侧头靠在对方肩膀，互相轻咬拉扯对方的耳垂15秒。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-059",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-060",
+    "id": "foreplay-duo-legacy-009",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1759,10 +3904,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "同步呼吸",
     "text": "两人赤裸上半身贴紧，随着深呼吸感受胸膛的起伏30秒。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-060",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-061",
+    "id": "foreplay-duo-legacy-010",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1770,10 +3916,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互抹乳液",
     "text": "两人双手沾满润滑乳液，互相在对方后背打圈推拿。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-061",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-062",
+    "id": "foreplay-duo-legacy-011",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1781,10 +3928,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "交叠抚背",
     "text": "两人紧紧抱在一起，双手在对方裸露的背部大面积游走。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-062",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-063",
+    "id": "foreplay-duo-legacy-012",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1792,10 +3940,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互相摩擦",
     "text": "两人隔着最后的外裤，用下半身紧贴着来回缓慢摩擦。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-063",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-064",
+    "id": "foreplay-duo-legacy-013",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1803,10 +3952,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互吻锁骨",
     "text": "两人同时低头，在对方的锁骨位置用力吸出红印。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-064",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-065",
+    "id": "foreplay-duo-legacy-014",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1814,10 +3964,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "十指扣头",
     "text": "两人接吻时，双手十指交叉按在对方的后脑勺上施压。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-065",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-066",
+    "id": "foreplay-duo-legacy-015",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1825,10 +3976,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "大腿交缠",
     "text": "两人面对面侧躺，将双腿互相交缠锁死，感受肌肤贴合。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-066",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-067",
+    "id": "foreplay-duo-legacy-016",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1836,10 +3988,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互解皮带",
     "text": "两人同时把手伸向对方腰间，解开对方的皮带抽掉。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-067",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-068",
+    "id": "foreplay-duo-legacy-017",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1847,10 +4000,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互探衣摆",
     "text": "两人同时把手探入对方上衣下摆，用力抚摸腰部肌肤。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-068",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-069",
+    "id": "foreplay-duo-legacy-018",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1858,10 +4012,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "唇齿交握",
     "text": "两人闭眼张嘴深吻，互相用力吸吮对方的舌尖30秒。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-069",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-070",
+    "id": "foreplay-duo-legacy-019",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1869,10 +4024,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "额头对撞",
     "text": "两人接吻后额头抵着额头，双手互相捧着对方的侧脸。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-070",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-071",
+    "id": "foreplay-duo-legacy-020",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1880,10 +4036,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互捏腰窝",
     "text": "两人同时伸手探到对方身后，用力按揉对方的腰窝。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-071",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-072",
+    "id": "foreplay-duo-legacy-021",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1891,10 +4048,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "蒙眼互摸",
     "text": "两人都戴上眼罩，仅靠双手摸索对方裸露的肌肤60秒。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-072",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-073",
+    "id": "foreplay-duo-legacy-022",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1902,10 +4060,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互扯衣领",
     "text": "两人抓着对方衣领拉近距离，张开嘴互吹对方的脸颊。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-073",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-074",
+    "id": "foreplay-duo-legacy-023",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
@@ -1913,21 +4072,359 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互量腰围",
     "text": "两人用双手环绕对方的腰，丈量并用指腹滑过腰线30秒。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-duo-074",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-duo-075",
+    "id": "foreplay-duo-interaction-001",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "duo",
     "modeLabel": "双人卡",
-    "title": "胸口画圈",
-    "text": "两人同时用一根手指，在对方赤裸的胸口慢慢画圈。",
+    "title": "呼吸同步",
+    "text": "两人额头贴额头，小怪兽引导大大怪深呼吸，节奏完全同步1分钟。",
     "rolePolicy": "none",
-    "source": "二阶段.txt"
+    "source": "interaction:intermediate-030",
+    "sourceBatch": "interaction-selected"
   },
   {
-    "id": "foreplay-scene-076",
+    "id": "foreplay-scene-001",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床沿脱衣",
+    "text": "酒店床沿，小怪兽坐着。大大怪站在她面前，帮她脱去上衣，再亲吻她胸部上方。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-01",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-scene-002",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前胸部",
+    "text": "穿衣镜前，小怪兽面向镜子站着。大大怪站在她身后，一手抱腰，一手放在她胸部上。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-003",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门后深吻",
+    "text": "门后，小怪兽背靠门站着。大大怪双手撑在门板两侧，低头深吻她15秒，再扶住她腰。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-004",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发大腿",
+    "text": "沙发上，小怪兽靠坐着。大大怪坐到她身边，一只手停在她大腿内侧边缘。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-006",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床头乳头",
+    "text": "床头位置，小怪兽坐在床边。大大怪坐到她身后，一只手扶腰，一只手轻触她乳头一次。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-007",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "浴室胸口",
+    "text": "浴室门口，大大怪让小怪兽脱去上衣，低头亲吻她胸口，再把手放到她腰侧。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-07",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-scene-008",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "窗边内裤边缘",
+    "text": "窗边，小怪兽面向窗外站着。大大怪从身后贴近，手停在她内裤边缘外侧。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-009",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上压近",
+    "text": "床上，小怪兽仰躺在枕头边。大大怪撑在她上方，深吻后手停在她胸部。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-010",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发腿间",
+    "text": "沙发上，小怪兽坐着。大大怪单膝跪在她面前，手掌停在她大腿内侧边缘。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-012",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床尾下体外部",
+    "text": "床尾，小怪兽坐着。大大怪蹲在她面前，隔着内裤把手停在她下体外部3秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-013",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门框肩胸",
+    "text": "浴室门框旁，小怪兽靠着门框。大大怪拉开她一侧衣领，亲吻肩膀和胸口上方。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-014",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "被子半遮",
+    "text": "床上，小怪兽用被子遮住胸口。大大怪隔着被子抱住她，再让她决定要不要拿开。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-M-14",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "cover-change"
+    ],
+    "blockedByState": [
+      "cover-change"
+    ]
+  },
+  {
+    "id": "foreplay-scene-016",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发跨坐",
+    "text": "酒店沙发上，大大怪靠坐着。小怪兽跨坐在他腿上，拉住他的手放到自己胸部。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-017",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床头解扣",
+    "text": "床头位置，大大怪靠坐着。小怪兽坐在他身侧，解开他两颗衣扣，亲吻胸口上方。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-018",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门后反压",
+    "text": "门后，大大怪背靠门站着。小怪兽一手按住他胸口，一手拉住他衣领，亲吻他的脖颈。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-019",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前引导",
+    "text": "穿衣镜前，小怪兽站在大大怪身前，拉住他的手放到自己内裤边缘外侧，再看镜子里的他。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-020",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "洗手台牵引",
+    "text": "洗手台前，大大怪靠着台面。小怪兽站到他两腿之间，抓住衣领把他拉近深吻。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-021",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "窗边胸口",
+    "text": "窗边，大大怪面向窗外站着。小怪兽从背后抱住他，手放在他胸口和小腹上方。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-022",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床沿跨坐",
+    "text": "床沿，大大怪坐着。小怪兽跨坐到他腿上，握住他的手放到自己裸露后背。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-023",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发腿贴",
+    "text": "沙发上，大大怪坐着。小怪兽坐到他身边，把一条裸腿贴住他大腿内侧边缘。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-08",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "lower-undress"
+    ],
+    "blockedByState": [
+      "lower-undress"
+    ]
+  },
+  {
+    "id": "foreplay-scene-024",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "浴室脱衣",
+    "text": "浴室门口，小怪兽脱去上衣，走近大大怪，把他的手放到自己腰上。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-09",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-scene-025",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上俯身",
+    "text": "床上，大大怪仰躺着。小怪兽俯身撑在他上方，胸口贴近他胸口，深吻10秒。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-027",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "地毯坐近",
+    "text": "地毯上，大大怪盘腿坐着。小怪兽坐到他腿边，手放在他大腿内侧边缘。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-028",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "枕边耳语",
+    "text": "床上，大大怪侧躺着。小怪兽靠近他耳边，说一句想继续的话，再把他的手放到自己胸部。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "foreplay-scene-029",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "被子拉近",
+    "text": "床上，大大怪坐在被子边。小怪兽拉住被子边缘，把他拉近自己，再引导他触碰腰侧。",
+    "rolePolicy": "fixed",
+    "source": "二阶段.txt#S2-F-14",
+    "sourceBatch": "new-480",
+    "stateTags": [
+      "cover-change"
+    ],
+    "blockedByState": [
+      "cover-change"
+    ]
+  },
+  {
+    "id": "foreplay-scene-legacy-001",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -1935,10 +4432,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "沙发半躺",
     "text": "小怪兽在沙发半躺，大大怪压上去亲吻脖颈60秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-076",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-077",
+    "id": "foreplay-scene-legacy-002",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -1946,10 +4444,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "椅子跨坐",
     "text": "大大怪坐在椅子上，小怪兽跨坐他腿上隔衣摩擦30秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-077",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-078",
+    "id": "foreplay-scene-legacy-003",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -1957,10 +4456,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "桌边亲吻",
     "text": "小怪兽靠在桌边，大大怪双手扶住她的腰深吻60秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-078",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-079",
+    "id": "foreplay-scene-legacy-004",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -1968,10 +4468,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "地毯揉背",
     "text": "大大怪趴在地毯上，小怪兽坐在他腰上揉捏赤裸后背。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-079",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-080",
+    "id": "foreplay-scene-legacy-005",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -1979,10 +4480,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "穿衣镜前",
     "text": "两人站在镜前，大大怪从背后解开小怪兽的内衣搭扣。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-080",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-081",
+    "id": "foreplay-scene-legacy-006",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -1990,10 +4492,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床沿站立",
     "text": "小怪兽站在床沿，大大怪单膝跪在床边亲吻她的大腿。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-081",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-082",
+    "id": "foreplay-scene-legacy-007",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2001,10 +4504,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "浴室门后",
     "text": "大大怪把小怪兽按在浴室门后，伸手探进她裙底边缘。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-082",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-083",
+    "id": "foreplay-scene-legacy-008",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2012,21 +4516,29 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "沙发角落",
     "text": "小怪兽缩在沙发角落，大大怪拿冰块在她锁骨滑动。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-083",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-084",
+    "id": "foreplay-scene-legacy-009",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
     "modeLabel": "场景卡",
     "title": "靠墙脱衣",
-    "text": "玩家背靠卧室墙壁，伴侣单手将玩家上衣完全扯下。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
+    "text": "小怪兽背靠卧室墙壁，大大怪单手将小怪兽上衣完全扯下。",
+    "rolePolicy": "fixed",
+    "source": "legacy:foreplay-scene-084",
+    "sourceBatch": "legacy-selected",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
   },
   {
-    "id": "foreplay-scene-085",
+    "id": "foreplay-scene-legacy-010",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2034,10 +4546,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "餐桌坐边",
     "text": "小怪兽坐在餐桌边缘，大大怪站在双腿间亲吻她侧颈。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-085",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-086",
+    "id": "foreplay-scene-legacy-011",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2045,10 +4558,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床头靠垫",
     "text": "大大怪靠坐在床头，小怪兽跪在他身边亲吻他的胸肌。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-086",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-087",
+    "id": "foreplay-scene-legacy-012",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2056,21 +4570,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "飘窗平躺",
     "text": "小怪兽平躺在飘窗上，大大怪双手抚摸她露出的腰腹。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-087",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-088",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "洗手台上",
-    "text": "大大怪把小怪兽抱上洗手台，脱下她的外裤亲吻脚踝。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-scene-089",
+    "id": "foreplay-scene-legacy-013",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2078,10 +4582,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "换鞋凳前",
     "text": "大大怪坐在换鞋凳上，小怪兽跨站着低头深吻他30秒。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-089",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-090",
+    "id": "foreplay-scene-legacy-014",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2089,10 +4594,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "电脑椅上",
     "text": "小怪兽坐在电脑椅上，大大怪按住扶手亲吻她大腿内侧。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-090",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-091",
+    "id": "foreplay-scene-legacy-015",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2100,10 +4606,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "地毯抱坐",
     "text": "大大怪盘腿坐在地毯上，小怪兽面对面跨坐在他怀里。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-091",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-092",
+    "id": "foreplay-scene-legacy-016",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2111,21 +4618,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "梳妆台边",
     "text": "小怪兽站着靠在梳妆台，大大怪拿羽毛扫过她大腿内侧。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-092",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-093",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "枕头半遮",
-    "text": "小怪兽拿枕头遮住上半身，大大怪隔着枕头揉捏她胸口。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-scene-094",
+    "id": "foreplay-scene-legacy-017",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2133,10 +4630,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床尾跪趴",
     "text": "小怪兽跪趴在床尾，大大怪用手抚摸她的背部和臀线。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-094",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-095",
+    "id": "foreplay-scene-legacy-018",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2144,10 +4642,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "落地窗前",
     "text": "两人站在落地窗前，大大怪从背后伸手解开小怪兽长裤。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-095",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-096",
+    "id": "foreplay-scene-legacy-019",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2155,10 +4654,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "沙发靠背",
     "text": "小怪兽趴在沙发靠背上，大大怪站在背后解开她内衣。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-096",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-097",
+    "id": "foreplay-scene-legacy-020",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2166,32 +4666,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "书桌桌面",
     "text": "小怪兽躺倒在书桌上，大大怪扯开她的上衣亲吻胸口。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-097",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "foreplay-scene-098",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "门框压迫",
-    "text": "大大怪单手撑住门框，将小怪兽圈在怀里拉下衣服拉链。",
-    "rolePolicy": "fixed",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-scene-099",
-    "stage": "foreplay",
-    "stageLabel": "前戏",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "地板翻滚",
-    "text": "两人拥抱着在卧室地板上翻滚半圈，玩家压在伴侣身上。",
-    "rolePolicy": "dynamic",
-    "source": "二阶段.txt"
-  },
-  {
-    "id": "foreplay-scene-100",
+    "id": "foreplay-scene-legacy-021",
     "stage": "foreplay",
     "stageLabel": "前戏",
     "mode": "scene",
@@ -2199,7 +4678,50 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床铺中央",
     "text": "两人脱去上衣躺在床中央，大大怪侧身抚摸小怪兽胸口。",
     "rolePolicy": "fixed",
-    "source": "二阶段.txt"
+    "source": "legacy:foreplay-scene-100",
+    "sourceBatch": "legacy-selected",
+    "stateTags": [
+      "upper-undress"
+    ],
+    "blockedByState": [
+      "upper-undress"
+    ]
+  },
+  {
+    "id": "foreplay-scene-interaction-001",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "束缚前奏",
+    "text": "大大怪用领带或丝带，将小怪兽的双手轻轻绑在身前（或床头）一回合。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-015",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-scene-interaction-002",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "臣服姿态",
+    "text": "大大怪让小怪兽跪在床前/自己面前，亲吻大大怪的手背和腹部。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-023",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "foreplay-scene-interaction-003",
+    "stage": "foreplay",
+    "stageLabel": "前戏",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "欲擒故纵",
+    "text": "小怪兽用力将大大怪推倒在床，压在TA身上凝视30秒，然后突然起身离开。",
+    "rolePolicy": "fixed",
+    "source": "interaction:intermediate-034",
+    "sourceBatch": "interaction-selected"
   },
   {
     "id": "deepening-directed-001",
@@ -2207,10 +4729,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "手部套弄",
-    "text": "小怪兽用手握住大大怪的私密处，上下套弄60秒。",
+    "title": "阴蒂手指",
+    "text": "大大怪用手指揉小怪兽阴蒂，另一只手扶住她大腿。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-01",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-002",
@@ -2218,10 +4741,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "边缘打圈",
-    "text": "大大怪用指腹在小怪兽私密处外部打圈刺激60秒。",
+    "title": "阴道手指",
+    "text": "大大怪用手指进入小怪兽阴道后停住，另一只手按住她下腹。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-02",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-003",
@@ -2229,10 +4753,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "玩具震动",
-    "text": "玩家拿着震动跳蛋，贴在伴侣私密处外部震动60秒。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "title": "口交开始",
+    "text": "大大怪为小怪兽口交，双手扶住她大腿。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#D3-M-03",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-004",
@@ -2240,10 +4765,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "口部舔舐",
-    "text": "大大怪低头，用舌头舔舐小怪兽的敏感部位60秒。",
+    "title": "乳房口手",
+    "text": "大大怪一手揉小怪兽乳房，一边亲吻她乳头。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-04",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-005",
@@ -2251,21 +4777,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "胸部夹击",
-    "text": "小怪兽用双乳夹住大大怪的私密处，上下摩擦60秒。",
+    "title": "臀部托起",
+    "text": "大大怪双手托住小怪兽臀部，把她拉近自己。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-directed-006",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "大腿摩擦",
-    "text": "小怪兽用大腿内侧夹住大大怪的私密处，来回摩擦。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-05",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-007",
@@ -2273,10 +4789,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "舌尖拨动",
-    "text": "大大怪用舌尖快速拨动小怪兽的敏感点，持续30秒。",
+    "title": "短暂进入",
+    "text": "大大怪用阴茎短暂进入小怪兽阴道后停住。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-07",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-008",
@@ -2284,10 +4801,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "手指浅入",
-    "text": "大大怪将一根手指探入小怪兽体内，缓慢抽动30秒。",
+    "title": "下腹亲吻",
+    "text": "大大怪亲吻小怪兽下腹，一只手停在她阴道外部。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-08",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-009",
@@ -2295,10 +4813,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "冰口吞咽",
-    "text": "小怪兽含一口冰水，低头为大大怪口部服务30秒。",
+    "title": "大腿压开",
+    "text": "大大怪双手扶住小怪兽大腿，让她分开一点，低头亲吻她阴道外部。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-09",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-010",
@@ -2306,21 +4825,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "骑脸摩擦",
-    "text": "小怪兽跨坐在大大怪脸上，隔着内裤前后摩擦60秒。",
+    "title": "乳头手指",
+    "text": "大大怪用手指揉小怪兽乳头，另一只手放在她腰侧。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-directed-011",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "掌心搓揉",
-    "text": "玩家倒满润滑液，用手掌大面积搓揉伴侣的私密处边缘。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-10",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-012",
@@ -2328,21 +4837,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "玩具游走",
-    "text": "大大怪拿着震动棒，在小怪兽大腿根部和洞口游走。",
+    "title": "自我展示引导",
+    "text": "大大怪握住小怪兽的手，引导她在自己面前自慰展示。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-directed-013",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "吸吮敏感",
-    "text": "玩家用嘴唇包住伴侣的敏感点，用力吸吮15秒。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-12",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-014",
@@ -2350,21 +4849,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "手口并用",
-    "text": "小怪兽单手套弄大大怪的根部，同时低头舔舐顶端。",
+    "title": "手指与乳房",
+    "text": "大大怪用手指进入小怪兽阴道，另一只手揉她乳房。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-directed-015",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "深入扩张",
-    "text": "大大怪用两根手指进入小怪兽体内，轻轻撑开内壁。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-M-14",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-016",
@@ -2372,10 +4861,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "会阴按压",
-    "text": "玩家在用口服务时，伸出一根手指按压伴侣的会阴处。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "title": "阴茎手交",
+    "text": "小怪兽用手握住大大怪阴茎，上下套弄。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#D3-F-01",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-017",
@@ -2383,10 +4873,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "隔裤挑逗",
-    "text": "玩家握住伴侣隔着内裤的私密处，用力揉捏30秒。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "title": "口交开始",
+    "text": "小怪兽为大大怪口交，双手扶住他的腰。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#D3-F-02",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-018",
@@ -2394,21 +4885,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "臀沟舔舐",
-    "text": "大大怪从背后靠近，用舌尖舔舐小怪兽的臀沟边缘。",
+    "title": "乳房摩擦",
+    "text": "小怪兽用乳房夹住大大怪阴茎，身体向前贴近。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-directed-019",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "跨坐套弄",
-    "text": "小怪兽跨坐在大大怪腿上，自己伸手套弄他的私密处。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-F-03",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-020",
@@ -2416,21 +4897,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "乳首吸吮",
-    "text": "大大怪含住小怪兽的胸前红点，用力吸吮并用舌尖打圈。",
+    "title": "跨坐手交",
+    "text": "小怪兽跨坐在大大怪腿上，用手握住他的阴茎。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-directed-021",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "快速指法",
-    "text": "大大怪加快手指在小怪兽体内的抽动频率，持续30秒。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-F-05",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-022",
@@ -2438,10 +4909,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "根部抓握",
-    "text": "小怪兽紧紧握住大大怪的根部，减慢套弄的速度30秒。",
+    "title": "自慰展示",
+    "text": "小怪兽面对大大怪自慰展示，让他只看不碰。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-F-07",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-023",
@@ -2449,10 +4921,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "玩具按压",
-    "text": "小怪兽拿着玩具，用力按压在自己的敏感点上展示。",
+    "title": "阴道口引导",
+    "text": "小怪兽握住大大怪阴茎，停在自己阴道口外侧。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-F-08",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-024",
@@ -2460,10 +4933,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "洞口摩擦",
-    "text": "大大怪握住自己的私密处，在小怪兽洞口外侧来回摩擦。",
+    "title": "短暂坐入",
+    "text": "小怪兽让大大怪阴茎短暂进入自己阴道后停住。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#D3-F-09",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-directed-025",
@@ -2471,10 +4945,707 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "directed",
     "modeLabel": "主动卡",
+    "title": "乳头展示",
+    "text": "小怪兽握住大大怪的手，放到自己乳头上。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#D3-F-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-directed-026",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "臀部贴近",
+    "text": "小怪兽坐到大大怪腿上，用臀部贴住他的阴茎。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#D3-F-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-directed-029",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "阴茎外部摩擦",
+    "text": "小怪兽握住大大怪阴茎，在自己阴道口外侧摩擦，不持续进入。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#D3-F-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-directed-030",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "最终准备",
+    "text": "小怪兽跨坐在大大怪身上，把阴茎停在自己阴道口外侧。 # B. response 回应卡 30张",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#D3-F-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-directed-legacy-001",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "手部套弄",
+    "text": "小怪兽用手握住大大怪的私密处，上下套弄60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-001",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-002",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "边缘打圈",
+    "text": "大大怪用指腹在小怪兽私密处外部打圈刺激60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-002",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-003",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "玩具震动",
+    "text": "大大怪拿着震动跳蛋，贴在小怪兽私密处外部震动60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-003",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-004",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "口部舔舐",
+    "text": "大大怪低头，用舌头舔舐小怪兽的敏感部位60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-004",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-005",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "胸部夹击",
+    "text": "小怪兽用双乳夹住大大怪的私密处，上下摩擦60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-005",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-006",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "大腿摩擦",
+    "text": "小怪兽用大腿内侧夹住大大怪的私密处，来回摩擦。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-006",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-007",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "冰口吞咽",
+    "text": "小怪兽含一口冰水，低头为大大怪口部服务30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-009",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-008",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "骑脸摩擦",
+    "text": "小怪兽跨坐在大大怪脸上，隔着内裤前后摩擦60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-010",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-009",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "掌心搓揉",
+    "text": "大大怪倒满润滑液，用手掌大面积搓揉小怪兽的私密处边缘。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-011",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-010",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "手口并用",
+    "text": "小怪兽单手套弄大大怪的根部，同时低头舔舐顶端。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-014",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-011",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "深入扩张",
+    "text": "大大怪用两根手指进入小怪兽体内，轻轻撑开内壁。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-015",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-012",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "会阴按压",
+    "text": "小怪兽在用口服务时，伸出一根手指按压大大怪的会阴处。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-016",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-013",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "隔裤挑逗",
+    "text": "大大怪握住小怪兽隔着内裤的私密处，用力揉捏30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-017",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-014",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "臀沟舔舐",
+    "text": "大大怪从背后靠近，用舌尖舔舐小怪兽的臀沟边缘。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-018",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-015",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "跨坐套弄",
+    "text": "小怪兽跨坐在大大怪腿上，自己伸手套弄他的私密处。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-019",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-016",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "乳首吸吮",
+    "text": "大大怪含住小怪兽的胸前红点，用力吸吮并用舌尖打圈。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-020",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-017",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "根部抓握",
+    "text": "小怪兽紧紧握住大大怪的根部，减慢套弄的速度30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-022",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-018",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "洞口摩擦",
+    "text": "大大怪握住自己的私密处，在小怪兽洞口外侧来回摩擦。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-directed-024",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-legacy-019",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
     "title": "唇边游走",
     "text": "小怪兽将大大怪的私密处贴在自己嘴唇边，不张嘴只摩擦。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-directed-025",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-001",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "花园探秘",
+    "text": "小怪兽用舌尖仔细清理并舔舐大大怪私密处的所有褶皱和敏感点，持续1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-002",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-002",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "冰火毒龙",
+    "text": "小怪兽含一口冰水，为大大怪进行口交服务45秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-004",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-003",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "玩具登场",
+    "text": "大大怪使用震动棒或跳蛋，在小怪兽的敏感地带游走，持续1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-005",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-004",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "粗暴对待",
+    "text": "大大怪用力揉捏小怪兽的臀部，并留下一巴掌的清脆声（力度需沟通好）。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-013",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-005",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "扩张准备",
+    "text": "小怪兽使用手指进入大大怪体内，从一指慢慢增加到两指，轻轻扩张45秒。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-020",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-006",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "腿夹服务",
+    "text": "小怪兽用双腿夹住大大怪的私密处，通过收缩大腿肌肉为其提供快感1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-022",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-007",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "吸血鬼之吻",
+    "text": "大大怪在小怪兽的大腿根部或脖颈大动脉处，用力吸吮留下一道深红印记。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-023",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-008",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "指腹探幽",
+    "text": "小怪兽用指腹仔细按压大大怪阴道前壁（G点区域），寻找让TA最爽的那个点。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-028",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-009",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "强制观看",
+    "text": "大大怪按住小怪兽的手，自己跨坐在小怪兽大腿上疯狂摩擦，要求小怪兽全程注视。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-031",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-010",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "索取润滑",
+    "text": "小怪兽引导大大怪用手指沾取TA自己的体液，涂抹在小怪兽的嘴唇或胸前。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-034",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-011",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "绝对统治",
+    "text": "大大怪将小怪兽双手举过头顶按死，进行长达1分钟的狂风暴雨般的强吻和全身抚摸。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-035",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-012",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "悬空折磨",
+    "text": "小怪兽将大大怪抱起悬空（或抬高臀部），用嘴疯狂攻击其敏感地带。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-044",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-013",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "极致慢摇",
+    "text": "小怪兽握住大大怪的要害，用慢到让人发狂的速度套弄/揉捏，持续1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-046",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-directed-interaction-014",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "全身颤栗",
+    "text": "大大怪向小怪兽的私密处轻轻吹凉气，随后立刻贴上温热的嘴唇。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-047",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-response-001",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "阴蒂反馈",
+    "text": "大大怪用手指揉小怪兽阴蒂。小怪兽握住他的手腕，带着他换到更舒服的位置。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-003",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "口交回应",
+    "text": "大大怪为小怪兽口交。小怪兽用手按住他的头，让他停留在原处。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-004",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "乳房回应",
+    "text": "大大怪揉小怪兽乳房。小怪兽挺起胸，让他的手继续停在那里。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-005",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "大腿回应",
+    "text": "大大怪扶住小怪兽大腿。小怪兽主动分开一点，让他靠近。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-006",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "阴道口确认",
+    "text": "大大怪把阴茎停在小怪兽阴道口外侧。小怪兽用手按住他的腰，让他停住。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-007",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "短暂进入回应",
+    "text": "大大怪短暂进入小怪兽阴道后停住。小怪兽抱住他的腰，让他保持不动。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-008",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "口部暂停回应",
+    "text": "大大怪口交后停住。小怪兽拉起他的脸，回吻他。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-009",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "手指引导",
+    "text": "大大怪手指停在小怪兽阴道内。小怪兽握住他的手，调整位置。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-010",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "乳头反馈",
+    "text": "大大怪揉小怪兽乳头。小怪兽按住他的手，说轻一点或重一点。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-011",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "外部摩擦回应",
+    "text": "大大怪用阴茎在小怪兽阴道口外侧摩擦。小怪兽用腿夹住他的腰，让他停住。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-012",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "展示回应",
+    "text": "大大怪让小怪兽自慰展示。小怪兽看着他完成动作，再把他的手拉到自己身上。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-013",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "最终选择",
+    "text": "大大怪把阴茎停在小怪兽阴道口外侧。小怪兽用手按住他的腰，让他停住不动。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-014",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "手口回应",
+    "text": "大大怪一边口交一边用手扶住小怪兽臀部。小怪兽按住他的肩膀，让他放慢。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-MF-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-016",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "手交反馈",
+    "text": "小怪兽用手握住大大怪阴茎。大大怪握住她的手，带着她调整节奏。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-018",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "乳房摩擦回应",
+    "text": "小怪兽用乳房夹住大大怪阴茎。大大怪扶住她肩膀，让她靠近。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-019",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "大腿摩擦回应",
+    "text": "小怪兽用大腿夹住大大怪阴茎。大大怪按住她大腿，让她停住。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-020",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "跨坐回应",
+    "text": "小怪兽跨坐在大大怪腿上。大大怪双手扶住她臀部，让她保持贴近。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-021",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "唇边回应",
+    "text": "小怪兽把大大怪阴茎停在嘴唇边。大大怪摸着她脸，让她停住看他。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-022",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "展示回应",
+    "text": "小怪兽自慰展示。大大怪只看不碰，最后说出想让她继续的方式。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-023",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "阴道口回应",
+    "text": "小怪兽握住大大怪阴茎，停在自己阴道口外侧。大大怪扶住她腰，保持不动。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-024",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "短暂进入回应",
+    "text": "小怪兽让大大怪短暂进入后停住。大大怪抱住她后背，让她保持原位。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-response-025",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "乳头回应",
+    "text": "小怪兽把大大怪的手放到自己乳头上。大大怪轻揉后停住，看她反应。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-10",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-response-026",
@@ -2482,10 +5653,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "浅入摩擦",
-    "text": "大大怪手指浅入，小怪兽主动扭腰配合手指摩擦。",
+    "title": "臀部回应",
+    "text": "小怪兽用臀部贴住大大怪阴茎。大大怪扶住她臀部，让她靠近自己。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#R3-FM-11",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-response-027",
@@ -2493,10 +5665,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "双腿夹紧",
-    "text": "小怪兽用双腿夹住大大怪的手，大大怪伸手揉她胸口。",
+    "title": "下腹回应",
+    "text": "小怪兽下腹贴住大大怪阴茎。大大怪按住她腰，让她停留在那里。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#R3-FM-12",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-response-028",
@@ -2504,10 +5677,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "暂停确认",
-    "text": "玩家在伴侣快到顶点时停手，伴侣口头说出“继续”。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "title": "口交暂停回应",
+    "text": "小怪兽口交后停住。大大怪拉起她，深吻她。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#R3-FM-13",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-response-029",
@@ -2515,10 +5689,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "脸部跨坐",
-    "text": "小怪兽跨坐在大大怪脸上，大大怪用舌头向上舔舐。",
+    "title": "外部摩擦回应",
+    "text": "小怪兽握住大大怪阴茎，在自己阴道口外侧摩擦。大大怪按住她腰，让她停住。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#R3-FM-14",
+    "sourceBatch": "new-480"
   },
   {
     "id": "deepening-response-030",
@@ -2526,35 +5701,50 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "速度指挥",
-    "text": "大大怪加快套弄速度，小怪兽通过喊“快或慢”调整。",
+    "title": "最终选择",
+    "text": "小怪兽跨坐在大大怪身上，把阴茎停在自己阴道口外侧。大大怪扶住她臀部，让她保持原位。 # C. duo 双人卡 30张",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#R3-FM-15",
+    "sourceBatch": "new-480"
   },
   {
-    "id": "deepening-response-031",
+    "id": "deepening-response-legacy-001",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "浅入摩擦",
+    "text": "大大怪手指浅入，小怪兽主动扭腰配合手指摩擦。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-response-026",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-response-legacy-002",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "双腿夹紧",
+    "text": "小怪兽用双腿夹住大大怪的手，大大怪伸手揉她胸口。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-response-027",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "deepening-response-legacy-003",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "强行按压",
-    "text": "玩家帮伴侣口侍，伴侣双手按住玩家的头往下压。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-032",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "张开双腿",
-    "text": "大大怪轻拍小怪兽大腿内侧，小怪兽主动将双腿大张。",
+    "text": "大大怪帮小怪兽口侍，小怪兽双手按住大大怪的头往下压。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-response-031",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-response-033",
+    "id": "deepening-response-legacy-004",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "response",
@@ -2562,32 +5752,23 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "挺胸迎合",
     "text": "大大怪揉捏小怪兽胸部，小怪兽主动挺起胸膛迎合。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-response-033",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-response-034",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "拔出催促",
-    "text": "大大怪抽出手指不动，小怪兽大声说“我想你进来”。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-035",
+    "id": "deepening-response-legacy-005",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "按手制止",
-    "text": "玩家动作过于猛烈，伴侣按住玩家的手腕强制暂停10秒。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "text": "大大怪动作过于猛烈，小怪兽按住大大怪的手腕强制暂停10秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-response-035",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-response-036",
+    "id": "deepening-response-legacy-006",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "response",
@@ -2595,54 +5776,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "引导抚摸",
     "text": "小怪兽握住大大怪的手指，引导他按压自己最敏感的点。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-response-036",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-response-037",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "索要亲吻",
-    "text": "玩家在下方口侍，伴侣拉起玩家的脸回馈一个深吻。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-038",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "臀部抬高",
-    "text": "大大怪轻拍小怪兽臀部，小怪兽趴在床上主动抬高腰部。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-039",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "玩具替换",
-    "text": "玩家拿走伴侣的玩具，伴侣立刻张开腿要求玩家用手。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-040",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "收缩内壁",
-    "text": "大大怪手指停在小怪兽体内不动，小怪兽用力收缩夹紧。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-041",
+    "id": "deepening-response-legacy-007",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "response",
@@ -2650,54 +5788,23 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "靠近索取",
     "text": "大大怪摩擦洞口不进，小怪兽用双手抓住他往里按。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-response-041",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-response-042",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "深喉挑战",
-    "text": "小怪兽尝试含入更深，大大怪摸着她的头发安抚。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-043",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "抬腿挂肩",
-    "text": "大大怪站立，小怪兽主动将双腿挂在他的肩膀上。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-044",
+    "id": "deepening-response-legacy-008",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "求饶暂停",
-    "text": "玩家猛烈刺激伴侣敏感点，直到伴侣大声说受不了才停。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "text": "小怪兽猛烈刺激大大怪敏感点，直到大大怪大声说受不了才停。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-response-044",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-response-045",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "吞咽润滑",
-    "text": "玩家将润滑液滴在伴侣胸口，伴侣伸手抹开并挺起腰。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-046",
+    "id": "deepening-response-legacy-009",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "response",
@@ -2705,65 +5812,227 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "跨坐扭动",
     "text": "小怪兽跨坐压住大大怪的手，大大怪配合她扭动的节奏。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-response-046",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-response-047",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "后仰支撑",
-    "text": "大大怪舔舐小怪兽，小怪兽双手向后撑住床铺大口喘气。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-048",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "夹紧手指",
-    "text": "大大怪抽出手指，小怪兽双腿用力夹紧他的手腕不松开。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-049",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "舔唇暗示",
-    "text": "小怪兽舔舐自己的嘴唇，大大怪立刻低头吻住她的嘴。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-response-050",
+    "id": "deepening-response-legacy-010",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "response",
     "modeLabel": "回应卡",
     "title": "加重力道",
-    "text": "玩家捏住伴侣的大腿，伴侣口头要求玩家再用点力揉捏。",
-    "rolePolicy": "dynamic",
-    "source": "三阶段.txt"
+    "text": "小怪兽捏住大大怪的大腿，大大怪口头要求小怪兽再用点力揉捏。",
+    "rolePolicy": "fixed",
+    "source": "legacy:deepening-response-050",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-051",
+    "id": "deepening-response-interaction-001",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "敏感点爆发",
+    "text": "大大怪集中全身精力，连续刺激小怪兽刚刚反馈最强烈的那一个点，持续1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:advanced-039",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-duo-001",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
     "modeLabel": "双人卡",
-    "title": "互相口侍",
-    "text": "两人采用69姿势，同时为对方进行口部服务60秒。",
+    "title": "互相手部",
+    "text": "两人面对面躺着。大大怪用手指触碰小怪兽阴蒂，小怪兽用手握住大大怪阴茎。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "三阶段.txt#DU3-N-01",
+    "sourceBatch": "new-480"
   },
   {
-    "id": "deepening-duo-052",
+    "id": "deepening-duo-003",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "口手交换",
+    "text": "大大怪为小怪兽口交，小怪兽同时用手握住大大怪阴茎。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-004",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "手指与手交",
+    "text": "大大怪用手指进入小怪兽阴道，小怪兽同时为大大怪手交。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-005",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "阴茎阴道外部贴合",
+    "text": "两人面对面贴住。大大怪阴茎贴在小怪兽阴道口外侧，不进入。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-006",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "乳房与阴茎",
+    "text": "小怪兽用乳房夹住大大怪阴茎，大大怪用手揉她乳头。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-007",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "自慰互看",
+    "text": "两人面对面坐着，各自自慰给对方看。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-008",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互相指引",
+    "text": "两人握住对方的手，分别引导到自己想被触碰的位置。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-011",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "轮流手部",
+    "text": "两人轮流用手触碰对方下体，一方做完后交换。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-012",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互摸乳房和胸口",
+    "text": "大大怪揉小怪兽乳房，小怪兽摸大大怪胸口和下腹。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-013",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互相贴近",
+    "text": "两人身体贴紧，让大大怪阴茎贴住小怪兽阴道口外侧，不进入。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-015",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互相选择",
+    "text": "两人各自说一个想被触碰的位置，对方照做。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-017",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "进入前暂停",
+    "text": "大大怪阴茎停在小怪兽阴道口外侧，两人同时停住不动。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-17",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-018",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "短暂进入停住",
+    "text": "大大怪短暂进入小怪兽阴道后停住，两人同时抱住对方。",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-18",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-020",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "主导权交换",
+    "text": "两人抱住对方，舌吻互相为对方手交",
+    "rolePolicy": "none",
+    "source": "三阶段.txt#DU3-N-20",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-022",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "大大怪带节奏",
+    "text": "大大怪决定这一轮用手、口部或阴茎外部贴近，小怪兽只负责配合。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#DU3-M-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-029",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "小怪兽最终确认",
+    "text": "小怪兽把阴茎停在自己阴道口外侧，双手按住大大怪胸口。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#DU3-F-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-duo-legacy-001",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2771,10 +6040,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "手部互碰",
     "text": "两人面对面侧躺，同时用手抚摸对方的私密处60秒。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-052",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-053",
+    "id": "deepening-duo-legacy-002",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2782,10 +6052,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "冰火交替",
     "text": "两人分别含一口冰水和温水，交替亲吻对方大腿内侧。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-053",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-054",
+    "id": "deepening-duo-legacy-003",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2793,10 +6064,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "洞口摩擦",
     "text": "两人私密处互相贴紧，不上滑只在洞口摩擦60秒。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-054",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-055",
+    "id": "deepening-duo-legacy-004",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2804,32 +6076,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "同频喘息",
     "text": "两人在互相刺激的过程中，调整呼吸节奏直到完全一致。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-055",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-056",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "互探深浅",
-    "text": "两人同时伸出一根手指，探入对方体内的敏感部位。",
-    "rolePolicy": "none",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-duo-057",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "眼神锁定",
-    "text": "两人一边用手套弄对方，一边全程保持对视不躲闪。",
-    "rolePolicy": "none",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-duo-058",
+    "id": "deepening-duo-legacy-005",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2837,10 +6088,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "十指互扣",
     "text": "两人双手十指紧扣压在头顶，用下半身紧贴着缓慢摩擦。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-058",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-059",
+    "id": "deepening-duo-legacy-006",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2848,10 +6100,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "唇齿相依",
     "text": "两人保持深吻状态，双手在对方私密处快速游走刺激。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-059",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-060",
+    "id": "deepening-duo-legacy-007",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2859,10 +6112,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互摸胸口",
     "text": "两人赤裸上身，双手互相揉捏对方的胸部和红点。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-060",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-061",
+    "id": "deepening-duo-legacy-008",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2870,10 +6124,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互抹润滑",
     "text": "两人把润滑液倒在手上，互相涂抹在对方的私密处边缘。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-061",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-062",
+    "id": "deepening-duo-legacy-009",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2881,10 +6136,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "腿部交缠",
     "text": "两人面对面拥抱，大腿互相交缠用力摩擦对方的私密处。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-062",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-063",
+    "id": "deepening-duo-legacy-010",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2892,10 +6148,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互相指引",
     "text": "两人握住对方的手，带着对方触摸自己最敏感的位置。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-063",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-064",
+    "id": "deepening-duo-legacy-011",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2903,10 +6160,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "同步加速",
     "text": "两人用手抚摸对方时，同时加快动作频率冲刺30秒。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-064",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-065",
+    "id": "deepening-duo-legacy-012",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2914,10 +6172,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互相挑逗",
     "text": "两人都不碰重点，只在对方私密处周围三厘米处画圈。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-065",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-066",
+    "id": "deepening-duo-legacy-013",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2925,10 +6184,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互吻大腿",
     "text": "两人呈69姿势，但不碰私密处，只狂热亲吻大腿内侧。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-066",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-067",
+    "id": "deepening-duo-legacy-014",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2936,10 +6196,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "暂停共吸",
     "text": "两人同时停止手上的动作，拥抱在一起深呼吸平复30秒。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-067",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-068",
+    "id": "deepening-duo-legacy-015",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2947,10 +6208,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互捏臀部",
     "text": "两人紧紧贴合，双手伸到对方身后用力揉捏臀部肌肉。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-068",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-069",
+    "id": "deepening-duo-legacy-016",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2958,21 +6220,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "交换唾液",
     "text": "两人接吻时，故意将口水哺喂给对方，并发出水渍声。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-069",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-070",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "互吹凉气",
-    "text": "两人对着对方湿润的私密处轻轻吹气，感受凉意。",
-    "rolePolicy": "none",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-duo-071",
+    "id": "deepening-duo-legacy-017",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -2980,21 +6232,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互相摩擦",
     "text": "两人全身赤裸紧贴，用身体的每一寸肌肤来回摩擦。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-071",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-072",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "玩具互换",
-    "text": "两人各自拿着一个玩具，同时放在对方的敏感点上震动。",
-    "rolePolicy": "none",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-duo-073",
+    "id": "deepening-duo-legacy-018",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -3002,10 +6244,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互掐腰侧",
     "text": "两人同时用双手掐住对方的腰侧，用力往自己怀里按。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-073",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-074",
+    "id": "deepening-duo-legacy-019",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
@@ -3013,21 +6256,407 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "舌尖互探",
     "text": "两人互相舔舐对方的嘴唇，并把舌头探入对方口中搅动。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-duo-074",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-duo-075",
+    "id": "deepening-duo-interaction-001",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "duo",
     "modeLabel": "双人卡",
-    "title": "同步爽感",
-    "text": "两人在边缘试探时，同时用一句话说出现在的爽感。",
+    "title": "视觉刺激",
+    "text": "大大怪拿过一面小镜子放在两人下半身处，强迫小怪兽看着自己是如何被挑逗的。",
     "rolePolicy": "none",
-    "source": "三阶段.txt"
+    "source": "interaction:advanced-025",
+    "sourceBatch": "interaction-selected"
   },
   {
-    "id": "deepening-scene-076",
+    "id": "deepening-duo-interaction-002",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "珍珠项链",
+    "text": "小怪兽用舌尖轻舔大大怪的乳头，同时手在下方猛烈套弄/揉捏。",
+    "rolePolicy": "none",
+    "source": "interaction:advanced-030",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-duo-interaction-003",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "双重夹击",
+    "text": "小怪兽的手指在大大怪体内抽动，同时用大拇指或嘴唇刺激大大怪的阴蒂。",
+    "rolePolicy": "none",
+    "source": "interaction:advanced-032",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "deepening-scene-001",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床沿口交",
+    "text": "床沿，小怪兽坐着，大大怪跪在她面前。大大怪扶住她大腿，为她口交。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-002",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上手指",
+    "text": "床上，小怪兽仰躺，大大怪撑在她身侧。大大怪用手指进入她阴道后停住。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-003",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前观看",
+    "text": "镜前，小怪兽面向镜子站着，大大怪站在她身后。大大怪一手扶腰，一手触碰她阴蒂。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-004",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发外部摩擦",
+    "text": "沙发上，小怪兽靠坐，大大怪跪在她面前。大大怪让阴茎贴在她阴道口外侧摩擦，不持续进入。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-005",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "洗手台短暂进入",
+    "text": "洗手台前，小怪兽坐在台面上，大大怪站在她两腿之间。大大怪短暂进入后停住。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-006",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门后乳房",
+    "text": "门后，小怪兽背靠门站着，大大怪站在她面前。大大怪揉她乳房并亲吻她乳头。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-007",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床尾臀部",
+    "text": "床尾，小怪兽仰躺，大大怪站在她面前。大大怪托住她臀部，把她拉近。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-008",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "地毯展示",
+    "text": "地毯上，小怪兽坐着，大大怪坐在她对面。大大怪让她自慰展示给自己看。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-009",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "浴室门边",
+    "text": "浴室门边，小怪兽靠着门框站着，大大怪站在她面前。大大怪低头为她口交。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-010",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "窗边外部贴合",
+    "text": "窗边，小怪兽面向窗站着，大大怪站在她身后。大大怪让阴茎贴在她阴道口外侧，不进入。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-011",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发跨坐准备",
+    "text": "沙发上，大大怪坐着，小怪兽跨坐在他腿上。大大怪让阴茎停在她阴道口外侧。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-012",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床头手口",
+    "text": "床头，小怪兽靠在枕头上，大大怪俯身在她身前。大大怪用手指进入她阴道，同时亲吻她乳房。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-013",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前最终确认",
+    "text": "镜前，小怪兽背对大大怪站着，大大怪站在她身后。大大怪把阴茎停在她阴道口外侧，双手抚摸其乳房",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-014",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "椅边口部",
+    "text": "椅边，小怪兽坐在椅子上，大大怪跪在她面前。大大怪为她口交，双手扶住她大腿。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-015",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上收束",
+    "text": "床上，小怪兽仰躺，大大怪撑在她身上方。大大怪低头为她口交，双手扶住她大腿。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-M-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-016",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床沿手交",
+    "text": "床沿，大大怪坐着，小怪兽跪在他面前。小怪兽用手握住大大怪阴茎。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-017",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上口交",
+    "text": "床上，大大怪仰躺，小怪兽俯身在他身前。小怪兽为大大怪口交。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-018",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前展示",
+    "text": "镜前，大大怪坐着，小怪兽站在他面前。小怪兽自慰展示给他看。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-019",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发跨坐",
+    "text": "沙发上，大大怪靠坐，小怪兽跨坐在他腿上。小怪兽把阴茎停在自己阴道口外侧。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-020",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "洗手台贴近",
+    "text": "洗手台前，大大怪靠着台面站着，小怪兽站在他两腿之间。小怪兽用手握住他的阴茎。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-021",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门后反压",
+    "text": "门后，大大怪背靠门站着，小怪兽站在他面前。小怪兽亲吻他的胸口，并用手握住他的阴茎。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-022",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床尾短暂进入",
+    "text": "床尾，大大怪坐着，小怪兽跨坐在他身上。小怪兽让阴茎短暂进入后停住。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-023",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "地毯口部",
+    "text": "地毯上，大大怪坐着，小怪兽跪在他面前。小怪兽为他口交。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-024",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "浴室门边",
+    "text": "浴室门边，大大怪靠着门框站着，小怪兽站在他面前。小怪兽用手握住他的阴茎并亲吻他下腹。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-025",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "窗边贴合",
+    "text": "窗边，大大怪面向窗站着，小怪兽从身后抱住他。小怪兽用手握住他的阴茎。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-026",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发乳房摩擦",
+    "text": "沙发上，大大怪坐着，小怪兽跪坐在他面前。小怪兽用乳房贴住他的阴茎。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-027",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床头唇边",
+    "text": "床头，大大怪靠在枕头上，小怪兽俯身在他身前。小怪兽把阴茎停在自己嘴唇边。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-028",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前最终确认",
+    "text": "镜前，大大怪坐着，小怪兽跨坐在他腿上。小怪兽把阴茎停在自己阴道口内部，并亲吻其脖颈，大大怪看着镜子里的两人。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-029",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "椅边跨坐",
+    "text": "椅边，大大怪坐着，小怪兽跨坐在他腿上。小怪兽用手握住他的阴茎并贴近自己下腹。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-030",
+    "stage": "deepening",
+    "stageLabel": "深入",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上收束",
+    "text": "床上，大大怪仰躺，小怪兽俯身在他身前。小怪兽用手握住大大怪阴茎，另一只手按住他的下腹。",
+    "rolePolicy": "fixed",
+    "source": "三阶段.txt#S3-F-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "deepening-scene-legacy-001",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3035,21 +6664,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "浴缸服务",
     "text": "大大怪躺在浴缸里，小怪兽跪在边缘为他口部服务。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-076",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-077",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "镜前张腿",
-    "text": "小怪兽在穿衣镜前张开双腿，大大怪蹲下手指进入。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-scene-078",
+    "id": "deepening-scene-legacy-002",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3057,10 +6676,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床头跪趴",
     "text": "小怪兽手扶床头跪趴，大大怪在背后用玩具刺激她。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-078",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-079",
+    "id": "deepening-scene-legacy-003",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3068,10 +6688,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "枕垫腰部",
     "text": "小怪兽平躺，大大怪把枕头垫在她腰下，低头口侍。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-079",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-080",
+    "id": "deepening-scene-legacy-004",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3079,10 +6700,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "沙发边缘",
     "text": "小怪兽坐在沙发边缘张开腿，大大怪跪在地上舔舐。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-080",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-081",
+    "id": "deepening-scene-legacy-005",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3090,10 +6712,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "书桌跨坐",
     "text": "大大怪靠坐书桌，小怪兽跨坐他腿上，大大怪揉她胸。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-081",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-082",
+    "id": "deepening-scene-legacy-006",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3101,10 +6724,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "飘窗后入",
     "text": "小怪兽趴在飘窗上，大大怪站在背后用手指探入她体内。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-082",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-083",
+    "id": "deepening-scene-legacy-007",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3112,10 +6736,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "洗手台上",
     "text": "小怪兽坐在洗手台上，大大怪挤出洗手液涂抹她大腿。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-083",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-084",
+    "id": "deepening-scene-legacy-008",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3123,10 +6748,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "电脑椅上",
     "text": "大大怪坐电脑椅上，小怪兽跪在地毯上解开他裤子口侍。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-084",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-085",
+    "id": "deepening-scene-legacy-009",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3134,10 +6760,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "地板平躺",
     "text": "大大怪平躺在木地板上，小怪兽骑在他腰上隔裤摩擦。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-085",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-086",
+    "id": "deepening-scene-legacy-010",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3145,10 +6772,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "门后站立",
     "text": "小怪兽靠在门后抬起一条腿，大大怪用手抚摸她私密处。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-086",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-087",
+    "id": "deepening-scene-legacy-011",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3156,21 +6784,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "餐桌仰躺",
     "text": "小怪兽仰躺在餐桌上，大大怪低头吸吮她的胸部红点。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-087",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-088",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "衣柜镜前",
-    "text": "两人站在衣柜全身镜前，大大怪从身后伸手揉捏她胸口。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-scene-089",
+    "id": "deepening-scene-legacy-012",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3178,10 +6796,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床尾地毯",
     "text": "小怪兽坐在地毯上靠着床尾，大大怪双手托住她的腰摩擦。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-089",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-090",
+    "id": "deepening-scene-legacy-013",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3189,21 +6808,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "换鞋凳前",
     "text": "大大怪坐在换鞋凳上，小怪兽单膝跪地用手套弄他。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-090",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-091",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "阳台窗前",
-    "text": "小怪兽背靠阳台玻璃，大大怪低头亲吻她大腿根部。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-scene-092",
+    "id": "deepening-scene-legacy-014",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3211,10 +6820,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "靠墙深蹲",
     "text": "小怪兽背靠墙壁深蹲，大大怪拿玩具按在她敏感点上。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-092",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-093",
+    "id": "deepening-scene-legacy-015",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3222,21 +6832,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "沙发靠背",
     "text": "小怪兽趴在沙发靠背上，大大怪从后面用手分开她双腿。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-093",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-094",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "电视柜旁",
-    "text": "大大怪靠在电视柜旁，小怪兽低头双手握住他根部舔舐。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-scene-095",
+    "id": "deepening-scene-legacy-016",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3244,10 +6844,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "枕头捂脸",
     "text": "小怪兽平躺拿枕头捂住脸，大大怪用手指在她体内抽动。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-095",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-096",
+    "id": "deepening-scene-legacy-017",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3255,21 +6856,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "椅子反坐",
     "text": "小怪兽反坐在椅子上抱住椅背，大大怪在背后揉捏她臀部。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-096",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-097",
-    "stage": "deepening",
-    "stageLabel": "深入",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "墙角抬腿",
-    "text": "大大怪在墙角抬起小怪兽的一条腿，低头用力吸吮大腿内侧。",
-    "rolePolicy": "fixed",
-    "source": "三阶段.txt"
-  },
-  {
-    "id": "deepening-scene-098",
+    "id": "deepening-scene-legacy-018",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3277,10 +6868,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床垫边缘",
     "text": "大大怪平躺在床垫边缘，小怪兽跨坐在他胸口揉他头发。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-098",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-099",
+    "id": "deepening-scene-legacy-019",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3288,10 +6880,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "浴室花洒",
     "text": "两人站在花洒下，大大怪就着热水用手指扩张小怪兽内壁。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-099",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "deepening-scene-100",
+    "id": "deepening-scene-legacy-020",
     "stage": "deepening",
     "stageLabel": "深入",
     "mode": "scene",
@@ -3299,7 +6892,8 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "茶几桌面",
     "text": "小怪兽坐在茶几上，大大怪分开她双腿低头埋在中间。",
     "rolePolicy": "fixed",
-    "source": "三阶段.txt"
+    "source": "legacy:deepening-scene-100",
+    "sourceBatch": "legacy-selected"
   },
   {
     "id": "finale-directed-001",
@@ -3307,21 +6901,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "传教士位",
-    "text": "大大怪让小怪兽仰躺，抬起她双腿直接进入60秒。",
+    "title": "传教士扶腰",
+    "text": "大大怪让小怪兽仰躺，阴茎进入她阴道。大大怪双手扶住她腰，低头亲吻她嘴唇。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-002",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "女方上位",
-    "text": "小怪兽跨坐在大大怪身上，双手扶胸上下起伏60秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-M-01",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-003",
@@ -3329,43 +6913,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "背后进入",
-    "text": "小怪兽跪趴，大大怪从背后进入，快速抽插60秒。",
+    "title": "传教士抬腿",
+    "text": "大大怪让小怪兽仰躺，抬起她一条腿放到自己腰侧。大大怪进入她阴道，手扶住她大腿。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-004",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "侧卧结合",
-    "text": "大大怪从小怪兽身后侧卧进入，双手抱紧她缓慢抽动。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-005",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "抬腿深入",
-    "text": "大大怪将小怪兽的双腿架在肩膀上，进行最深处捣弄60秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-006",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "骑乘画圈",
-    "text": "小怪兽在上位停止起伏，改为扭动腰肢画圈研磨60秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-M-03",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-007",
@@ -3373,21 +6925,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "背后浅插",
-    "text": "大大怪在后入姿势下，只在洞口三分之一处浅浅抽动60秒。",
+    "title": "床沿站立",
+    "text": "小怪兽仰躺在床沿，大大怪站在她两腿之间进入。大大怪双手扶住她大腿内侧。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-008",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "极限冲刺",
-    "text": "大大怪按住小怪兽的胯骨，用最快速度连续冲刺30秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-M-07",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-009",
@@ -3395,10 +6937,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "慢速拔出",
-    "text": "大大怪缓慢抽出直到快离开，再用极慢的速度整根没入。",
+    "title": "墙边抬腿",
+    "text": "小怪兽背靠墙站着，大大怪抬起她一条腿。大大怪从正面进入，亲吻她脖颈。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-M-09",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-010",
@@ -3406,32 +6949,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "仰躺迎合",
-    "text": "小怪兽仰躺在下方，双手抱住大大怪的脖子主动向上挺腰。",
+    "title": "镜前后入",
+    "text": "小怪兽面向镜子站着，大大怪站在她身后进入。大大怪一手扶她腰，一手揉她乳房。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-011",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "反向骑乘",
-    "text": "小怪兽背对大大怪跨坐，双手向后撑住他的大腿起伏60秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-012",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "揉胸抽插",
-    "text": "大大怪在传教士姿势下，一边快速抽动一边揉捏她胸部。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-M-10",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-013",
@@ -3439,21 +6961,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "拍打臀部",
-    "text": "大大怪在后入姿势下，配合抽插频率清脆拍打小怪兽臀部。",
+    "title": "抱腿进入",
+    "text": "大大怪托住小怪兽一条大腿，让她腿弯搭在自己手臂上。大大怪从正面进入她阴道。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-014",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "停顿碾压",
-    "text": "大大怪进入到底部不动，用力向上碾压小怪兽的敏感点15秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-M-13",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-015",
@@ -3461,10 +6973,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "剪刀交叠",
-    "text": "小怪兽平躺，双腿紧紧夹住大大怪的腰，大大怪动腰抽插。",
+    "title": "停住压近",
+    "text": "大大怪进入小怪兽阴道后停住。大大怪俯身抱住她，亲吻她嘴唇。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-M-15",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-016",
@@ -3472,10 +6985,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "站立抬腿",
-    "text": "大大怪站立，抬起小怪兽的一条腿架在自己腰上进入60秒。",
+    "title": "女上位扶胸",
+    "text": "小怪兽跨坐在大大怪身上，让阴茎进入自己阴道。小怪兽双手扶住大大怪胸口。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-F-01",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-017",
@@ -3483,10 +6997,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "跪姿下压",
-    "text": "小怪兽跪坐在大大怪身上，双手按住他胸肌用力向下坐。",
+    "title": "女上位抱颈",
+    "text": "小怪兽跨坐在大大怪身上，让阴茎进入自己阴道。小怪兽双手抱住他的脖子，身体向前贴近。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-F-02",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-018",
@@ -3494,10 +7009,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "蝴蝶张开",
-    "text": "小怪兽仰躺，双脚脚心相对大张，大大怪从正上方压迫进入。",
+    "title": "女上位扶肩",
+    "text": "小怪兽跨坐在大大怪身上，阴茎进入阴道。小怪兽双手扶住大大怪肩膀，臀部上下移动。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-F-03",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-019",
@@ -3505,10 +7021,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "玩具辅助",
-    "text": "大大怪在结合抽插的同时，单手拿着跳蛋按在小怪兽外部。",
+    "title": "女上位压胸",
+    "text": "小怪兽跨坐大大怪身上，阴茎进入阴道。小怪兽一手按住他胸口，一手扶住他腰。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-F-04",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-020",
@@ -3516,10 +7033,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "捏下巴吻",
-    "text": "大大怪在结合时捏住小怪兽的下巴，强硬地深吻她30秒。",
+    "title": "俯身贴胸",
+    "text": "小怪兽在上位俯身趴到大大怪胸口。她乳房贴住他胸口，臀部控制动作。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-F-05",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-021",
@@ -3527,10 +7045,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "俯身贴合",
-    "text": "小怪兽在上位完全俯身趴在大大怪胸口，小幅度研磨60秒。",
+    "title": "反向上位扶腿",
+    "text": "小怪兽背对大大怪跨坐，阴茎进入阴道。小怪兽双手扶住大大怪大腿。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-F-06",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-022",
@@ -3538,21 +7057,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "侧臀后入",
-    "text": "小怪兽侧躺，大大怪抬起她上方的一条腿，从侧后方进入。",
+    "title": "反向上位扶膝",
+    "text": "小怪兽背对大大怪跨坐，阴茎进入阴道。小怪兽双手按住他的膝盖，臀部上下移动。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-directed-023",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "directed",
-    "modeLabel": "主动卡",
-    "title": "拔出游走",
-    "text": "大大怪完全拔出，在小怪兽腿心游走摩擦15秒后再深插。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-F-07",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-024",
@@ -3560,10 +7069,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
-    "title": "贴耳喘息",
-    "text": "大大怪后入时整个上半身压在小怪兽背上，贴着她耳朵喘息。",
+    "title": "坐姿揉胸",
+    "text": "小怪兽坐在大大怪身上，阴茎进入阴道。小怪兽抓住大大怪的手，放到自己乳房上。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#D4-F-09",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-directed-025",
@@ -3571,21 +7081,623 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "directed",
     "modeLabel": "主动卡",
+    "title": "跪坐下压",
+    "text": "小怪兽跪坐在大大怪身上，阴茎进入阴道。小怪兽双手按住他胸口，臀部向下压近。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#D4-F-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-directed-026",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "侧坐贴腰",
+    "text": "小怪兽侧坐到大大怪腿上，让阴茎进入阴道。小怪兽一手扶住他肩膀，一手按住他胸口。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#D4-F-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-directed-027",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "床沿上位",
+    "text": "大大怪坐在床沿，小怪兽跨坐在他身上。小怪兽让阴茎进入自己阴道，双手扶住他后颈。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#D4-F-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-directed-028",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "低头亲胸",
+    "text": "小怪兽跨坐在大大怪身上，阴茎进入阴道。小怪兽低头亲吻他胸口，双手按住他肩膀。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#D4-F-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-directed-030",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "上位换向",
+    "text": "小怪兽面对大大怪跨坐，阴茎进入阴道。她转身换成背对大大怪的上位，双手扶住他大腿。 # B. response 回应卡 30张",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#D4-F-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-directed-legacy-001",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "传教士位",
+    "text": "大大怪让小怪兽仰躺，抬起她双腿直接进入60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-001",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-002",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "女方上位",
+    "text": "小怪兽跨坐在大大怪身上，双手扶胸上下起伏60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-002",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-003",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "背后进入",
+    "text": "小怪兽跪趴，大大怪从背后进入，快速抽插60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-003",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-004",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "侧卧结合",
+    "text": "大大怪从小怪兽身后侧卧进入，双手抱紧她缓慢抽动。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-004",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-005",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "极限冲刺",
+    "text": "大大怪按住小怪兽的胯骨，用最快速度连续冲刺30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-008",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-006",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "仰躺迎合",
+    "text": "小怪兽仰躺在下方，双手抱住大大怪的脖子主动向上挺腰。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-010",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-007",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "反向骑乘",
+    "text": "小怪兽背对大大怪跨坐，双手向后撑住他的大腿起伏60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-011",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-008",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "拍打臀部",
+    "text": "大大怪在后入姿势下，配合抽插频率清脆拍打小怪兽臀部。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-013",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-009",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "停顿碾压",
+    "text": "大大怪进入到底部不动，用力向上碾压小怪兽的敏感点15秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-014",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-010",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "剪刀交叠",
+    "text": "小怪兽平躺，双腿紧紧夹住大大怪的腰，大大怪动腰抽插。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-015",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-011",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "站立抬腿",
+    "text": "大大怪站立，抬起小怪兽的一条腿架在自己腰上进入60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-016",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-012",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "跪姿下压",
+    "text": "小怪兽跪坐在大大怪身上，双手按住他胸肌用力向下坐。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-017",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-013",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "蝴蝶张开",
+    "text": "小怪兽仰躺，双脚脚心相对大张，大大怪从正上方压迫进入。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-018",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-014",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "玩具辅助",
+    "text": "大大怪在结合抽插的同时，单手拿着跳蛋按在小怪兽外部。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-019",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-015",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "捏下巴吻",
+    "text": "大大怪在结合时捏住小怪兽的下巴，强硬地深吻她30秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-020",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-016",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "俯身贴合",
+    "text": "小怪兽在上位完全俯身趴在大大怪胸口，小幅度研磨60秒。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-021",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-017",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "侧臀后入",
+    "text": "小怪兽侧躺，大大怪抬起她上方的一条腿，从侧后方进入。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-022",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-018",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "拔出游走",
+    "text": "大大怪完全拔出，在小怪兽腿心游走摩擦15秒后再深插。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-023",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-019",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "贴耳喘息",
+    "text": "大大怪后入时整个上半身压在小怪兽背上，贴着她耳朵喘息。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-directed-024",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-directed-legacy-020",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
     "title": "按肩发力",
     "text": "小怪兽反向跨坐，双手按住大大怪的膝盖，借力上下起伏。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-directed-025",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-026",
+    "id": "finale-directed-interaction-001",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "冰火交织",
+    "text": "进入状态时，小怪兽将一块冰凉的毛巾突然盖在大大怪的胸口或背部。",
+    "rolePolicy": "fixed",
+    "source": "interaction:finale-016",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "finale-directed-interaction-002",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "蒙眼狂奔",
+    "text": "小怪兽为大大怪戴上眼罩，然后在不给任何提示的情况下，随机改变抽插的深度和速度。",
+    "rolePolicy": "fixed",
+    "source": "interaction:finale-026",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "finale-directed-interaction-003",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "directed",
+    "modeLabel": "主动卡",
+    "title": "后庭前奏",
+    "text": "在正常抽插时，大大怪的手指沾满润滑，轻轻按压小怪兽的后庭边缘（不进入）。",
+    "rolePolicy": "fixed",
+    "source": "interaction:finale-027",
+    "sourceBatch": "interaction-selected"
+  },
+  {
+    "id": "finale-response-001",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "上顶配合",
-    "text": "小怪兽上位起伏30秒，大大怪双手扶腰主动向上顶弄。",
+    "title": "快慢回应",
+    "text": "大大怪用传教士姿势进入小怪兽阴道，双手扶住她腰。小怪兽说“快一点”或“慢一点”。大大怪按她说的节奏继续。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#R4-MF-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-002",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "深浅回应",
+    "text": "大大怪从正面进入小怪兽阴道，一手按住她下腹。小怪兽握住他的手腕，说“浅一点”或“深一点”。大大怪照做。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-003",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "停住回应",
+    "text": "大大怪进入小怪兽阴道后停住，低头亲吻她嘴唇。小怪兽抱住他的背，让他保持不动。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-004",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "抓背回应",
+    "text": "大大怪俯身压近小怪兽，阴茎进入她阴道。小怪兽双手抓住他的后背。大大怪保持当前姿势。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-005",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "搂颈回应",
+    "text": "大大怪在传教士姿势下进入小怪兽阴道。小怪兽搂住他的脖子，把他拉下来亲吻嘴唇。大大怪低头回吻她。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-006",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "腿部回应",
+    "text": "大大怪抬起小怪兽一条腿，从正面进入。小怪兽用手扶住自己的大腿。大大怪双手扶住她腰继续。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-007",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "乳房回应",
+    "text": "大大怪进入小怪兽阴道，一手揉她乳房。小怪兽把他的手按在乳房上。大大怪保持这个动作。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-008",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "换姿回应",
+    "text": "大大怪用传教士姿势进入小怪兽阴道。小怪兽说“换侧卧”。大大怪抽身调整，让她侧躺后从身后进入。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-009",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "后入回应",
+    "text": "大大怪从背后进入小怪兽阴道，双手扶住她腰。小怪兽回头看他。大大怪俯身亲吻她后颈。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-010",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "臀部回应",
+    "text": "大大怪从背后进入小怪兽阴道，一手扶住她臀部。小怪兽把臀部向后贴近。大大怪双手扶住她臀部。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-011",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "放慢回应",
+    "text": "大大怪动作变强，一手按住小怪兽腰。小怪兽按住他的下腹，说“慢一点”。大大怪放慢腰部动作。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-012",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "亲吻回应",
+    "text": "大大怪进入小怪兽阴道后低头亲吻她脖颈。小怪兽抬起下巴，要求亲吻嘴唇。大大怪改亲她嘴唇。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-013",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "贴近回应",
+    "text": "大大怪侧卧从身后进入小怪兽阴道，一手抱住她腰。小怪兽向后贴住他。大大怪胸口贴住她后背。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-014",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "停顿催促",
+    "text": "大大怪进入小怪兽阴道后停住。小怪兽拉住他的腰，让他继续当前姿势。大大怪继续动作。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-015",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "位置回应",
+    "text": "大大怪从正面进入小怪兽阴道。小怪兽握住他的腰，说“保持这里”。大大怪保持当前进入角度。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-MF-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-016",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "上位快慢",
+    "text": "小怪兽跨坐在大大怪身上，阴茎进入阴道。大大怪扶住她腰，说“快一点”或“慢一点”。小怪兽按他说的节奏继续。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-017",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "上位停住",
+    "text": "小怪兽在上位坐到底，双手按住大大怪胸口。大大怪抱住她腰，让她保持不动。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-018",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "俯身亲吻",
+    "text": "小怪兽在上位俯身亲吻大大怪嘴唇。大大怪回吻她，双手抱住她后背。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-019",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "乳房回应",
+    "text": "小怪兽在上位抓住大大怪的手，放到自己乳房上。大大怪揉她乳房，小怪兽继续控制身体动作。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-020",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "反向回应",
+    "text": "小怪兽背对大大怪跨坐，阴茎进入阴道。大大怪双手扶住她臀部，让她保持稳定。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-022",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "换姿回应",
+    "text": "小怪兽说“换传教士”。大大怪扶住她腰，让她躺下，再从正面进入。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-023",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "胸口支撑",
+    "text": "小怪兽双手按住大大怪胸口，阴茎进入阴道。大大怪握住她手腕，让她保持支撑。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-024",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "抱颈回应",
+    "text": "小怪兽面对大大怪坐在他身上，双手抱住他脖子。大大怪抱住她腰，保持坐姿进入。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-response-025",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "亲胸回应",
+    "text": "小怪兽在上位低头亲吻大大怪胸口。大大怪一手扶住她后背，一手扶住她臀部。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#R4-FM-10",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-response-027",
@@ -3593,10 +7705,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "向后迎合",
-    "text": "大大怪后入抽插，小怪兽随着节奏向后撅起臀部迎合。",
+    "title": "贴胸回应",
+    "text": "小怪兽在上位俯身，让乳房贴住大大怪胸口。大大怪抱住她背部，不主动改变姿势。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#R4-FM-12",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-response-028",
@@ -3604,21 +7717,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "停顿催促",
-    "text": "大大怪快速冲刺10秒后停止，小怪兽出声催促他继续。",
+    "title": "停手回应",
+    "text": "小怪兽在上位停住，双手按住大大怪胸口。大大怪不动腰，只扶住她腰。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-029",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "收缩夹紧",
-    "text": "大大怪深入到底部静止，小怪兽用力收缩内壁夹紧15秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#R4-FM-13",
+    "sourceBatch": "new-480"
   },
   {
     "id": "finale-response-030",
@@ -3626,13 +7729,38 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "stageLabel": "最终",
     "mode": "response",
     "modeLabel": "回应卡",
-    "title": "换姿指令",
-    "text": "小怪兽要求换成传教士姿势，大大怪立刻抽出配合转身。",
+    "title": "嘴唇回应",
+    "text": "小怪兽在上位低头亲吻大大怪嘴唇。大大怪咬住她下唇一下，再抱住她腰。 # C. duo 双人卡 30张",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "四阶段.txt#R4-FM-15",
+    "sourceBatch": "new-480"
   },
   {
-    "id": "finale-response-031",
+    "id": "finale-response-legacy-001",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "上顶配合",
+    "text": "小怪兽上位起伏30秒，大大怪双手扶腰主动向上顶弄。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-response-026",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-response-legacy-002",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "response",
+    "modeLabel": "回应卡",
+    "title": "向后迎合",
+    "text": "大大怪后入抽插，小怪兽随着节奏向后撅起臀部迎合。",
+    "rolePolicy": "fixed",
+    "source": "legacy:finale-response-027",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-response-legacy-003",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3640,21 +7768,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "抓背反馈",
     "text": "大大怪加快抽插速度，小怪兽双手用力抓挠他的后背。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-031",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-032",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "快慢指挥",
-    "text": "小怪兽喊“快”或“慢”，大大怪必须完全遵照指令抽插。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-033",
+    "id": "finale-response-legacy-004",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3662,10 +7780,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "搂脖索吻",
     "text": "大大怪俯身冲刺，小怪兽勾住他脖子主动抬起下巴索吻。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-033",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-034",
+    "id": "finale-response-legacy-005",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3673,21 +7792,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "深浅控制",
     "text": "大大怪浅插挑逗，小怪兽用双腿夹住他的腰强制拉向深处。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-034",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-035",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "咬肩承受",
-    "text": "大大怪用力捣弄深处，小怪兽张嘴咬住他的肩膀承受撞击。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-036",
+    "id": "finale-response-legacy-006",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3695,10 +7804,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "摸胸请求",
     "text": "小怪兽在下方主动拉过大大怪的手，按在自己胸部要求揉捏。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-036",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-037",
+    "id": "finale-response-legacy-007",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3706,21 +7816,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "后靠支撑",
     "text": "小怪兽跨坐起伏感到累向后靠，大大怪抱住她主动动腰。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-037",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-038",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "九浅一深",
-    "text": "大大怪按浅九深一抽插，小怪兽在深入那下大声叫出来。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-039",
+    "id": "finale-response-legacy-008",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3728,21 +7828,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "拔出抗议",
     "text": "大大怪故意拔出退开，小怪兽拉住他的手臂要求立刻进来。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-039",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-040",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "夹腰锁定",
-    "text": "大大怪准备抽出，小怪兽双腿死死锁住他的腰不让离开。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-041",
+    "id": "finale-response-legacy-009",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3750,32 +7840,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "咬唇回应",
     "text": "大大怪低头亲吻，小怪兽用力吸吮他的下嘴唇并扭动腰肢。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-041",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-042",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "顶点倒数",
-    "text": "小怪兽感觉快到顶点倒数五秒，大大怪配合全速冲刺。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-043",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "抬臀方便",
-    "text": "大大怪拍拍小怪兽的腰，小怪兽立刻塌腰翘臀方便后入。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-044",
+    "id": "finale-response-legacy-010",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3783,10 +7852,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "迎合撞击",
     "text": "大大怪站立抱起小怪兽进入，小怪兽双腿盘腰迎合撞击。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-044",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-045",
+    "id": "finale-response-legacy-011",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3794,10 +7864,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "语言反馈",
     "text": "大大怪用力抽插，小怪兽大声说出现在的深度和舒服位置。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-045",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-046",
+    "id": "finale-response-legacy-012",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3805,43 +7876,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "按手放慢",
     "text": "大大怪撞击太深，小怪兽按住他腹部要求放慢速度10秒。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-046",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-response-047",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "贴面压倒",
-    "text": "小怪兽在上位俯身抱紧大大怪，大大怪顺势翻身将她压住。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-048",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "汗水交融",
-    "text": "大大怪汗水滴在小怪兽胸口，小怪兽伸手抹匀并主动挺胸。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-049",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "response",
-    "modeLabel": "回应卡",
-    "title": "释放提示",
-    "text": "大大怪提示即将释放，小怪兽用力抱紧他承受最后冲刺。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-response-050",
+    "id": "finale-response-legacy-013",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "response",
@@ -3849,10 +7888,275 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "索要拥抱",
     "text": "完成释放后大大怪趴下，小怪兽张开双臂紧紧拥抱他后背。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-response-050",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-051",
+    "id": "finale-duo-001",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "面对面同步",
+    "text": "大大怪进入小怪兽阴道。大大怪双手扶住她腰，小怪兽双手抱住他脖子，两人一起调整身体距离。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-002",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "十指相扣",
+    "text": "传教士姿势下，大大怪进入小怪兽阴道。两人十指相扣，大大怪低头亲吻她嘴唇。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-003",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "侧卧同步",
+    "text": "两人侧卧。大大怪从小怪兽身后进入，小怪兽向后贴住他的胸口，大大怪抱住她腰。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-004",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "坐姿拥抱",
+    "text": "两人面对面坐着。大大怪进入小怪兽阴道，小怪兽抱住他的脖子，大大怪抱住她腰。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-005",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "同步放慢",
+    "text": "大大怪进入小怪兽阴道后，两人同时放慢身体动作。小怪兽手按住他胸口，大大怪亲吻她额头。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-006",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "同步停住",
+    "text": "大大怪进入小怪兽阴道后，两人同时停住。大大怪抱住小怪兽腰，小怪兽抱住他的背。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-007",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "同步加快",
+    "text": "大大怪进入小怪兽阴道。大大怪扶住她腰，小怪兽用腿夹住他的腰，两人一起加快身体动作。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-008",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "互相指挥",
+    "text": "大大怪进入小怪兽阴道。两人轮流说“快、慢、停”。另一方按指令调整身体动作。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-009",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "深浅配合",
+    "text": "大大怪控制进入深浅，小怪兽用双腿夹住他腰。小怪兽说“这里”时，大大怪保持当前深度。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-010",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "亲吻配合",
+    "text": "大大怪进入小怪兽阴道。两人同时亲吻对方嘴唇，小怪兽双手抓住他肩膀。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-011",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "额头相抵",
+    "text": "大大怪进入小怪兽阴道后，两人额头相抵。大大怪抱住她腰，小怪兽抱住他后背。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-013",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "贴合不动",
+    "text": "大大怪进入小怪兽阴道后，两人身体完全贴住。大大怪抱住她腰，小怪兽抱住他的脖子。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-014",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "轮流发力",
+    "text": "大大怪先用腰部动作推进。停住后，小怪兽用臀部动作回应。两人轮流主导。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-015",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "眼神锁定",
+    "text": "传教士姿势下，大大怪进入小怪兽阴道。两人看着对方眼睛，小怪兽双手摸他的脸。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-016",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "姿势轮换",
+    "text": "两人先用传教士姿势。停住后，小怪兽跨坐到大大怪身上，改成女上位。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-16",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-017",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "呼吸同步",
+    "text": "大大怪进入小怪兽阴道。两人贴住胸口，尽量让呼吸节奏一致。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-17",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-018",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "腰臀配合",
+    "text": "大大怪双手扶住小怪兽腰，小怪兽用臀部配合他的腰部动作。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-18",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-019",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "快慢轮换",
+    "text": "大大怪进入小怪兽阴道。两人先慢速，再快速，再一起停住。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-19",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-020",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "共同停顿",
+    "text": "动作变强时，两人同时停住。大大怪抱住小怪兽，小怪兽亲吻他的嘴唇。",
+    "rolePolicy": "none",
+    "source": "四阶段.txt#DU4-N-20",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-023",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "大大怪停住",
+    "text": "大大怪进入小怪兽阴道后说“停”。两人保持当前姿势不动。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#DU4-M-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-025",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "大大怪贴近",
+    "text": "大大怪进入后俯身压近小怪兽。大大怪胸口贴住她乳房，嘴唇亲吻她脖颈。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#DU4-M-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-026",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "duo",
+    "modeLabel": "双人卡",
+    "title": "小怪兽选姿势",
+    "text": "小怪兽选择女上位、坐姿或侧卧。大大怪配合她调整身体位置。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#DU4-F-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-duo-legacy-001",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -3860,10 +8164,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "十指起伏",
     "text": "传教士姿势下，两人十指紧扣，共同配合抽插起伏60秒。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-051",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-052",
+    "id": "finale-duo-legacy-002",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -3871,10 +8176,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "拔出冷却",
     "text": "两人停止结合完全拔出，互相紧抱静止平复呼吸30秒。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-052",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-053",
+    "id": "finale-duo-legacy-003",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -3882,10 +8188,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "侧卧共振",
     "text": "两人侧卧结合，大大怪动腰推进，小怪兽收缩内壁回应。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-053",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-054",
+    "id": "finale-duo-legacy-004",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -3893,10 +8200,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "坐姿交叠",
     "text": "两人面对面盘腿拥抱坐下，结合在一起缓慢深层画圈60秒。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-054",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-055",
+    "id": "finale-duo-legacy-005",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -3904,32 +8212,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互相接吻",
     "text": "两人在快速冲刺的结合中，同时张开嘴深深吻住对方30秒。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-055",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-056",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "同步高潮",
-    "text": "两人沟通快感进度，调整频率努力同时到达最终的顶点。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-057",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "眼神锁定",
-    "text": "两人在传教士姿势下，全程睁眼看着对方的眼睛抽插60秒。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-058",
+    "id": "finale-duo-legacy-006",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -3937,21 +8224,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "十字交叉",
     "text": "小怪兽平躺，大大怪侧身呈十字形进入，摩擦侧壁60秒。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-058",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-059",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "停顿共吸",
-    "text": "结合的间隙大大怪停住不动，两人紧抱在一起深呼吸30秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-060",
+    "id": "finale-duo-legacy-007",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -3959,43 +8236,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互揉臀部",
     "text": "坐姿结合下，两人双手都环抱到对方身后，用力揉捏臀部。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-060",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-061",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "一起加速",
-    "text": "两人同时发力，用最高频率疯狂撞击和向上迎合30秒。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-062",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "额头相抵",
-    "text": "结合时两人低头额头抵住额头，感受每一次冲撞的震动。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-063",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "交换呼吸",
-    "text": "大大怪每次深入时两人互相呼气，保持喘息频率完全一致。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-064",
+    "id": "finale-duo-legacy-008",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -4003,21 +8248,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互说情话",
     "text": "在抽插的最深处，两人同时对对方大声说一句我爱你。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-064",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-065",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "翻滚切换",
-    "text": "两人保持结合状态不拔出，从大大怪在下直接翻滚到他在上。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-066",
+    "id": "finale-duo-legacy-009",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -4025,65 +8260,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "耳鬓厮磨",
     "text": "两人侧卧进入，脸颊贴在一起互相摩擦耳鬓抽动60秒。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-066",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-067",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "极致放慢",
-    "text": "两人停止动作，用平时五分之一的极慢速度抽动一分钟。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-068",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "双腿交缠",
-    "text": "面对面结合时，两人将大腿互相死死交缠锁住，不再分开。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-069",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "同频发声",
-    "text": "随着每一次撞击，两人不憋着声音，同时大声叫出来。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-070",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "事后清理",
-    "text": "结合释放后两人分开，大大怪拿湿纸巾帮小怪兽擦拭身体。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-071",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "温存相拥",
-    "text": "一切结束后，两人拉过被子盖好，赤裸身体紧紧相拥五分钟。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-072",
+    "id": "finale-duo-legacy-010",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -4091,21 +8272,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "互吻额头",
     "text": "释放之后平复心跳，两人同时抬头在对方额头上亲吻。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-072",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-073",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "duo",
-    "modeLabel": "双人卡",
-    "title": "互相喂水",
-    "text": "激烈运动后，两人不用手只用嘴唇互相喂对方喝下一口水。",
-    "rolePolicy": "none",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-duo-074",
+    "id": "finale-duo-legacy-011",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -4113,10 +8284,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "按摩舒缓",
     "text": "两人轮流给对方刚才受力的腰部和腿部按摩揉捏一分钟。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-074",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-duo-075",
+    "id": "finale-duo-legacy-012",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "duo",
@@ -4124,10 +8296,371 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "紧贴入眠",
     "text": "清理完毕后，两人从背后勺子式抱在一起，身体完全贴合。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-duo-075",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-076",
+    "id": "finale-scene-001",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前后入",
+    "text": "穿衣镜前，小怪兽面向镜子站着，大大怪站在她身后。大大怪从背后进入，双手扶住她腰，让她看镜子里的两人。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-002",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床沿正面",
+    "text": "床沿，小怪兽仰躺在床边，双腿垂在床外。大大怪站在她两腿之间，从正面进入，双手扶住她大腿。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-003",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "洗手台正面",
+    "text": "洗手台前，小怪兽坐在台面边缘，大大怪站在她两腿之间。大大怪进入她阴道，一手扶腰，一手按住台面。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-004",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门后抬腿",
+    "text": "门后，小怪兽背靠门站着，大大怪站在她面前。大大怪抬起她一条腿，从正面进入，亲吻她脖颈。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-005",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发靠背",
+    "text": "沙发旁，小怪兽双手扶住沙发靠背，大大怪站在她身后。大大怪从背后进入，双手扶住她臀部。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-006",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上俯身",
+    "text": "床上，小怪兽趴着，大大怪俯身压在她背上。大大怪从背后进入，一手扶腰，一手撑床。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-007",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "椅子坐姿",
+    "text": "椅子上，大大怪坐着，小怪兽跨坐在他身上。大大怪进入她阴道，双手扶住她腰。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-008",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "窗边背入",
+    "text": "窗边，小怪兽面向窗站着，大大怪站在她身后。大大怪从背后进入，一手扶住她腰，一手揉她乳房。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-009",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "被窝侧卧",
+    "text": "被窝里，小怪兽侧躺，大大怪从她身后进入。大大怪胸口贴住她后背，一手抱住她腰。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-010",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "地毯跪姿",
+    "text": "地毯上，小怪兽跪趴，大大怪跪在她身后。大大怪从背后进入，双手扶住她臀部。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-011",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发跨坐",
+    "text": "沙发上，大大怪坐着，小怪兽跨坐在他身上。大大怪进入她阴道，双手托住她臀部。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-012",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床头传教士",
+    "text": "床头，小怪兽靠在枕头上仰躺，大大怪撑在她身上方。大大怪从正面进入，亲吻她嘴唇。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-013",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "墙边站立",
+    "text": "墙边，小怪兽背靠墙站着，大大怪站在她面前。大大怪托住她一条腿，从正面进入。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-014",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "桌边后入",
+    "text": "桌边，小怪兽双手撑住桌面，大大怪站在她身后。大大怪从背后进入，双手扶住她腰。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-015",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "浴室站立",
+    "text": "浴室里，小怪兽靠着墙站着，大大怪站在她面前。大大怪扶住她腰，从正面进入，亲吻她脖颈。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-M-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-016",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发女上位",
+    "text": "沙发上，大大怪靠坐着，小怪兽跨坐在他身上。阴茎进入小怪兽阴道，小怪兽双手扶住他的胸口。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-01",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-017",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上女上位",
+    "text": "床上，大大怪仰躺，小怪兽跨坐在他身上。阴茎进入小怪兽阴道，小怪兽双手按住他的肩膀。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-02",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-018",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "镜前跨坐",
+    "text": "镜前，大大怪坐在椅子上，小怪兽跨坐在他身上。小怪兽让阴茎进入自己阴道，看着镜子里的两人。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-03",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-019",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "椅子反向上位",
+    "text": "椅子上，大大怪坐着，小怪兽背对他跨坐。阴茎进入小怪兽阴道，小怪兽双手扶住椅背。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-04",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-020",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床沿坐姿",
+    "text": "床沿，大大怪坐着，小怪兽坐到他身上。阴茎进入小怪兽阴道，小怪兽抱住他的脖子。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-05",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-021",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "地毯跨坐",
+    "text": "地毯上，大大怪靠着床边坐着，小怪兽跨坐在他腿上。阴茎进入小怪兽阴道，小怪兽扶住他的肩膀。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-06",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-022",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "被窝上位",
+    "text": "被窝里，大大怪仰躺，小怪兽跨坐在他身上。阴茎进入小怪兽阴道，小怪兽俯身亲吻他的嘴唇。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-07",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-023",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发侧坐",
+    "text": "沙发上，大大怪靠坐，小怪兽侧坐到他身上。阴茎进入小怪兽阴道，小怪兽一手扶住他肩膀，一手按住他胸口。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-08",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-024",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "窗边坐姿",
+    "text": "窗边椅子上，大大怪坐着，小怪兽跨坐在他身上。阴茎进入小怪兽阴道，小怪兽扶住他的肩膀。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-09",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-025",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "洗手台跨坐",
+    "text": "洗手台前，大大怪靠着台面站着，小怪兽坐到台面边缘。小怪兽把他拉近，让阴茎进入自己阴道。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-10",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-026",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "门后反压",
+    "text": "门后，大大怪背靠门站着，小怪兽站在他面前。小怪兽抬起一条腿贴住他腰，让阴茎进入自己阴道。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-11",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-027",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床头俯身",
+    "text": "床头，大大怪仰躺，小怪兽跨坐在他身上。阴茎进入小怪兽阴道，小怪兽俯身亲吻他的脖颈。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-12",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-028",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "椅边贴胸",
+    "text": "椅边，大大怪坐着，小怪兽跨坐在他身上。阴茎进入小怪兽阴道，小怪兽乳房贴住他胸口。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-13",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-029",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "沙发反向",
+    "text": "沙发上，大大怪坐着，小怪兽背对他跨坐。阴茎进入小怪兽阴道，小怪兽双手扶住他的膝盖。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-14",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-030",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "床上臀部动作",
+    "text": "床上，大大怪仰躺，小怪兽跨坐在他身上。阴茎进入小怪兽阴道，小怪兽用臀部上下移动。",
+    "rolePolicy": "fixed",
+    "source": "四阶段.txt#S4-F-15",
+    "sourceBatch": "new-480"
+  },
+  {
+    "id": "finale-scene-legacy-001",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4135,10 +8668,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "镜前站立",
     "text": "两人在穿衣镜前站立后入60秒，全程看着镜中结合动作。",
     "rolePolicy": "none",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-076",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-077",
+    "id": "finale-scene-legacy-002",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4146,10 +8680,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "椅子抽插",
     "text": "大大怪坐在椅子上，小怪兽跨坐进入，上下起伏抽插60秒。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-077",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-078",
+    "id": "finale-scene-legacy-003",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4157,10 +8692,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "桌边后入",
     "text": "小怪兽扶住餐桌边缘站立，大大怪从后方进入抽动60秒。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-078",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-079",
+    "id": "finale-scene-legacy-004",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4168,21 +8704,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床沿悬空",
     "text": "小怪兽躺在床沿双腿踩地，大大怪站立进入冲刺60秒。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-079",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-080",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "沙发侧躺",
-    "text": "两人在沙发上挤在一起侧卧结合，大大怪缓慢动腰60秒。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-scene-081",
+    "id": "finale-scene-legacy-005",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4190,10 +8716,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "洗手台抱",
     "text": "大大怪把小怪兽抱上洗手台边缘，站立分开她双腿进入。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-081",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-082",
+    "id": "finale-scene-legacy-006",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4201,21 +8728,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "墙角压迫",
     "text": "大大怪把小怪兽按在墙角，托起她一条腿悬空进入抽插。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-082",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-083",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "门板后入",
-    "text": "小怪兽双手撑在卧室门板上，大大怪从背后快速撞击。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-scene-084",
+    "id": "finale-scene-legacy-007",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4223,10 +8740,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "电脑椅转",
     "text": "小怪兽跨坐在电脑椅的大大怪身上，大大怪扶腰起伏。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-084",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-085",
+    "id": "finale-scene-legacy-008",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4234,10 +8752,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "飘窗上位",
     "text": "大大怪躺在飘窗垫子上，小怪兽跨坐他腰上上下起伏。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-085",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-086",
+    "id": "finale-scene-legacy-009",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4245,10 +8764,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "浴缸坐姿",
     "text": "两人面对面坐在空浴缸里，小怪兽跨坐在大大怪腿上结合。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-086",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-087",
+    "id": "finale-scene-legacy-010",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4256,10 +8776,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "梳妆台前",
     "text": "小怪兽趴在梳妆台面上，大大怪在背后站立进入抽插。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-087",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-088",
+    "id": "finale-scene-legacy-011",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4267,10 +8788,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "地毯后入",
     "text": "小怪兽跪趴在床尾地毯上，大大怪从背后进入快速抽插。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-088",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-089",
+    "id": "finale-scene-legacy-012",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4278,10 +8800,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "换鞋凳坐",
     "text": "大大怪坐在换鞋凳上，小怪兽背对大大怪跨坐起伏60秒。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-089",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-090",
+    "id": "finale-scene-legacy-013",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4289,10 +8812,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "窗帘遮挡",
     "text": "两人躲在落地窗帘后，大大怪托着小怪兽臀部站立结合。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-090",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-091",
+    "id": "finale-scene-legacy-014",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4300,10 +8824,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "冰箱门边",
     "text": "小怪兽扶着关上的冰箱门，大大怪在背后进入快速抽动。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-091",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-092",
+    "id": "finale-scene-legacy-015",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4311,10 +8836,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "电视柜靠",
     "text": "大大怪背靠电视柜坐在地上，小怪兽跨坐在他大腿上起伏。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-092",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-093",
+    "id": "finale-scene-legacy-016",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4322,10 +8848,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "枕头垫腰",
     "text": "小怪兽平躺在床，腰下垫两个枕头抬高，大大怪冲刺进入。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-093",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-094",
+    "id": "finale-scene-legacy-017",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4333,10 +8860,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床头柜撑",
     "text": "小怪兽双手撑着床头柜弯腰，大大怪在背后掐住她腰进入。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-094",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-095",
+    "id": "finale-scene-legacy-018",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4344,43 +8872,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "沙发靠背",
     "text": "小怪兽趴在沙发靠背上，大大怪站在沙发后方进入结合。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-095",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-096",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "淋浴房内",
-    "text": "两人在淋浴房站立拥抱，热水冲刷下大大怪挺腰进入。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-scene-097",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "被窝侧入",
-    "text": "两人完全钻进被窝里，大大怪从小怪兽背后侧卧深插。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-scene-098",
-    "stage": "finale",
-    "stageLabel": "最终",
-    "mode": "scene",
-    "modeLabel": "场景卡",
-    "title": "阳台玻璃",
-    "text": "小怪兽双手按在阳台玻璃上，大大怪从背后压紧她抽插。",
-    "rolePolicy": "fixed",
-    "source": "四阶段.txt"
-  },
-  {
-    "id": "finale-scene-099",
+    "id": "finale-scene-legacy-019",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4388,10 +8884,11 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "书桌桌面",
     "text": "小怪兽平躺在书桌上双腿大张，大大怪站在桌前进入。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-099",
+    "sourceBatch": "legacy-selected"
   },
   {
-    "id": "finale-scene-100",
+    "id": "finale-scene-legacy-020",
     "stage": "finale",
     "stageLabel": "最终",
     "mode": "scene",
@@ -4399,6 +8896,19 @@ export const heartTuneMaterials: readonly HeartTuneMaterial[] = [
     "title": "床尾悬空",
     "text": "小怪兽趴在床尾，上半身在床上下半身悬空，大大怪后入。",
     "rolePolicy": "fixed",
-    "source": "四阶段.txt"
+    "source": "legacy:finale-scene-100",
+    "sourceBatch": "legacy-selected"
+  },
+  {
+    "id": "finale-scene-interaction-001",
+    "stage": "finale",
+    "stageLabel": "最终",
+    "mode": "scene",
+    "modeLabel": "场景卡",
+    "title": "轻度捆绑",
+    "text": "大大怪用丝带将小怪兽的双手绑在床头，让小怪兽在无助中承受撞击1分钟。",
+    "rolePolicy": "fixed",
+    "source": "interaction:finale-029",
+    "sourceBatch": "interaction-selected"
   }
-] as const
+]

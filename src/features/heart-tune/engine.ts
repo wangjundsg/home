@@ -2,6 +2,7 @@ import { heartTuneMaterials } from './materials'
 import type {
   HeartTuneBoosts,
   HeartTuneLeadMeta,
+  HeartTuneDrawOptions,
   HeartTuneMaterial,
   HeartTuneMode,
   HeartTuneModeMeta,
@@ -184,7 +185,10 @@ export function resolveTuneRound(input: HeartTuneRoundInput): HeartTuneRoundResu
   const leadPlayer = selectedProposal.leadPlayer
   const selectedBy = getSelectedBy(input.votes, selectedProposal.key)
   const candidate = {
-    material: drawMaterialForLead(input.stage, selectedProposal.mode, leadPlayer, input.usedIds),
+    material: drawMaterialForLead(input.stage, selectedProposal.mode, leadPlayer, {
+      usedIds: input.usedIds,
+      blockedStates: input.completedStates,
+    }),
     selectedBy,
   }
   const winners = resolveSceneWinners(input.scene, input.votes, selectedProposal)
@@ -206,10 +210,14 @@ export function resolveTuneRound(input: HeartTuneRoundInput): HeartTuneRoundResu
   }
 }
 
-export function drawMaterial(stage: HeartTuneStage, mode: HeartTuneMode, usedIds: readonly string[]): HeartTuneMaterial {
+export function drawMaterial(
+  stage: HeartTuneStage,
+  mode: HeartTuneMode,
+  usedIdsOrOptions: readonly string[] | HeartTuneDrawOptions = [],
+): HeartTuneMaterial {
+  const options = normalizeDrawOptions(usedIdsOrOptions)
   const pool = heartTuneMaterials.filter(material => material.stage === stage && material.mode === mode)
-  const freshPool = pool.filter(material => !usedIds.includes(material.id))
-  const candidates = freshPool.length > 0 ? freshPool : pool
+  const candidates = selectDrawCandidates(pool, options)
 
   if (candidates.length === 0) {
     throw new Error(`没有找到 ${getStageMeta(stage).label} / ${getModeMeta(mode).label} 素材`)
@@ -222,21 +230,37 @@ export function drawMaterialForLead(
   stage: HeartTuneStage,
   mode: HeartTuneMode,
   leadPlayer: HeartTunePlayerKey,
-  usedIds: readonly string[],
+  usedIdsOrOptions: readonly string[] | HeartTuneDrawOptions = [],
 ): HeartTuneMaterial {
+  const options = normalizeDrawOptions(usedIdsOrOptions)
   const pool = heartTuneMaterials.filter(material =>
     material.stage === stage &&
     material.mode === mode &&
     materialMatchesLead(material, leadPlayer)
   )
-  const freshPool = pool.filter(material => !usedIds.includes(material.id))
-  const candidates = freshPool.length > 0 ? freshPool : pool
+  const candidates = selectDrawCandidates(pool, options)
 
   if (candidates.length === 0) {
-    return drawMaterial(stage, mode, usedIds)
+    return drawMaterial(stage, mode, options)
   }
 
   return candidates[Math.floor(Math.random() * candidates.length)]
+}
+
+export function getMaterialStateTags(material?: Pick<HeartTuneMaterial, 'stateTags'> | null): readonly string[] {
+  return material?.stateTags ?? []
+}
+
+export function getMaterialBlockedStates(material?: Pick<HeartTuneMaterial, 'blockedByState'> | null): readonly string[] {
+  return material?.blockedByState ?? []
+}
+
+export function isMaterialBlockedByState(
+  material: Pick<HeartTuneMaterial, 'blockedByState'> | undefined | null,
+  blockedStates: readonly string[],
+): boolean {
+  if (!material?.blockedByState?.length || blockedStates.length === 0) return false
+  return material.blockedByState.some(tag => blockedStates.includes(tag))
 }
 
 export function renderHeartTuneCard(
@@ -267,7 +291,43 @@ export function renderHeartTuneCard(
     ruleSummary,
     ruleUsed,
     rewardSummary,
+    stateTags: material.stateTags,
+    blockedByState: material.blockedByState,
+    sourceBatch: material.sourceBatch,
   }
+}
+
+function normalizeDrawOptions(usedIdsOrOptions: readonly string[] | HeartTuneDrawOptions): Required<HeartTuneDrawOptions> {
+  if (Array.isArray(usedIdsOrOptions)) {
+    return {
+      usedIds: usedIdsOrOptions,
+      blockedStates: [],
+      avoidBlockedStates: true,
+    }
+  }
+
+  const options = usedIdsOrOptions as HeartTuneDrawOptions
+  return {
+    usedIds: options.usedIds ?? [],
+    blockedStates: options.blockedStates ?? [],
+    avoidBlockedStates: options.avoidBlockedStates ?? true,
+  }
+}
+
+function selectDrawCandidates(
+  pool: readonly HeartTuneMaterial[],
+  options: Required<HeartTuneDrawOptions>,
+): readonly HeartTuneMaterial[] {
+  const freshPool = pool.filter(material => !options.usedIds.includes(material.id))
+  if (!options.avoidBlockedStates) return freshPool.length > 0 ? freshPool : pool
+
+  const freshStateSafePool = freshPool.filter(material => !isMaterialBlockedByState(material, options.blockedStates))
+  if (freshStateSafePool.length > 0) return freshStateSafePool
+
+  const stateSafePool = pool.filter(material => !isMaterialBlockedByState(material, options.blockedStates))
+  if (stateSafePool.length > 0) return stateSafePool
+
+  return freshPool.length > 0 ? freshPool : pool
 }
 
 function resolveProposal(

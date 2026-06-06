@@ -3,6 +3,7 @@ export type HeartTuneMode = 'directed' | 'response' | 'duo' | 'scene'
 export type HeartTunePlayerKey = 'A' | 'B'
 export type HeartTuneProposalKey = 'A' | 'B'
 export type HeartTuneRolePolicy = 'dynamic' | 'fixed' | 'none'
+export type HeartTuneMaterialSourceBatch = 'new-480' | 'legacy-selected' | 'interaction-selected'
 export type HeartTuneRuleKey = 'a-decides' | 'b-decides' | 'turn-decides' | 'active-priority' | 'together-priority' | 'fate-decides'
 export type HeartTuneSceneKey = 'same-wave' | 'split-bet' | 'lead-race' | 'give-and-take' | 'close-range' | 'reverse-read'
 
@@ -16,6 +17,15 @@ export interface HeartTuneMaterial {
   text: string
   rolePolicy: HeartTuneRolePolicy
   source: string
+  stateTags?: readonly string[]
+  blockedByState?: readonly string[]
+  sourceBatch?: HeartTuneMaterialSourceBatch
+}
+
+export interface HeartTuneDrawOptions {
+  usedIds?: readonly string[]
+  blockedStates?: readonly string[]
+  avoidBlockedStates?: boolean
 }
 
 export interface HeartTuneStageMeta {
@@ -71,6 +81,7 @@ export interface HeartTuneRoundInput {
   usedIds: readonly string[]
   rule: HeartTuneRule
   scene: HeartTuneScene
+  completedStates?: readonly string[]
 }
 
 export interface HeartTuneCandidate {
@@ -107,4 +118,7 @@ export interface HeartTuneRenderedCard {
   ruleSummary: string
   ruleUsed: boolean
   rewardSummary: string
+  stateTags?: readonly string[]
+  blockedByState?: readonly string[]
+  sourceBatch?: HeartTuneMaterialSourceBatch
 }
